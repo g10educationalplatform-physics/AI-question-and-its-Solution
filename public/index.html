@@ -68,8 +68,6 @@
     #progressBar { width: 0%; height: 18px; background: #3498db; border-radius: 10px; transition: width 0.2s linear; }
     #progressWrapper { width: 100%; background: #ddd; border-radius: 10px; overflow: hidden; }
     #progressText { margin-top: 5px; font-weight: bold; color: #2c3e50; }
-
-    @keyframes blink { 50% { opacity: 0; } }
   </style>
 </head>
 
@@ -102,12 +100,14 @@
   <script>
     let cropper = null, questionBanks = {}, fuseBanks = {};
 
-    const subjectUrls = {
-      chemistry: "https://ai-question-and-its-solution-4kxy.onrender.com/chemistry",
-      physics: "https://ai-question-and-its-solution-4kxy.onrender.com/physics",
-      math: "https://ai-question-and-its-solution-4kxy.onrender.com/math",
-      biology: "https://ai-question-and-its-solution-4kxy.onrender.com/biology"
-    };
+   const subjectUrls = {
+  chemistry: "https://ai-question-and-its-solution-4kxy.onrender.com/chemistry",
+  physics: "https://ai-question-and-its-solution-4kxy.onrender.com/physics",
+  math: "https://ai-question-and-its-solution-4kxy.onrender.com/math",
+  biology: "https://ai-question-and-its-solution-4kxy.onrender.com/biology"
+};
+
+
 
     for (let subj in subjectUrls) {
       fetch(subjectUrls[subj])
@@ -121,10 +121,13 @@
     function renderQA(item, subj) {
       let html = `<b>Subject:</b> ${subj}<br>`;
       if(item.code) html += `<p><b>Code:</b> <span class="small">${item.code}</span></p>`;
+
       let questionText = item.question?.text || "❌ Question not found";
       html += `<p><b>Question:</b> <span class="mathjax">${questionText}</span></p>`;
+
       let solutionText = item.solution?.text || "❌ Solution not found";
       html += `<p><b>Solution:</b> <span class="mathjax">${solutionText}</span></p>`;
+
       if(item.solution_steps && item.solution_steps.length){
         html += `<p><b>Solution Steps:</b></p><ul class="solution-step-list">`;
         item.solution_steps.forEach(step => {
@@ -135,95 +138,49 @@
         });
         html += `</ul>`;
       }
+
       setTimeout(()=>{ if(window.MathJax && MathJax.typeset) MathJax.typeset(); },50);
       return html;
     }
 
-    // ✅ Streamed AI Answer + stop button
-    async function searchSolution(text) {
-      // 1️⃣ Exact match
-      for (let subj in questionBanks) {
+    // ✅ Check database first, fallback to AI
+    async function searchSolution(text){
+      // 1️⃣ Exact match check
+      for(let subj in questionBanks){
         const exactMatch = questionBanks[subj]?.find(q => q.question.text.trim().toLowerCase() === text.trim().toLowerCase());
-        if (exactMatch) return renderQA(exactMatch, subj);
+        if(exactMatch) return renderQA(exactMatch, subj);
       }
 
       // 2️⃣ Fuzzy match
-      for (let subj in fuseBanks) {
+      for(let subj in fuseBanks){
         const results = fuseBanks[subj].search(text);
-        if (results.length && results[0].score < 0.4) return renderQA(results[0].item, subj);
-      }
-
-      // 3️⃣ AI fallback (stream)
-      if (window.currentController) {
-        try { window.currentController.abort(); } catch(e) {}
-        window.currentController = null;
-      }
-      window.currentController = new AbortController();
-      const signal = window.currentController.signal;
-
-      const resultBox = document.getElementById("result");
-      resultBox.innerHTML = `<b>G10EP AI Answer:</b><br>
-        <div id="liveText" style="white-space:pre-wrap;"></div>
-        <span id="cursor" style="display:inline-block;width:8px;height:18px;background:#000;margin-left:6px;vertical-align:middle;animation:blink 1s step-end infinite;"></span>
-        <button id="stopBtn" style="margin-left:12px;padding:6px 10px;border-radius:6px;background:#e74c3c;color:#fff;border:none;cursor:pointer;">Stop</button>`;
-
-      const liveText = document.getElementById("liveText");
-      const stopBtn = document.getElementById("stopBtn");
-
-      stopBtn.onclick = () => {
-        if (window.currentController) {
-          window.currentController.abort();
-          window.currentController = null;
-          stopBtn.disabled = true;
-          stopBtn.textContent = "Stopped";
-          const cur = document.getElementById("cursor"); if (cur) cur.remove();
+        if(results.length && results[0].score < 0.4){
+          return renderQA(results[0].item, subj);
         }
-      };
-
-      const wakeTimer = setTimeout(() => {
-        liveText.innerHTML += `<br><small style="color:gray;">⚠️ Still generating — server might be waking up.</small><br>`;
-      }, 7000);
-
-      try {
-        const response = await fetch("https://ai-question-and-its-solution-4kxy.onrender.com/ask-ai", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ question: text }),
-          signal
-        });
-
-        const reader = response.body.getReader();
-        const decoder = new TextDecoder();
-        let buffer = "";
-
-        while (true) {
-          const { done, value } = await reader.read();
-          if (done) break;
-          const chunk = decoder.decode(value, { stream: true });
-          buffer += chunk;
-          const formatted = chunk
-            .replace(/(Step\s*\d+[:.]?)/gi, '<span style="color:#007bff; font-weight:bold;">$1</span>')
-            .replaceAll("**", "")
-            .replaceAll("-", "<br>•")
-            .replaceAll("\n", "<br>");
-          liveText.innerHTML += formatted;
-        }
-
-        clearTimeout(wakeTimer);
-        const cur = document.getElementById("cursor"); if (cur) cur.remove();
-        stopBtn.disabled = true; stopBtn.textContent = "Done";
-
-        if (window.MathJax && MathJax.typesetPromise)
-          await MathJax.typesetPromise([document.getElementById("result")]);
-        else if (window.MathJax && MathJax.typeset)
-          MathJax.typeset();
-
-      } catch (err) {
-        clearTimeout(wakeTimer);
-        liveText.innerHTML += `<br><small style="color:red;">Error: ${err.message}</small>`;
-      } finally {
-        window.currentController = null;
       }
+
+      // 3️⃣ Fallback to AI
+     const res = await fetch("https://ai-question-and-its-solution-4kxy.onrender.com/ask-ai", {
+
+        method:"POST",
+        headers:{"Content-Type":"application/json"},
+        body:JSON.stringify({question:text})
+      });
+      const data = await res.json();
+let formatted = data.answer
+  // Highlight only "Step X:" parts — blue and bold
+  .replace(/(Step\s*\d+[:.]?)/gi, '<span style="color:#007bff; font-weight:bold;">$1</span>')
+  // Remove extra markdown
+  .replaceAll("**", "")
+  // Convert dashes to bullet points
+  .replaceAll("-", "<br>•")
+  // Convert newlines to HTML breaks
+  .replaceAll("\n", "<br>");
+
+return `<b>G10EP AI Answer:</b><br>${formatted}`;
+
+
+
     }
 
     function searchByCode(code){
@@ -289,7 +246,9 @@
       const text=document.getElementById("manualQuestion").value.trim();
       if(!text) return alert("Please enter a question.");
       resultBox.innerHTML="⏳ Solving...";
-      await searchSolution(text);
+      const answerHTML=await searchSolution(text);
+      resultBox.innerHTML=answerHTML;
+      MathJax.typeset();
     });
 
     document.getElementById("solveCode").addEventListener("click",()=>{
