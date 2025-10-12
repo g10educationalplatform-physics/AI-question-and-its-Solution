@@ -62,74 +62,36 @@ for (const subj of subjects) {
 }
 
 // AI endpoint
-// AI endpoint (streaming)
-// AI endpoint (streaming) - improved, robust
 app.post("/ask-ai", async (req, res) => {
-  const question = (req.body?.question || "").toString().trim();
-  if (!question) return res.status(400).json({ error: "No question provided in request body." });
-
-  // Defensive: make sure response isn't already sent
-  if (res.headersSent) return;
-
-  // Choose a streaming-friendly content-type (we are streaming raw chunks)
-  res.setHeader("Content-Type", "text/plain; charset=utf-8");
-  res.setHeader("Cache-Control", "no-cache, no-transform");
-  res.setHeader("Connection", "keep-alive");
-  // Prevent some proxies from buffering
-  res.setHeader("X-Accel-Buffering", "no");
-
-  // Flush headers to the client
-  if (res.flushHeaders) res.flushHeaders();
-
-  // handle client disconnect (if browser navigates away or aborts)
-  let closed = false;
-  req.on("close", () => {
-    closed = true;
-    try { res.end(); } catch (e) {}
-  });
-
   try {
-    // Create streaming completion (SDK-specific; your SDK call may vary)
-    const completion = await client.chat.completions.create({
+    const question = (req.body?.question || "").toString().trim();
+    if (!question) return res.status(400).json({ error: "No question provided in request body." });
+
+    const response = await client.chat.completions.create({
       model: "gpt-4o-mini",
-      stream: true,
       messages: [
-        {
-          role: "system",
-          content:
-            "You are an expert tutor in Physics, Chemistry, Math, and Biology. Provide clear, step-by-step solutions.",
-        },
-        { role: "user", content: `Solve this question in detailed steps:\n${question}` },
+        { role: "system", content: "You are an expert tutor in Physics, Chemistry, Math, and Biology. Provide clear step-by-step solutions." },
+        { role: "user", content: `Solve this question in detailed steps:\n${question}` }
       ],
       max_tokens: 1200,
     });
 
-    // Iterate the async iterable. Break if client disconnects.
-    for await (const chunk of completion) {
-      if (closed) break; // stop if client disconnected
-      const token = chunk?.choices?.[0]?.delta?.content || "";
-      if (!token) continue;
+    const assistantMessage =
+      response?.choices?.[0]?.message?.content ??
+      response?.choices?.[0]?.text ??
+      null;
 
-      // write token and a very small delimiter so proxies forward
-      res.write(token);
-      // optional: write a zero-width space or newline occasionally to nudge buffers
-      // res.write("\n");
+    if (!assistantMessage) {
+      console.error("OpenAI returned an unexpected response:", JSON.stringify(response));
+      return res.status(500).json({ error: "AI returned empty response" });
     }
 
-    // finish response
-    try { res.end(); } catch (e) {}
+    res.json({ answer: assistantMessage });
   } catch (err) {
-    console.error("AI streaming failed:", err?.message ?? err);
-    // If headers not sent, return JSON error; otherwise write error text
-    if (!res.headersSent) {
-      res.status(500).json({ error: "Error generating response" });
-    } else {
-      try { res.write("\n\n[ERROR]"); res.end(); } catch (e) {}
-    }
+    console.error("AI request failed:", err?.message ?? err);
+    res.status(500).json({ error: "AI request failed" });
   }
 });
-
-
 
 // Health-check
 app.get("/health", (req, res) => res.json({ status: "ok" }));
