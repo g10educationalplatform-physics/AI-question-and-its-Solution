@@ -227,12 +227,60 @@
         .catch(()=>{});
     }
 
-    function highlightText(text) {
-      return text
-        .replace(/(Step\s*\d+[:.]?)/gi, '<b style="color:#007bff">$1</b>')
-        .replace(/^###\s*(.*)$/gim, '<span style="color:#007bff; font-weight:bold;">$1</span>');
-    }
-
+    // ✅ Function to render answers nicely
     function renderQA(item, subj) {
       let html = `<b>Subject:</b> ${subj}<br>`;
-      if (item.code) html += `<p><b>Code:</b> <span class="small
+      if (item.code) html += `<p><b>Code:</b> <span class="small">${item.code}</span></p>`;
+      const qText = item.question?.text || "❌ Question not found";
+      html += `<p><b>Question:</b> <span class="mathjax">${qText}</span></p>`;
+      const sText = item.solution?.text || "❌ Solution not found";
+      html += `<p><b>Solution:</b> <span class="mathjax">${sText}</span></p>`;
+      if (item.solution_steps?.length) {
+        html += `<p><b>Solution Steps:</b></p><ul class="solution-step-list">`;
+        item.solution_steps.forEach(step=>{
+          const stepHtml = step
+            .replace(/(Step\s*\d+[:.]?)/gi, '<b style="color:#007bff">$1</b>')
+            .replace(/^###\s*(.*)$/gm, '<b style="color:#007bff; font-size:1.1rem;">$1</b>');
+          html += `<li><span class="mathjax">${stepHtml}</span></li>`;
+        });
+        html += `</ul>`;
+      }
+      setTimeout(()=>{ MathJax.typesetPromise([document.getElementById("result")]); },60);
+      return html;
+    }
+
+    async function searchSolution(text){
+      const existingStream = document.getElementById("streamOutput");
+      if(existingStream) existingStream.innerHTML="";
+      for(let subj in questionBanks){
+        const exact = questionBanks[subj]?.find(q=>q.question.text.trim().toLowerCase()===text.trim().toLowerCase());
+        if(exact){document.getElementById("result").innerHTML=renderQA(exact,subj);return;}
+      }
+      for(let subj in fuseBanks){
+        const res=fuseBanks[subj].search(text);
+        if(res.length&&res[0].score<0.4){document.getElementById("result").innerHTML=renderQA(res[0].item,subj);return;}
+      }
+      const resp=await fetch("https://ai-question-and-its-solution-4kxy.onrender.com/ask-ai",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({question:text})});
+      if(!resp.ok){document.getElementById("result").innerHTML="❌ Error fetching AI response.";return;}
+      const streamContainer=document.createElement("div");
+      streamContainer.innerHTML="<hr><b>G10EP AI Answer (streaming):</b><br><div id='streamOutput' style='white-space:pre-wrap;'></div>";
+      document.getElementById("result").appendChild(streamContainer);
+      const streamDiv=streamContainer.querySelector("#streamOutput");
+      const reader=resp.body.getReader();const decoder=new TextDecoder();let full="";
+      while(true){
+        const {done,value}=await reader.read();if(done)break;
+        const chunk=decoder.decode(value,{stream:true});full+=chunk;
+        streamDiv.innerHTML=full
+          .replace(/(Step\s*\d+[:.]?)/gi,'<b style="color:#007bff">$1</b>')
+          .replace(/^###\s*(.*)$/gm,'<b style="color:#007bff; font-size:1.1rem;">$1</b>')
+          .replaceAll("**","")
+          .replaceAll("-","<br>•")
+          .replaceAll("\n","<br>");
+        clearTimeout(window._mjTimer);
+        window._mjTimer=setTimeout(()=>MathJax.typesetPromise([streamDiv]),180);
+      }
+      await MathJax.typesetPromise([streamDiv]);
+    }
+  </script>
+</body>
+</html>
