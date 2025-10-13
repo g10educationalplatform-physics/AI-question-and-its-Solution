@@ -27,27 +27,9 @@
       padding: 15px;
       background: #f4f6f9;
       margin: 0;
-      position: relative;
-      overflow-x: hidden;
     }
-
-    /* ✅ Center-screen floating logo */
-    #centerLogo {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      width: 320px;
-      height: 320px;
-      background: url("https://i.ibb.co/WNZTWPwv/LOGO-PNG-2025-fab.png") no-repeat center center;
-      background-size: contain;
-      opacity: 0.15; /* 85% transparent */
-      transform: translate(-50%, -50%);
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    h2 { color: #2c3e50; font-size: 1.4rem; position: relative; z-index: 2; }
-    .mode-toggle { margin: 15px 0; position: relative; z-index: 2; }
+    h2 { color: #2c3e50; font-size: 1.4rem; }
+    .mode-toggle { margin: 15px 0; }
     .toggle-label { margin: 0 10px; font-weight: bold; cursor: pointer; }
     .hidden { display: none; }
 
@@ -57,8 +39,6 @@
       margin: 10px 0;
       width: 100%;
       max-width: 400px;
-      position: relative;
-      z-index: 2;
     }
 
     textarea { height: 100px; resize: vertical; }
@@ -74,14 +54,12 @@
       border-radius: 8px;
       cursor: pointer;
       text-decoration: none;
-      position: relative;
-      z-index: 2;
     }
-
     button:hover, label.btn:hover { background: #2c80b9; }
 
-    /* ✅ Answer box (no logo inside) */
+    /* ✅ Answer box with faint background logo */
     .solution-box {
+      position: relative;
       background: #fff;
       border-radius: 10px;
       padding: 15px;
@@ -90,32 +68,51 @@
       text-align: left;
       font-size: 1rem;
       line-height: 1.5;
-      position: relative;
-      z-index: 2;
+      overflow: hidden;
     }
 
-    /* ✅ Make ### headings and Step X blue + bold */
+    .solution-box::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 300px;
+      height: 300px;
+      background: url("https://i.ibb.co/WNZTWPwv/LOGO-PNG-2025-fab.png") no-repeat center center;
+      background-size: contain;
+      opacity: 0.15; /* 85% transparent logo */
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .solution-box * {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ✅ Blue headings and Step X */
     .solution-box h3,
     .solution-box h4,
     .solution-box strong,
     .solution-box b {
-      color: #007bff;
+      color: #007bff !important;
       font-weight: 700;
     }
 
-    /* ✅ Responsive central logo scaling */
+    /* ✅ Responsive logo scaling for mobile */
     @media (max-width: 768px) {
-      #centerLogo {
-        width: 220px;
-        height: 220px;
-        opacity: 0.12;
+      .solution-box::before {
+        width: 200px;
+        height: 200px;
       }
     }
+
     @media (max-width: 480px) {
-      #centerLogo {
-        width: 150px;
-        height: 150px;
-        opacity: 0.1;
+      .solution-box::before {
+        width: 140px;
+        height: 140px;
+        opacity: 0.12;
       }
     }
 
@@ -134,7 +131,6 @@
       transform: translateY(-2px);
     }
 
-    /* Crop Modal */
     #cropModal {
       display: none;
       position: fixed;
@@ -171,7 +167,7 @@
     #cancelCrop { left: 20px; background: #e74c3c; }
     #confirmCrop { right: 20px; }
 
-    #progressContainer { width: 100%; max-width: 400px; margin: 20px auto; display: none; z-index: 2; position: relative; }
+    #progressContainer { width: 100%; max-width: 400px; margin: 20px auto; display: none; }
     #progressBar { width: 0%; height: 18px; background: #3498db; border-radius: 10px; transition: width 0.2s linear; }
     #progressWrapper { width: 100%; background: #ddd; border-radius: 10px; overflow: hidden; }
     #progressText { margin-top: 5px; font-weight: bold; color: #2c3e50; }
@@ -179,9 +175,6 @@
 </head>
 
 <body>
-  <!-- ✅ Center Logo (always middle of screen) -->
-  <div id="centerLogo"></div>
-
   <h2>📚 AI Question Solver<br>(Physics | Chemistry | Math | Biology)</h2>
 
   <div class="mode-toggle">
@@ -226,7 +219,140 @@
   </div>
 
   <script>
-    /* JS code remains identical */
+    let cropper = null, questionBanks = {}, fuseBanks = {};
+
+    const subjectUrls = {
+      chemistry: "https://ai-question-and-its-solution-4kxy.onrender.com/chemistry",
+      physics: "https://ai-question-and-its-solution-4kxy.onrender.com/physics",
+      math: "https://ai-question-and-its-solution-4kxy.onrender.com/math",
+      biology: "https://ai-question-and-its-solution-4kxy.onrender.com/biology"
+    };
+
+    for (let subj in subjectUrls) {
+      fetch(subjectUrls[subj])
+        .then(r => r.json())
+        .then(data => {
+          questionBanks[subj] = data;
+          fuseBanks[subj] = new Fuse(data, { keys: ["question.text"], threshold: 0.4 });
+        })
+        .catch(()=>{});
+    }
+
+    function renderQA(item, subj) {
+      let html = `<b>Subject:</b> ${subj}<br>`;
+      if (item.code) html += `<p><b>Code:</b> <span class="small">${item.code}</span></p>`;
+      const qText = item.question?.text || "❌ Question not found";
+      html += `<p><b>Question:</b> <span class="mathjax">${qText}</span></p>`;
+      const sText = item.solution?.text || "❌ Solution not found";
+      html += `<p><b>Solution:</b> <span class="mathjax">${sText}</span></p>`;
+      if (item.solution_steps?.length) {
+        html += `<p><b>Solution Steps:</b></p><ul class="solution-step-list">`;
+        item.solution_steps.forEach(step=>{
+          const stepHtml = step
+            .replace(/(Step\s*\d+[:.]?)/gi, '<b style="color:#007bff">$1</b>')
+            .replace(/^###\s*(.*)$/gm, '<h3>$1</h3>');
+          html += `<li><span class="mathjax">${stepHtml}</span></li>`;
+        });
+        html += `</ul>`;
+      }
+      setTimeout(()=>{ MathJax.typesetPromise([document.getElementById("result")]); },60);
+      return html;
+    }
+
+    async function searchSolution(text){
+      const existingStream = document.getElementById("streamOutput");
+      if(existingStream) existingStream.innerHTML="";
+      for(let subj in questionBanks){
+        const exact = questionBanks[subj]?.find(q=>q.question.text.trim().toLowerCase()===text.trim().toLowerCase());
+        if(exact){document.getElementById("result").innerHTML=renderQA(exact,subj);return;}
+      }
+      for(let subj in fuseBanks){
+        const res=fuseBanks[subj].search(text);
+        if(res.length&&res[0].score<0.4){document.getElementById("result").innerHTML=renderQA(res[0].item,subj);return;}
+      }
+      const resp=await fetch("https://ai-question-and-its-solution-4kxy.onrender.com/ask-ai",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({question:text})});
+      if(!resp.ok){document.getElementById("result").innerHTML="❌ Error fetching AI response.";return;}
+      const streamContainer=document.createElement("div");
+      streamContainer.innerHTML="<hr><b>G10EP AI Answer (streaming):</b><br><div id='streamOutput' style='white-space:pre-wrap;'></div>";
+      document.getElementById("result").appendChild(streamContainer);
+      const streamDiv=streamContainer.querySelector("#streamOutput");
+      const reader=resp.body.getReader();const decoder=new TextDecoder();let full="";
+      while(true){
+        const {done,value}=await reader.read();if(done)break;
+        const chunk=decoder.decode(value,{stream:true});full+=chunk;
+        streamDiv.innerHTML=full
+          .replace(/(Step\s*\d+[:.]?)/gi,'<b style="color:#007bff">$1</b>')
+          .replace(/^###\s*(.*)$/gm,'<h3>$1</h3>')
+          .replaceAll("**","").replaceAll("-","<br>•").replaceAll("\n","<br>");
+        clearTimeout(window._mjTimer);
+        window._mjTimer=setTimeout(()=>MathJax.typesetPromise([streamDiv]),180);
+      }
+      await MathJax.typesetPromise([streamDiv]);
+    }
+
+    const cropModal=document.getElementById("cropModal");
+    const cropImage=document.getElementById("cropImage");
+    const confirmCrop=document.getElementById("confirmCrop");
+    const cancelCrop=document.getElementById("cancelCrop");
+    const resultBox=document.getElementById("result");
+    const progressContainer=document.getElementById("progressContainer");
+    const progressBar=document.getElementById("progressBar");
+    const progressText=document.getElementById("progressText");
+
+    const handleFile=(e)=>{
+      const file=e.target.files[0];if(!file)return;
+      cropImage.src=URL.createObjectURL(file);
+      cropModal.style.display="flex";
+      if(cropper)cropper.destroy();
+      cropper=new Cropper(cropImage,{viewMode:1});
+    };
+    document.getElementById("cameraInput").addEventListener("change",handleFile);
+    document.getElementById("galleryInput").addEventListener("change",handleFile);
+
+    cancelCrop.onclick=()=>{cropModal.style.display="none";cropper?.destroy();cropper=null;};
+    confirmCrop.onclick=async()=>{
+      if(!cropper)return;
+      cropModal.style.display="none";
+      const canvas=cropper.getCroppedCanvas();
+      cropper.destroy();cropper=null;
+      progressContainer.style.display="block";
+      progressBar.style.width="10%";
+      progressText.textContent="🧠 Reading question from image...";
+      const blob=await new Promise(res=>canvas.toBlob(res,"image/png"));
+      const {data:{text}}=await Tesseract.recognize(blob,"eng",{logger:(m)=>{if(m.status==="recognizing text"){progressBar.style.width=10+m.progress*70+"%";}}});
+      progressBar.style.width="85%";
+      progressText.textContent="🔍 Searching or generating answer...";
+      resultBox.innerHTML=`<div id="extracted"><b>Extracted Text:</b><br>${text.replace(/\n/g,"<br>")}</div><div id="answerArea"></div>`;
+      await searchSolution(text);
+      progressBar.style.width="100%";
+      progressContainer.style.display="none";
+      MathJax.typesetPromise([document.getElementById("result")]);
+    };
+
+    document.querySelectorAll('input[name="mode"]').forEach(r=>{
+      r.addEventListener("change",e=>{
+        document.getElementById("imageMode").classList.toggle("hidden",e.target.value!=="image");
+        document.getElementById("textMode").classList.toggle("hidden",e.target.value!=="text");
+        document.getElementById("codeMode").classList.toggle("hidden",e.target.value!=="code");
+      });
+    });
+
+    document.getElementById("solveManual").onclick=async()=>{
+      const text=document.getElementById("manualQuestion").value.trim();
+      if(!text)return alert("Please enter a question.");
+      resultBox.innerHTML="⏳ Solving...";
+      await searchSolution(text);
+    };
+
+    document.getElementById("solveCode").onclick=()=>{
+      const code=document.getElementById("questionCode").value.trim();
+      resultBox.innerHTML="Searching...";
+      for(let subj in questionBanks){
+        const q=questionBanks[subj]?.find(x=>String(x.code).toUpperCase()===code.toUpperCase());
+        if(q){resultBox.innerHTML=renderQA(q,subj);return;}
+      }
+      resultBox.innerHTML="❌ No question found with this code.";
+    };
   </script>
 </body>
 </html>
