@@ -91,6 +91,15 @@
       z-index: 1;
     }
 
+    /* ✅ Make ### headings blue like Step X */
+    .solution-box h3,
+    .solution-box h4,
+    .solution-box strong,
+    .solution-box b {
+      color: #007bff;
+      font-weight: 700;
+    }
+
     /* ✅ Responsive logo scaling for mobile */
     @media (max-width: 768px) {
       .solution-box::before {
@@ -103,7 +112,7 @@
       .solution-box::before {
         width: 140px;
         height: 140px;
-        opacity: 0.12; /* slightly lighter on very small screens */
+        opacity: 0.12;
       }
     }
 
@@ -239,7 +248,9 @@
       if (item.solution_steps?.length) {
         html += `<p><b>Solution Steps:</b></p><ul class="solution-step-list">`;
         item.solution_steps.forEach(step=>{
-          const stepHtml = step.replace(/(Step\s*\d+[:.]?)/gi, '<b style="color:#007bff">$1</b>');
+          const stepHtml = step
+            .replace(/(Step\s*\d+[:.]?)/gi, '<b style="color:#007bff">$1</b>')
+            .replace(/^###\s*(.*)$/gm, '<h3>$1</h3>');
           html += `<li><span class="mathjax">${stepHtml}</span></li>`;
         });
         html += `</ul>`;
@@ -269,7 +280,9 @@
       while(true){
         const {done,value}=await reader.read();if(done)break;
         const chunk=decoder.decode(value,{stream:true});full+=chunk;
-        streamDiv.innerHTML=full.replace(/(Step\s*\d+[:.]?)/gi,'<b style="color:#007bff">$1</b>')
+        streamDiv.innerHTML=full
+          .replace(/(Step\s*\d+[:.]?)/gi,'<b style="color:#007bff">$1</b>')
+          .replace(/^###\s*(.*)$/gm,'<h3>$1</h3>')
           .replaceAll("**","").replaceAll("-","<br>•").replaceAll("\n","<br>");
         clearTimeout(window._mjTimer);
         window._mjTimer=setTimeout(()=>MathJax.typesetPromise([streamDiv]),180);
