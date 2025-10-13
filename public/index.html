@@ -57,39 +57,55 @@
     }
     button:hover, label.btn:hover { background: #2c80b9; }
 
+    /* ✅ Answer box with background logo */
     .solution-box {
-  position: relative;
-  background: #fff;
-  border-radius: 10px;
-  padding: 15px;
-  margin-top: 15px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
-  text-align: left;
-  font-size: 1rem;
-  line-height: 1.5;
-  overflow: hidden;
-}
+      position: relative;
+      background: #fff;
+      border-radius: 10px;
+      padding: 15px;
+      margin-top: 15px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+      text-align: left;
+      font-size: 1rem;
+      line-height: 1.5;
+      overflow: hidden;
+    }
 
-.solution-box::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 300px;              /* adjust size as needed */
-  height: 300px;
-  background: url("https://i.ibb.co/WNZTWPwv/LOGO-PNG-2025-fab.png") no-repeat center center;
-  background-size: contain;
-  opacity: 0.15;             /* 85% transparent background (100 - 85 = 15 visible) */
-  transform: translate(-50%, -50%);
-  pointer-events: none;      /* allow text selection and interaction */
-  z-index: 0;
-}
+    .solution-box::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 300px;
+      height: 300px;
+      background: url("https://i.ibb.co/WNZTWPwv/LOGO-PNG-2025-fab.png") no-repeat center center;
+      background-size: contain;
+      opacity: 0.15; /* 85% transparent */
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      z-index: 0;
+    }
 
-.solution-box * {
-  position: relative;
-  z-index: 1;                /* keep text above the logo */
-}
+    .solution-box * {
+      position: relative;
+      z-index: 1;
+    }
 
+    /* ✅ Responsive logo scaling for mobile */
+    @media (max-width: 768px) {
+      .solution-box::before {
+        width: 200px;
+        height: 200px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .solution-box::before {
+        width: 140px;
+        height: 140px;
+        opacity: 0.12; /* slightly lighter on very small screens */
+      }
+    }
 
     .solution-step-list { list-style: none; padding-left: 0; margin-left: 0; }
     .solution-step-list li {
@@ -146,16 +162,6 @@
     #progressBar { width: 0%; height: 18px; background: #3498db; border-radius: 10px; transition: width 0.2s linear; }
     #progressWrapper { width: 100%; background: #ddd; border-radius: 10px; overflow: hidden; }
     #progressText { margin-top: 5px; font-weight: bold; color: #2c3e50; }
-
-    /* ✅ Logo style (85% transparent) */
-    .logo-container {
-      text-align: center;
-      margin-top: 20px;
-    }
-    .logo-container img {
-      width: 160px;
-      opacity: 0.85;
-    }
   </style>
 </head>
 
@@ -201,11 +207,6 @@
 
   <div class="solution-box" id="result">
     Select a mode and provide your question to see the solution.
-  </div>
-
-  <!-- ✅ Logo below answer -->
-  <div class="logo-container">
-    <img src="https://i.ibb.co/WNZTWPwv/LOGO-PNG-2025-fab.png" alt="Logo" />
   </div>
 
   <script>
