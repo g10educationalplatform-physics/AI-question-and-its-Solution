@@ -82,7 +82,7 @@
       height: 300px;
       background: url("https://i.ibb.co/WNZTWPwv/LOGO-PNG-2025-fab.png") no-repeat center center;
       background-size: contain;
-      opacity: 0.15; /* 85% transparent logo */
+      opacity: 0.15;
       transform: translate(-50%, -50%);
       pointer-events: none;
       z-index: 0;
@@ -174,6 +174,26 @@
     #progressBar { width: 0%; height: 18px; background: #3498db; border-radius: 10px; transition: width 0.2s linear; }
     #progressWrapper { width: 100%; background: #ddd; border-radius: 10px; overflow: hidden; }
     #progressText { margin-top: 5px; font-weight: bold; color: #2c3e50; }
+
+    /* ✅ Fix: Prevent MathJax equations from overflowing on small screens */
+    .solution-box {
+      overflow-x: auto;
+      word-wrap: break-word;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    mjx-container[jax="SVG"] {
+      overflow-x: auto;
+      overflow-y: hidden;
+      max-width: 100%;
+      display: block;
+    }
+
+    mjx-container[jax="SVG"] svg {
+      width: auto !important;
+      max-width: 100%;
+      height: auto;
+    }
   </style>
 </head>
 
@@ -186,7 +206,6 @@
     <label class="toggle-label"><input type="radio" name="mode" value="code" /> 🔢 Enter Question Code</label>
   </div>
 
-  <!-- ✅ Dual camera/gallery upload setup -->
   <div id="imageMode">
     <div class="flex gap-2">
       <label for="cameraInput" class="btn">📷 Take Photo</label>
