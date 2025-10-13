@@ -106,9 +106,10 @@
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
       transform: translateY(-2px);
     }
-
-    /* Optional: old yellow style removed since now Step X is blue/bold */
-    /* .step-highlight { color: #f1c40f; font-weight: 600; } */
+    .step-highlight {
+      color: #f1c40f;
+      font-weight: 600;
+    }
 
     #cropModal {
       display: none;
@@ -250,8 +251,7 @@
         item.solution_steps.forEach((step) => {
           let isNumbered = /Step\s*\d+/i.test(step);
           let className = isNumbered ? "step-numbered" : "";
-          // 🔵 Step X now always blue + bold
-          let stepHtml = step.replace(/(Step\s*\d+)/gi, '<b style="color:#007bff">$1</b>');
+          let stepHtml = step.replace(/(Step\s*\d+)/gi, '<span class="step-highlight">$1</span>');
           html += `<li class="${className}"><span class="mathjax">${stepHtml}</span></li>`;
         });
         html += `</ul>`;
@@ -263,7 +263,7 @@
       return html;
     }
 
-    // ✅ Updated searchSolution with Step X blue + bold and safe streaming
+    // ✅ Updated searchSolution with safe streaming
     async function searchSolution(text) {
       const streamDiv = document.getElementById("streamOutput");
       if (streamDiv) streamDiv.innerHTML = "";
@@ -303,7 +303,7 @@
         fullText += chunk;
 
         streamDivNew.innerHTML = fullText
-          .replace(/(Step\s*\d+[:.]?)/gi, '<b style="color:#007bff">$1</b>')
+          .replace(/(Step\\s*\\d+[:.]?)/gi, '<b style="color:#007bff">$1</b>')
           .replaceAll("**", "")
           .replaceAll("-", "<br>•")
           .replaceAll("\n", "<br>");
@@ -367,7 +367,9 @@
       progressText.textContent = "🧠 Reading question from image...";
 
       const blob = await new Promise((res) => canvas.toBlob(res, "image/png"));
-      const { data: { text } } = await Tesseract.recognize(blob, "eng", {
+      const {
+        data: { text },
+      } = await Tesseract.recognize(blob, "eng", {
         logger: (m) => {
           if (m.status === "recognizing text") {
             progressBar.style.width = 10 + m.progress * 70 + "%";
@@ -378,6 +380,7 @@
       progressBar.style.width = "85%";
       progressText.textContent = "🔍 Searching or generating answer...";
 
+      // ✅ Keep extracted and streamed content separate
       resultBox.innerHTML = `
         <div id="extracted">
           <b>Extracted Text:</b><br>${text.replace(/\n/g, "<br>")}
