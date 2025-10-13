@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AI Question Solver</title>
 
   <!-- Libraries -->
@@ -13,10 +13,7 @@
 
   <!-- MathJax -->
   <script>
-    window.MathJax = {
-      tex: { inlineMath: [['\\(','\\)'], ['$', '$']] },
-      svg: { fontCache: 'global' }
-    };
+    window.MathJax = { tex: { inlineMath: [['\\(','\\)'], ['$', '$']] }, svg: { fontCache: 'global' } };
   </script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 
@@ -37,15 +34,6 @@
       background: #fff; border-radius: 10px; padding: 15px; margin-top: 15px;
       box-shadow: 0 6px 18px rgba(0,0,0,0.06); text-align: left; font-size: 1rem; line-height: 1.5;
     }
-    .solution-box img { max-width: 100%; border-radius: 8px; margin-top: 10px; }
-    .solution-step-list { list-style: none; padding-left: 0; margin-left: 0; }
-    .solution-step-list li {
-      background: #f0f4f8; padding: 10px 12px; margin-bottom: 8px; border-radius: 6px; line-height: 1.5;
-      transition: box-shadow 0.25s ease, transform 0.2s ease;
-    }
-    .solution-step-list li.step-numbered { background: #fff3cd; font-weight: 600; }
-    .solution-step-list li.step-numbered:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.15); transform: translateY(-2px); }
-    .step-highlight { color: #f1c40f; font-weight: 600; }
 
     #cropModal {
       display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%;
@@ -78,4 +66,189 @@
   </div>
 
   <div id="imageMode"><input type="file" id="fileInput" accept="image/*" capture="environment"></div>
-  <div id="textMode" class="hidden"><textarea id="manualQ
+  <div id="textMode" class="hidden"><textarea id="manualQuestion" placeholder="Type or paste your question here..."></textarea><br><button id="solveManual">🔍 Solve</button></div>
+  <div id="codeMode" class="hidden"><input type="text" id="questionCode" placeholder="Enter question code..."><br><button id="solveCode">🔍 Get Answer</button></div>
+
+  <div id="cropModal">
+    <img id="cropImage" alt="To Crop">
+    <button id="cancelCrop" class="modal-btn">❌ Cancel</button>
+    <button id="confirmCrop" class="modal-btn">✂️ Crop & Solve</button>
+  </div>
+
+  <div id="progressContainer">
+    <div id="progressWrapper"><div id="progressBar"></div></div>
+    <p id="progressText">Processing...</p>
+  </div>
+
+  <div class="solution-box" id="result">Select a mode and provide your question to see the solution.</div>
+
+  <script>
+    let cropper = null, questionBanks = {}, fuseBanks = {};
+
+    const subjectUrls = {
+      chemistry: "https://ai-question-and-its-solution-4kxy.onrender.com/chemistry",
+      physics: "https://ai-question-and-its-solution-4kxy.onrender.com/physics",
+      math: "https://ai-question-and-its-solution-4kxy.onrender.com/math",
+      biology: "https://ai-question-and-its-solution-4kxy.onrender.com/biology"
+    };
+
+    // preload question banks
+    for (let subj in subjectUrls) {
+      fetch(subjectUrls[subj])
+        .then(r => r.json())
+        .then(data => {
+          questionBanks[subj] = data;
+          fuseBanks[subj] = new Fuse(data, { keys: ["question.text"], threshold: 0.4 });
+        });
+    }
+
+    function renderQA(item, subj) {
+      let html = `<b>Subject:</b> ${subj}<br>`;
+      if(item.code) html += `<p><b>Code:</b> ${item.code}</p>`;
+      html += `<p><b>Question:</b> <span class='mathjax'>${item.question?.text || "❌ Not found"}</span></p>`;
+      html += `<p><b>Solution:</b> <span class='mathjax'>${item.solution?.text || "❌ Not found"}</span></p>`;
+
+      if(item.solution_steps?.length){
+        html += `<p><b>Solution Steps:</b></p><ul>`;
+        item.solution_steps.forEach(step=>{
+          html += `<li><span class='mathjax'>${step}</span></li>`;
+        });
+        html += `</ul>`;
+      }
+
+      setTimeout(()=>MathJax.typesetPromise(),100);
+      return html;
+    }
+
+    async function searchSolution(text) {
+      for(let subj in questionBanks){
+        const exact = questionBanks[subj]?.find(q => q.question.text.trim().toLowerCase() === text.trim().toLowerCase());
+        if(exact) return renderQA(exact, subj);
+      }
+
+      for(let subj in fuseBanks){
+        const res = fuseBanks[subj].search(text);
+        if(res.length && res[0].score < 0.4) return renderQA(res[0].item, subj);
+      }
+
+      // fallback to AI
+      const response = await fetch("https://ai-question-and-its-solution-4kxy.onrender.com/ask-ai", {
+        method: "POST",
+        headers: {"Content-Type":"application/json"},
+        body: JSON.stringify({question:text})
+      });
+
+      if(!response.ok) return "❌ Error fetching AI response.";
+
+      resultBox.innerHTML = "<b>G10EP AI Answer (streaming):</b><br><div id='streamOutput'></div>";
+      const streamDiv = document.getElementById("streamOutput");
+      const reader = response.body.getReader();
+      const decoder = new TextDecoder();
+      let fullText = "";
+
+      while(true){
+        const {done, value} = await reader.read();
+        if(done) break;
+        const chunk = decoder.decode(value);
+        fullText += chunk;
+
+        streamDiv.innerHTML = fullText
+          .replace(/(Step\s*\d+[:.]?)/gi, '<b style="color:#007bff">$1</b>')
+          .replaceAll("**","")
+          .replaceAll("-", "<br>•")
+          .replaceAll("\n","<br>");
+
+        clearTimeout(window._mjTimer);
+        window._mjTimer = setTimeout(()=>MathJax.typesetPromise([streamDiv]),300);
+      }
+      return "";
+    }
+
+    function searchByCode(code){
+      for(let subj in questionBanks){
+        const q = questionBanks[subj]?.find(x => String(x.code).toUpperCase() === code.toUpperCase());
+        if(q) return renderQA(q, subj);
+      }
+      return "❌ No question found with this code.";
+    }
+
+    // mode toggle
+    document.querySelectorAll('input[name="mode"]').forEach(r=>{
+      r.addEventListener("change", e=>{
+        document.getElementById("imageMode").classList.toggle("hidden", e.target.value!=="image");
+        document.getElementById("textMode").classList.toggle("hidden", e.target.value!=="text");
+        document.getElementById("codeMode").classList.toggle("hidden", e.target.value!=="code");
+      });
+    });
+
+    const fileInput = document.getElementById("fileInput");
+    const cropModal = document.getElementById("cropModal");
+    const cropImage = document.getElementById("cropImage");
+    const confirmCrop = document.getElementById("confirmCrop");
+    const cancelCrop = document.getElementById("cancelCrop");
+    const resultBox = document.getElementById("result");
+    const progressContainer = document.getElementById("progressContainer");
+    const progressBar = document.getElementById("progressBar");
+    const progressText = document.getElementById("progressText");
+
+    // IMAGE UPLOAD FIXED
+    fileInput.addEventListener("change", e=>{
+      const file = e.target.files[0];
+      if(!file) return;
+      cropImage.src = URL.createObjectURL(file);
+      cropModal.style.display = "flex";
+      if(cropper) cropper.destroy();
+      cropper = new Cropper(cropImage, {viewMode:1});
+    });
+
+    cancelCrop.onclick = ()=>{
+      cropModal.style.display = "none";
+      cropper?.destroy(); cropper = null;
+    };
+
+    confirmCrop.onclick = async ()=>{
+      if(!cropper) return;
+      cropModal.style.display = "none";
+      const canvas = cropper.getCroppedCanvas();
+      cropper.destroy(); cropper = null;
+
+      progressContainer.style.display = "block";
+      progressBar.style.width = "10%";
+      progressText.textContent = "🧠 Reading question from image...";
+
+      const blob = await new Promise(res=>canvas.toBlob(res,"image/png"));
+      const {data:{text}} = await Tesseract.recognize(blob,"eng",{
+        logger:m=>{
+          if(m.status==="recognizing text"){
+            progressBar.style.width = (10 + m.progress*70) + "%";
+          }
+        }
+      });
+
+      progressBar.style.width="85%";
+      progressText.textContent="🔍 Searching or generating answer...";
+
+      const answerHTML = await searchSolution(text);
+      progressBar.style.width="100%";
+      progressContainer.style.display="none";
+
+      resultBox.innerHTML = `<b>Extracted Text:</b><br>${text}<hr>${answerHTML}`;
+      MathJax.typesetPromise();
+    };
+
+    document.getElementById("solveManual").addEventListener("click", async()=>{
+      const text = document.getElementById("manualQuestion").value.trim();
+      if(!text) return alert("Please enter a question.");
+      resultBox.innerHTML="⏳ Solving...";
+      await searchSolution(text);
+      MathJax.typesetPromise();
+    });
+
+    document.getElementById("solveCode").addEventListener("click", ()=>{
+      const code = document.getElementById("questionCode").value.trim();
+      resultBox.innerHTML = searchByCode(code);
+      MathJax.typesetPromise();
+    });
+  </script>
+</body>
+</html>
