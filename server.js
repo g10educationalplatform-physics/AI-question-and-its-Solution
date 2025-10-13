@@ -65,31 +65,40 @@ for (const subj of subjects) {
 app.post("/ask-ai", async (req, res) => {
   try {
     const question = (req.body?.question || "").toString().trim();
-    if (!question) return res.status(400).json({ error: "No question provided in request body." });
+    if (!question) return res.status(400).json({ error: "No question provided" });
 
-    const response = await client.chat.completions.create({
+    // Set headers for streaming text
+    res.setHeader("Content-Type", "text/event-stream");
+    res.setHeader("Cache-Control", "no-cache");
+    res.setHeader("Connection", "keep-alive");
+
+    // Create a streaming completion
+    const stream = await client.chat.completions.create({
       model: "gpt-4o-mini",
+      stream: true,
       messages: [
-        { role: "system", content: "You are an expert tutor in Physics, Chemistry, Math, and Biology. Provide clear step-by-step solutions." },
-        { role: "user", content: `Solve this question in detailed steps:\n${question}` }
+        {
+          role: "system",
+          content: "You are an expert tutor in Physics, Chemistry, Math, and Biology. Always explain step-by-step clearly and use proper LaTeX for math equations like this: $E = mc^2$.",
+        },
+        { role: "user", content: `Solve this question in detailed steps:\n${question}` },
       ],
-      max_tokens: 1200,
+      max_tokens: 1500,
     });
 
-    const assistantMessage =
-      response?.choices?.[0]?.message?.content ??
-      response?.choices?.[0]?.text ??
-      null;
-
-    if (!assistantMessage) {
-      console.error("OpenAI returned an unexpected response:", JSON.stringify(response));
-      return res.status(500).json({ error: "AI returned empty response" });
+    // Stream chunks to the client
+    for await (const chunk of stream) {
+      const content = chunk.choices?.[0]?.delta?.content;
+      if (content) {
+        res.write(content); // send text as it arrives
+      }
     }
 
-    res.json({ answer: assistantMessage });
+    res.end(); // finish
   } catch (err) {
-    console.error("AI request failed:", err?.message ?? err);
-    res.status(500).json({ error: "AI request failed" });
+    console.error("AI stream error:", err);
+    if (!res.headersSent)
+      res.status(500).json({ error: "Streaming failed" });
   }
 });
 
