@@ -67,40 +67,41 @@ app.post("/ask-ai", async (req, res) => {
     const question = (req.body?.question || "").toString().trim();
     if (!question) return res.status(400).json({ error: "No question provided" });
 
-    // Set headers for streaming text
-    res.setHeader("Content-Type", "text/event-stream");
+    // Set headers for streaming (text, not JSON)
+    res.setHeader("Content-Type", "text/plain; charset=utf-8");
     res.setHeader("Cache-Control", "no-cache");
     res.setHeader("Connection", "keep-alive");
+    res.flushHeaders?.(); // force headers to send immediately
 
-    // Create a streaming completion
     const stream = await client.chat.completions.create({
       model: "gpt-4o-mini",
       stream: true,
       messages: [
         {
           role: "system",
-          content: "You are an expert tutor in Physics, Chemistry, Math, and Biology. Always explain step-by-step clearly and use proper LaTeX for math equations like this: $E = mc^2$.",
+          content: "You are an expert tutor in Physics, Chemistry, Math, and Biology. Show detailed step-by-step reasoning with LaTeX ($E = mc^2$).",
         },
-        { role: "user", content: `Solve this question in detailed steps:\n${question}` },
+        { role: "user", content: `Solve this question clearly, step-by-step:\n${question}` },
       ],
       max_tokens: 1500,
     });
 
-    // Stream chunks to the client
+    // Stream text chunks to the client
     for await (const chunk of stream) {
-      const content = chunk.choices?.[0]?.delta?.content;
-      if (content) {
-        res.write(content); // send text as it arrives
+      const delta = chunk.choices?.[0]?.delta?.content;
+      if (delta) {
+        res.write(delta);
+        res.flush?.(); // important: force flush on Render / Express 5
       }
     }
 
-    res.end(); // finish
+    res.end();
   } catch (err) {
     console.error("AI stream error:", err);
-    if (!res.headersSent)
-      res.status(500).json({ error: "Streaming failed" });
+    if (!res.headersSent) res.status(500).json({ error: "Streaming failed" });
   }
 });
+
 
 // Health-check
 app.get("/health", (req, res) => res.json({ status: "ok" }));
