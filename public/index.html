@@ -270,9 +270,10 @@ return ""; // already displayed live
       const text=document.getElementById("manualQuestion").value.trim();
       if(!text) return alert("Please enter a question.");
       resultBox.innerHTML="⏳ Solving...";
-      const answerHTML=await searchSolution(text);
-      resultBox.innerHTML=answerHTML;
-      MathJax.typeset();
+     await searchSolution(text);
+// 👇 Do not overwrite resultBox again
+MathJax.typeset();
+
     });
 
     document.getElementById("solveCode").addEventListener("click",()=>{
