@@ -160,24 +160,46 @@
       }
 
       // 3️⃣ Fallback to AI
-     const res = await fetch("https://ai-question-and-its-solution-4kxy.onrender.com/ask-ai", {
+    // --- STREAMING RESPONSE HANDLER ---
+const response = await fetch("https://ai-question-and-its-solution-4kxy.onrender.com/ask-ai", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({ question: text }),
+});
 
-        method:"POST",
-        headers:{"Content-Type":"application/json"},
-        body:JSON.stringify({question:text})
-      });
-      const data = await res.json();
-let formatted = data.answer
-  // Highlight only "Step X:" parts — blue and bold
-  .replace(/(Step\s*\d+[:.]?)/gi, '<span style="color:#007bff; font-weight:bold;">$1</span>')
-  // Remove extra markdown
-  .replaceAll("**", "")
-  // Convert dashes to bullet points
-  .replaceAll("-", "<br>•")
-  // Convert newlines to HTML breaks
-  .replaceAll("\n", "<br>");
+if (!response.ok) {
+  return "❌ Error fetching AI response.";
+}
 
-return `<b>G10EP AI Answer:</b><br>${formatted}`;
+const reader = response.body.getReader();
+const decoder = new TextDecoder("utf-8");
+let fullText = "";
+resultBox.innerHTML = "<b>G10EP AI Answer (streaming):</b><br><div id='streamOutput'></div>";
+const streamDiv = document.getElementById("streamOutput");
+
+while (true) {
+  const { done, value } = await reader.read();
+  if (done) break;
+  const chunk = decoder.decode(value, { stream: true });
+  fullText += chunk;
+
+  // Format incrementally
+  const formatted = fullText
+    .replace(/(Step\s*\d+[:.]?)/gi, '<span style="color:#007bff; font-weight:bold;">$1</span>')
+    .replaceAll("**", "")
+    .replaceAll("-", "<br>•")
+    .replaceAll("\n", "<br>");
+
+  streamDiv.innerHTML = formatted;
+  // Re-render math dynamically
+  if (window.MathJax && MathJax.typesetPromise) {
+    MathJax.typesetPromise([streamDiv]);
+  }
+}
+
+// Done streaming
+return ""; // we already filled resultBox live
+
 
 
 
