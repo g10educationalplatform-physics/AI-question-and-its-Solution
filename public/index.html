@@ -80,7 +80,7 @@
       height: 300px;
       background: url("https://i.ibb.co/WNZTWPwv/LOGO-PNG-2025-fab.png") no-repeat center center;
       background-size: contain;
-      opacity: 0.15;
+      opacity: 0.15; /* 85% transparent */
       transform: translate(-50%, -50%);
       pointer-events: none;
       z-index: 0;
@@ -91,6 +91,16 @@
       z-index: 1;
     }
 
+    /* ✅ Make ### headings blue like Step X */
+    .solution-box h3,
+    .solution-box h4,
+    .solution-box strong,
+    .solution-box b {
+      color: #007bff;
+      font-weight: 700;
+    }
+
+    /* ✅ Responsive logo scaling for mobile */
     @media (max-width: 768px) {
       .solution-box::before {
         width: 200px;
@@ -173,6 +183,7 @@
     <label class="toggle-label"><input type="radio" name="mode" value="code" /> 🔢 Enter Question Code</label>
   </div>
 
+  <!-- ✅ Dual camera/gallery upload setup -->
   <div id="imageMode">
     <div class="flex gap-2">
       <label for="cameraInput" class="btn">📷 Take Photo</label>
@@ -227,7 +238,6 @@
         .catch(()=>{});
     }
 
-    // ✅ Function to render answers nicely
     function renderQA(item, subj) {
       let html = `<b>Subject:</b> ${subj}<br>`;
       if (item.code) html += `<p><b>Code:</b> <span class="small">${item.code}</span></p>`;
@@ -240,7 +250,7 @@
         item.solution_steps.forEach(step=>{
           const stepHtml = step
             .replace(/(Step\s*\d+[:.]?)/gi, '<b style="color:#007bff">$1</b>')
-            .replace(/^###\s*(.*)$/gm, '<b style="color:#007bff; font-size:1.1rem;">$1</b>');
+            .replace(/^###\s*(.*)$/gm, '<h3>$1</h3>');
           html += `<li><span class="mathjax">${stepHtml}</span></li>`;
         });
         html += `</ul>`;
@@ -272,15 +282,77 @@
         const chunk=decoder.decode(value,{stream:true});full+=chunk;
         streamDiv.innerHTML=full
           .replace(/(Step\s*\d+[:.]?)/gi,'<b style="color:#007bff">$1</b>')
-          .replace(/^###\s*(.*)$/gm,'<b style="color:#007bff; font-size:1.1rem;">$1</b>')
-          .replaceAll("**","")
-          .replaceAll("-","<br>•")
-          .replaceAll("\n","<br>");
+          .replace(/^###\s*(.*)$/gm,'<h3>$1</h3>')
+          .replaceAll("**","").replaceAll("-","<br>•").replaceAll("\n","<br>");
         clearTimeout(window._mjTimer);
         window._mjTimer=setTimeout(()=>MathJax.typesetPromise([streamDiv]),180);
       }
       await MathJax.typesetPromise([streamDiv]);
     }
+
+    const cropModal=document.getElementById("cropModal");
+    const cropImage=document.getElementById("cropImage");
+    const confirmCrop=document.getElementById("confirmCrop");
+    const cancelCrop=document.getElementById("cancelCrop");
+    const resultBox=document.getElementById("result");
+    const progressContainer=document.getElementById("progressContainer");
+    const progressBar=document.getElementById("progressBar");
+    const progressText=document.getElementById("progressText");
+
+    const handleFile=(e)=>{
+      const file=e.target.files[0];if(!file)return;
+      cropImage.src=URL.createObjectURL(file);
+      cropModal.style.display="flex";
+      if(cropper)cropper.destroy();
+      cropper=new Cropper(cropImage,{viewMode:1});
+    };
+    document.getElementById("cameraInput").addEventListener("change",handleFile);
+    document.getElementById("galleryInput").addEventListener("change",handleFile);
+
+    cancelCrop.onclick=()=>{cropModal.style.display="none";cropper?.destroy();cropper=null;};
+    confirmCrop.onclick=async()=>{
+      if(!cropper)return;
+      cropModal.style.display="none";
+      const canvas=cropper.getCroppedCanvas();
+      cropper.destroy();cropper=null;
+      progressContainer.style.display="block";
+      progressBar.style.width="10%";
+      progressText.textContent="🧠 Reading question from image...";
+      const blob=await new Promise(res=>canvas.toBlob(res,"image/png"));
+      const {data:{text}}=await Tesseract.recognize(blob,"eng",{logger:(m)=>{if(m.status==="recognizing text"){progressBar.style.width=10+m.progress*70+"%";}}});
+      progressBar.style.width="85%";
+      progressText.textContent="🔍 Searching or generating answer...";
+      resultBox.innerHTML=`<div id="extracted"><b>Extracted Text:</b><br>${text.replace(/\n/g,"<br>")}</div><div id="answerArea"></div>`;
+      await searchSolution(text);
+      progressBar.style.width="100%";
+      progressContainer.style.display="none";
+      MathJax.typesetPromise([document.getElementById("result")]);
+    };
+
+    document.querySelectorAll('input[name="mode"]').forEach(r=>{
+      r.addEventListener("change",e=>{
+        document.getElementById("imageMode").classList.toggle("hidden",e.target.value!=="image");
+        document.getElementById("textMode").classList.toggle("hidden",e.target.value!=="text");
+        document.getElementById("codeMode").classList.toggle("hidden",e.target.value!=="code");
+      });
+    });
+
+    document.getElementById("solveManual").onclick=async()=>{
+      const text=document.getElementById("manualQuestion").value.trim();
+      if(!text)return alert("Please enter a question.");
+      resultBox.innerHTML="⏳ Solving...";
+      await searchSolution(text);
+    };
+
+    document.getElementById("solveCode").onclick=()=>{
+      const code=document.getElementById("questionCode").value.trim();
+      resultBox.innerHTML="Searching...";
+      for(let subj in questionBanks){
+        const q=questionBanks[subj]?.find(x=>String(x.code).toUpperCase()===code.toUpperCase());
+        if(q){resultBox.innerHTML=renderQA(q,subj);return;}
+      }
+      resultBox.innerHTML="❌ No question found with this code.";
+    };
   </script>
 </body>
 </html>
