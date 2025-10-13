@@ -58,15 +58,38 @@
     button:hover, label.btn:hover { background: #2c80b9; }
 
     .solution-box {
-      background: #fff;
-      border-radius: 10px;
-      padding: 15px;
-      margin-top: 15px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.06);
-      text-align: left;
-      font-size: 1rem;
-      line-height: 1.5;
-    }
+  position: relative;
+  background: #fff;
+  border-radius: 10px;
+  padding: 15px;
+  margin-top: 15px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+  text-align: left;
+  font-size: 1rem;
+  line-height: 1.5;
+  overflow: hidden;
+}
+
+.solution-box::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300px;              /* adjust size as needed */
+  height: 300px;
+  background: url("https://i.ibb.co/WNZTWPwv/LOGO-PNG-2025-fab.png") no-repeat center center;
+  background-size: contain;
+  opacity: 0.15;             /* 85% transparent background (100 - 85 = 15 visible) */
+  transform: translate(-50%, -50%);
+  pointer-events: none;      /* allow text selection and interaction */
+  z-index: 0;
+}
+
+.solution-box * {
+  position: relative;
+  z-index: 1;                /* keep text above the logo */
+}
+
 
     .solution-step-list { list-style: none; padding-left: 0; margin-left: 0; }
     .solution-step-list li {
