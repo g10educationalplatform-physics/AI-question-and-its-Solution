@@ -244,10 +244,10 @@
     let cropper = null, questionBanks = {}, fuseBanks = {};
 
     const subjectUrls = {
-      chemistry: "https://ai-question-and-its-solution-4kxy.onrender.com/chemistry",
-      physics: "https://ai-question-and-its-solution-4kxy.onrender.com/physics",
-      math: "https://ai-question-and-its-solution-4kxy.onrender.com/math",
-      biology: "https://ai-question-and-its-solution-4kxy.onrender.com/biology"
+      chemistry: "https://ai-question-and-its-solution-3oip.onrender.com/chemistry",
+      physics: "https://ai-question-and-its-solution-3oip.onrender.com/physics",
+      math: "https://ai-question-and-its-solution-3oip.onrender.com/math",
+      biology: "https://ai-question-and-its-solution-3oip.onrender.com/biology"
     };
 
     for (let subj in subjectUrls) {
@@ -292,7 +292,7 @@
         const res=fuseBanks[subj].search(text);
         if(res.length&&res[0].score<0.4){document.getElementById("result").innerHTML=renderQA(res[0].item,subj);return;}
       }
-      const resp=await fetch("https://ai-question-and-its-solution-4kxy.onrender.com/ask-ai",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({question:text})});
+      const resp=await fetch("https://ai-question-and-its-solution-3oip.onrender.com/ask-ai",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({question:text})});
       if(!resp.ok){document.getElementById("result").innerHTML="❌ Error fetching AI response.";return;}
       const streamContainer=document.createElement("div");
       streamContainer.innerHTML="<hr><b>G10EP AI Answer (streaming):</b><br><div id='streamOutput' style='white-space:pre-wrap;'></div>";
