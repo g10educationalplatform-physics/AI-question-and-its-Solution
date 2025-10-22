@@ -24,10 +24,8 @@
     body { font-family: Arial, sans-serif; margin: 0; background: #f4f6f9; }
     h2 { color: #2c3e50; font-size: 1.4rem; text-align: center; margin-top: 15px; }
 
-    /* Container with side panel */
     .container { display: flex; flex-direction: row; min-height: 100vh; overflow: hidden; }
 
-    /* Left side panel */
     .side-panel-wrapper {
       width: 250px;
       flex-shrink: 0;
@@ -61,7 +59,6 @@
     .side-panel h3, .side-panel p, .side-panel ul, .side-panel a { transition: all 0.3s; }
     .side-panel-wrapper.collapsed .side-panel * { display: none; }
 
-    /* Right main content */
     .main-content { flex: 1; padding: 15px; text-align: center; overflow-y: auto; height: 100vh; box-sizing: border-box; }
 
     .mode-toggle { margin: 15px 0; }
@@ -156,10 +153,24 @@
     // ====================== Side Panel Collapse ======================
     const collapseBtn = document.getElementById("collapseBtn");
     const sidePanelWrapper = document.getElementById("sidePanelWrapper");
+
     collapseBtn.addEventListener("click", ()=>{
       sidePanelWrapper.classList.toggle("collapsed");
       collapseBtn.innerText = sidePanelWrapper.classList.contains("collapsed") ? "➡️" : "⬅️";
     });
+
+    // ====================== Auto-collapse on Resize ======================
+    function handleResize() {
+      if(window.innerWidth < 768){
+        sidePanelWrapper.classList.add("collapsed");
+        collapseBtn.innerText = "➡️";
+      } else {
+        sidePanelWrapper.classList.remove("collapsed");
+        collapseBtn.innerText = "⬅️";
+      }
+    }
+    window.addEventListener("resize", handleResize);
+    handleResize(); // initial check
 
     // ====================== Image Upload & OCR ======================
     let cropper = null;
@@ -281,7 +292,6 @@
       return html;
     }
 
-    // ====================== Live Autocomplete ======================
     codeInput.addEventListener("input", ()=>{
       const val=codeInput.value.trim().toUpperCase();
       autoList.innerHTML="";
@@ -316,7 +326,6 @@
       if(!found) resultBox.innerHTML="❌ No question found with this code.";
     };
 
-    // ====================== Mode Toggle ======================
     document.querySelectorAll('input[name="mode"]').forEach(r=>{
       r.addEventListener("change", e=>{
         document.getElementById("imageMode").classList.toggle("hidden", e.target.value!=="image");
