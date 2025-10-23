@@ -61,44 +61,110 @@ for (const subj of subjects) {
   });
 }
 
-// AI endpoint
+// AI endpoint with robust streaming & keepalive
 app.post("/ask-ai", async (req, res) => {
+  let keepAliveTimer = null;
+  let openaiStream = null;
+  let clientClosed = false;
+
   try {
     const question = (req.body?.question || "").toString().trim();
     if (!question) return res.status(400).json({ error: "No question provided" });
 
-    // Set headers for streaming (text, not JSON)
+    // Required headers for streaming text
     res.setHeader("Content-Type", "text/plain; charset=utf-8");
-    res.setHeader("Cache-Control", "no-cache");
+    res.setHeader("Cache-Control", "no-cache, no-transform");
     res.setHeader("Connection", "keep-alive");
-    res.flushHeaders?.(); // force headers to send immediately
 
-    const stream = await client.chat.completions.create({
-      model: "gpt-4o-mini",
+    // Immediately send headers
+    if (typeof res.flushHeaders === "function") res.flushHeaders();
+
+    // Heartbeat: send a single space every 15s to keep connection alive on proxies/platforms
+    keepAliveTimer = setInterval(() => {
+      try {
+        // Minimal heartbeat
+        res.write(" ");
+      } catch (e) {
+        // ignore write errors here; 'close' event will handle cleanup
+      }
+    }, 15000);
+
+    // If client disconnects, mark and attempt to close upstream stream
+    req.on("close", () => {
+      clientClosed = true;
+      clearInterval(keepAliveTimer);
+      try {
+        if (openaiStream && typeof openaiStream.return === "function") openaiStream.return();
+      } catch (e) {
+        // ignore
+      }
+    });
+
+    // Create streaming completion from OpenAI
+    openaiStream = await client.chat.completions.create({
+      model: "gpt-4o-mini",      // keep your chosen model
       stream: true,
       messages: [
         {
           role: "system",
-          content: "You are an expert tutor in Physics, Chemistry, Math, and Biology. Show detailed step-by-step reasoning with LaTeX ($E = mc^2$).",
+          content: "You are an expert tutor in Physics, Chemistry, Math, and Biology. Show clear step-by-step reasoning and use LaTeX where appropriate."
         },
-        { role: "user", content: `Solve this question clearly, step-by-step:\n${question}` },
+        { role: "user", content: `Solve this question clearly, step-by-step:\n${question}` }
       ],
       max_tokens: 1500,
     });
 
-    // Stream text chunks to the client
-    for await (const chunk of stream) {
-      const delta = chunk.choices?.[0]?.delta?.content;
+    // Iterate over stream and write chunks to response
+    for await (const chunk of openaiStream) {
+      if (clientClosed) break;
+
+      // Chunk shapes vary by SDK / version. handle common shapes.
+      const delta =
+        (chunk?.choices?.[0]?.delta?.content) ??
+        (chunk?.choices?.[0]?.text) ??
+        (chunk?.text) ??
+        null;
+
       if (delta) {
-        res.write(delta);
-        res.flush?.(); // important: force flush on Render / Express 5
+        try {
+          res.write(delta);
+        } catch (e) {
+          // If write fails, break the loop and cleanup
+          break;
+        }
       }
     }
 
-    res.end();
+    // End of stream: clear heartbeat and close response
+    clearInterval(keepAliveTimer);
+    try { res.end(); } catch (e) { /* ignore */ }
   } catch (err) {
+    // Log the full error
     console.error("AI stream error:", err);
-    if (!res.headersSent) res.status(500).json({ error: "Streaming failed" });
+
+    clearInterval(keepAliveTimer);
+
+    // If it's a rate-limit error from OpenAI, provide a helpful message
+    const isRateLimit = err?.code === "rate_limit_exceeded" || (err?.status === 429);
+
+    if (!res.headersSent) {
+      if (isRateLimit) {
+        return res.status(429).send("⚠️ OpenAI rate limit reached. Please try again later or add billing to your OpenAI account.");
+      }
+      return res.status(500).json({ error: "Streaming failed", details: err?.message || String(err) });
+    }
+
+    // If headers already sent, try to write an inline message and end
+    try {
+      if (isRateLimit) {
+        res.write("\n\n⚠️ OpenAI rate limit reached. Please try again later.\n");
+      } else {
+        res.write("\n\n[Error: streaming failed]\n");
+      }
+      res.end();
+    } catch (e) {
+      // nothing more to do
+    }
   }
 });
 
@@ -106,15 +172,13 @@ app.post("/ask-ai", async (req, res) => {
 // Health-check
 app.get("/health", (req, res) => res.json({ status: "ok" }));
 
-// If a static index.html exists, express.static will serve it at '/'
-// Add a fallback root message if not
+// Root fallback (static index.html if present)
 app.get("/", (req, res) => {
   const indexPath = path.join(publicDir, "index.html");
   if (fs.existsSync(indexPath)) {
-    res.sendFile(indexPath);
-  } else {
-    res.send("✅ AI Question Solver API is running. Use /ask-ai to POST questions.");
+    return res.sendFile(indexPath);
   }
+  res.send("✅ AI Question Solver API is running. Use /ask-ai to POST questions.");
 });
 
 app.listen(PORT, () => console.log(`✅ Server running on port ${PORT}`));
