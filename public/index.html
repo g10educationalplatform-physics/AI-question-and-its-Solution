@@ -57,14 +57,14 @@
     #autocomplete-list div:hover { background-color: #e2e6ea; }
     @media (max-width: 768px) { .container { flex-direction: column; } .side-panel-wrapper { width: 100%; height: auto; position: relative; } .main-content { height: auto; } .solution-box::before { width: 200px; height: 200px; } }
     @media (max-width: 480px) { .solution-box::before { width: 140px; height: 140px; opacity: 0.12; } }
- 
-  .side-panel a {
-  color: red !important;
-  text-decoration: underline;
-}
-.side-panel a:hover {
-  color: #ff4d4d !important; /* lighter red on hover */
-}
+
+    .side-panel a {
+      color: red !important;
+      text-decoration: underline;
+    }
+    .side-panel a:hover {
+      color: #ff4d4d !important;
+    }
   </style>
 </head>
 
@@ -126,14 +126,14 @@
   </div>
 
   <script>
-    // ===== Side Panel Collapse =====
-    const collapseBtn = document.getElementById("collapseBtn");
-    const sidePanelWrapper = document.getElementById("sidePanelWrapper");
-    collapseBtn.addEventListener("click", ()=>{ sidePanelWrapper.classList.toggle("collapsed"); collapseBtn.innerText = sidePanelWrapper.classList.contains("collapsed") ? "➡️" : "⬅️"; });
-    function handleResize(){ if(window.innerWidth<768){ sidePanelWrapper.classList.add("collapsed"); collapseBtn.innerText="➡️"; } else{ sidePanelWrapper.classList.remove("collapsed"); collapseBtn.innerText="⬅️"; } }
-    window.addEventListener("resize", handleResize); handleResize();
+    // ===== Collapse Panel =====
+    const collapseBtn=document.getElementById("collapseBtn");
+    const sidePanelWrapper=document.getElementById("sidePanelWrapper");
+    collapseBtn.addEventListener("click",()=>{ sidePanelWrapper.classList.toggle("collapsed"); collapseBtn.innerText=sidePanelWrapper.classList.contains("collapsed")?"➡️":"⬅️"; });
+    function handleResize(){ if(window.innerWidth<768){ sidePanelWrapper.classList.add("collapsed"); collapseBtn.innerText="➡️"; } else { sidePanelWrapper.classList.remove("collapsed"); collapseBtn.innerText="⬅️"; } }
+    window.addEventListener("resize",handleResize); handleResize();
 
-    // ===== Image Upload & Mobile-Friendly OCR =====
+    // ===== Image Upload & OCR =====
     let cropper=null;
     const cropModal=document.getElementById("cropModal");
     const cropImage=document.getElementById("cropImage");
@@ -142,16 +142,17 @@
     const resultBox=document.getElementById("result");
 
     const handleFile=(e)=>{
-      const file=e.target.files[0]; if(!file) return;
+      const file=e.target.files[0];
+      if(!file) return;
       cropImage.src=URL.createObjectURL(file);
       cropModal.style.display="flex";
       cropImage.onload=()=>{
         if(cropper) cropper.destroy();
-        cropper=new Cropper(cropImage,{ viewMode:1, autoCropArea:1, movable:true, zoomable:true, responsive:true });
+        cropper=new Cropper(cropImage,{viewMode:1,autoCropArea:1,movable:true,zoomable:true,responsive:true});
       };
     };
-    document.getElementById("cameraInput").addEventListener("change", handleFile);
-    document.getElementById("galleryInput").addEventListener("change", handleFile);
+    document.getElementById("cameraInput").addEventListener("change",handleFile);
+    document.getElementById("galleryInput").addEventListener("change",handleFile);
 
     cancelCrop.onclick=()=>{ cropModal.style.display="none"; cropper?.destroy(); cropper=null; };
 
@@ -160,14 +161,14 @@
       cropModal.style.display="none";
       const canvas=cropper.getCroppedCanvas({width:1500,height:1500});
       const ctx=canvas.getContext("2d");
-      ctx.filter="contrast(150%) brightness(110%)"; // mobile-friendly enhancement
+      ctx.filter="contrast(150%) brightness(110%)";
       cropper.destroy(); cropper=null;
       resultBox.innerHTML="⏳ Reading and solving question...";
       const blob=await new Promise(res=>canvas.toBlob(res,"image/png"));
-      const { data } = await Tesseract.recognize(blob,"eng");
+      const {data}=await Tesseract.recognize(blob,"eng");
       const text=data.text.trim();
-      if(!text || data.confidence<40){ // lowered threshold for mobile
-        resultBox.innerHTML="⚠️ Image unclear. Please retake a clearer photo for mobile streaming.";
+      if(!text||data.confidence<40){
+        resultBox.innerHTML="⚠️ Image unclear. Please retake a clearer photo.";
         return;
       }
       resultBox.innerHTML=`<b>Extracted Text:</b><br>${text.replace(/\n/g,"<br>")}<br><br>`;
@@ -176,7 +177,7 @@
 
     function markdownToHTML(md){
       const lines=md.split("\n"); let tableBlocks=[],table=[];
-      for(let line of lines){ if(line.trim().startsWith("|")) table.push(line); else { if(table.length>0){ tableBlocks.push(table.join("\n")); table=[]; } } }
+      for(let line of lines){ if(line.trim().startsWith("|")) table.push(line); else{ if(table.length>0){ tableBlocks.push(table.join("\n")); table=[]; } } }
       if(table.length>0) tableBlocks.push(table.join("\n"));
       tableBlocks.forEach(tbl=>{
         const rows=tbl.trim().split("\n").filter(r=>r.includes("|"));
@@ -191,23 +192,49 @@
       return md;
     }
 
-    // ===== AI Solution =====
+    // ===== AI Streaming with Retry Logic =====
+    let failCount=0;
     async function searchSolution(text){
-      const resp=await fetch("https://ai-question-and-its-solution-3oip.onrender.com/ask-ai",{ method:"POST", headers:{"Content-Type":"application/json"}, body:JSON.stringify({question:text}) });
-      if(!resp.ok){ resultBox.innerHTML="❌ Error fetching AI response."; return; }
-      resultBox.innerHTML=`<b>G10EP AI Answer (streaming):</b><br><div id="streamOutput" style="white-space:pre-wrap;"></div>`;
-      const streamDiv=document.getElementById("streamOutput");
-      const reader=resp.body.getReader(); const decoder=new TextDecoder(); let full="";
-      while(true){
-        const {done,value}=await reader.read(); if(done) break;
-        const chunk=decoder.decode(value,{stream:true}); full+=chunk;
-        let processed=markdownToHTML(full).replace(/(Step\s*\d+[:.]?)/gi,'<b style="color:#007bff">$1</b>').replace(/^###\s*(.*)$/gm,'<h3>$1</h3>').replaceAll("**","").replaceAll("- ","<br>• ").replace(/\n{2,}/g,"<br><br>").replace(/\n/g,"<br>");
-        streamDiv.innerHTML=processed;
-        clearTimeout(window._mjTimer); window._mjTimer=setTimeout(()=>MathJax.typesetPromise([streamDiv]),200);
+      try{
+        const resp=await fetch("https://ai-question-and-its-solution-3oip.onrender.com/ask-ai",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({question:text})});
+        if(!resp.ok) throw new Error("streaming failed");
+        resultBox.innerHTML=`<b>G10EP AI Answer (streaming):</b><br><div id="streamOutput" style="white-space:pre-wrap;"></div>`;
+        const streamDiv=document.getElementById("streamOutput");
+        const reader=resp.body.getReader();
+        const decoder=new TextDecoder();
+        let full="";
+        while(true){
+          const {done,value}=await reader.read();
+          if(done) break;
+          const chunk=decoder.decode(value,{stream:true});
+          full+=chunk;
+          let processed=markdownToHTML(full)
+            .replace(/(Step\s*\d+[:.]?)/gi,'<b style="color:#007bff">$1</b>')
+            .replace(/^###\s*(.*)$/gm,'<h3>$1</h3>')
+            .replaceAll("**","")
+            .replaceAll("- ","<br>• ")
+            .replace(/\n{2,}/g,"<br><br>")
+            .replace(/\n/g,"<br>");
+          streamDiv.innerHTML=processed;
+          clearTimeout(window._mjTimer);
+          window._mjTimer=setTimeout(()=>MathJax.typesetPromise([streamDiv]),200);
+        }
+        await MathJax.typesetPromise([streamDiv]);
+        failCount=0; // ✅ reset on success
+      }catch(err){
+        console.error("AI stream error:",err);
+        failCount++;
+        resultBox.innerHTML=`⚠️ Streaming failed (attempt ${failCount}/3). Please try again.`;
+        if(failCount>=3){
+          const fallbackURL="https://www.g10educationalplatformindia.co.in/error"; // 🔗 change if needed
+          resultBox.innerHTML="⚠️ 3 consecutive streaming errors. Opening support page...";
+          setTimeout(()=>window.open(fallbackURL,"_blank"),1500);
+          failCount=0;
+        }
       }
-      await MathJax.typesetPromise([streamDiv]);
     }
 
+    // ===== Manual Mode =====
     document.getElementById("solveManual").onclick=async()=>{
       const text=document.getElementById("manualQuestion").value.trim();
       if(!text) return alert("Please enter a question.");
@@ -215,26 +242,30 @@
       await searchSolution(text);
     };
 
-    // ===== Question Code Mode =====
+    // ===== Code Mode =====
     const subjectUrls={chemistry:"https://ai-question-and-its-solution-3oip.onrender.com/chemistry",physics:"https://ai-question-and-its-solution-3oip.onrender.com/physics",math:"https://ai-question-and-its-solution-3oip.onrender.com/math",biology:"https://ai-question-and-its-solution-3oip.onrender.com/biology"};
-    let questionBanks={}, fuseIndex={};
+    let questionBanks={},fuseIndex={};
     const codeInput=document.getElementById("questionCode");
     const autoList=document.getElementById("autocomplete-list");
-
     for(let subj in subjectUrls){
-      fuseIndex[subj]=new Fuse([], { keys: ["code","question.text"], threshold: 0.3 });
-      fetch(subjectUrls[subj]).then(r=>r.json()).then(data=>{ questionBanks[subj]=data; fuseIndex[subj]=new Fuse(data, { keys: ["code","question.text"], threshold: 0.3 }); }).catch(()=>{});
+      fuseIndex[subj]=new Fuse([], {keys:["code","question.text"],threshold:0.3});
+      fetch(subjectUrls[subj]).then(r=>r.json()).then(data=>{questionBanks[subj]=data; fuseIndex[subj]=new Fuse(data,{keys:["code","question.text"],threshold:0.3});}).catch(()=>{});
     }
-
-    function renderQA(item, subj){
-      let html=`<b>Subject:</b> ${subj}<br>`; if(item.code) html+=`<p><b>Code:</b> <span class="small">${item.code}</span></p>`;
-      html+=`<p><b>Question:</b> <span class="mathjax">${item.question?.text||"❌ Question not found"}</span></p>`;
-      html+=`<p><b>Solution:</b> <span class="mathjax">${item.solution?.text||"❌ Solution not found"}</span></p>`;
-      if(item.solution_steps?.length){ html+=`<p><b>Solution Steps:</b></p><ul class="solution-step-list">`; item.solution_steps.forEach(step=>{ const stepHtml=step.replace(/(Step\s*\d+[:.]?)/gi,'<b style="color:#007bff">$1</b>').replace(/^###\s*(.*)$/gm,'<h3>$1</h3>'); html+=`<li><span class="mathjax">${stepHtml}</span></li>`; }); html+=`</ul>`; }
-      setTimeout(()=>{ MathJax.typesetPromise([document.getElementById("result")]); },60);
+    function renderQA(item,subj){
+      let html=`<b>Subject:</b> ${subj}<br>`;
+      if(item.code) html+=`<p><b>Code:</b> ${item.code}</p>`;
+      html+=`<p><b>Question:</b> ${item.question?.text||"❌ Question not found"}</p>`;
+      html+=`<p><b>Solution:</b> ${item.solution?.text||"❌ Solution not found"}</p>`;
+      if(item.solution_steps?.length){ html+=`<p><b>Steps:</b></p><ul>`;
+        item.solution_steps.forEach(step=>{
+          const stepHtml=step.replace(/(Step\s*\d+[:.]?)/gi,'<b style="color:#007bff">$1</b>');
+          html+=`<li>${stepHtml}</li>`;
+        });
+        html+=`</ul>`;
+      }
+      setTimeout(()=>MathJax.typesetPromise([document.getElementById("result")]),60);
       return html;
     }
-
     codeInput.addEventListener("input",()=>{
       const val=codeInput.value.trim().toUpperCase();
       autoList.innerHTML="";
@@ -243,33 +274,32 @@
         const res=fuseIndex[subj].search(val);
         res.slice(0,5).forEach(r=>{
           const div=document.createElement("div");
-          const snippet=r.item.question?.text?.substring(0,50).replace(/\n/g," ") || "";
+          const snippet=r.item.question?.text?.substring(0,50).replace(/\n/g," ")||"";
           div.innerText=`[${subj}] ${r.item.code} — ${snippet}...`;
-          div.onclick=()=>{ codeInput.value=r.item.code; autoList.innerHTML=""; resultBox.innerHTML=renderQA(r.item, subj); };
+          div.onclick=()=>{codeInput.value=r.item.code; autoList.innerHTML=""; resultBox.innerHTML=renderQA(r.item,subj);};
           autoList.appendChild(div);
         });
       }
     });
-
-    document.addEventListener("click",e=>{ if(e.target!==codeInput) autoList.innerHTML=""; });
-
+    document.addEventListener("click",e=>{if(e.target!==codeInput)autoList.innerHTML="";});
     document.getElementById("solveCode").onclick=()=>{
       const code=codeInput.value.trim().toUpperCase();
       if(!code) return alert("Please enter a question code.");
-      resultBox.innerHTML="⏳ Searching question code...";
+      resultBox.innerHTML="⏳ Searching...";
       let found=false;
       for(let subj in fuseIndex){
         const res=fuseIndex[subj].search(code);
-        if(res.length>0){ resultBox.innerHTML=renderQA(res[0].item, subj); found=true; break; }
+        if(res.length>0){resultBox.innerHTML=renderQA(res[0].item,subj);found=true;break;}
       }
-      if(!found) resultBox.innerHTML="❌ No question found with this code.";
+      if(!found) resultBox.innerHTML="❌ No question found.";
     };
 
+    // ===== Mode Switch =====
     document.querySelectorAll('input[name="mode"]').forEach(r=>{
-      r.addEventListener("change", e=>{
-        document.getElementById("imageMode").classList.toggle("hidden", e.target.value!=="image");
-        document.getElementById("textMode").classList.toggle("hidden", e.target.value!=="text");
-        document.getElementById("codeMode").classList.toggle("hidden", e.target.value!=="code");
+      r.addEventListener("change",e=>{
+        document.getElementById("imageMode").classList.toggle("hidden",e.target.value!=="image");
+        document.getElementById("textMode").classList.toggle("hidden",e.target.value!=="text");
+        document.getElementById("codeMode").classList.toggle("hidden",e.target.value!=="code");
       });
     });
   </script>
