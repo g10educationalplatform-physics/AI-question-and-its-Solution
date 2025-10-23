@@ -29,7 +29,6 @@
     .side-panel { flex: 1; overflow-y: auto; padding: 20px; box-sizing: border-box; }
     .collapse-btn { background: #34495e; color: white; border: none; width: 100%; padding: 5px 0; cursor: pointer; font-size: 1rem; flex-shrink: 0; }
     .side-panel img { width: 100%; border-radius: 10px; margin-bottom: 15px; transition: all 0.3s; }
-    .side-panel h3, .side-panel p, .side-panel ul, .side-panel a { transition: all 0.3s; }
     .side-panel-wrapper.collapsed .side-panel * { display: none; }
     .main-content { flex: 1; padding: 15px; text-align: center; overflow-y: auto; height: 100vh; box-sizing: border-box; }
     .mode-toggle { margin: 15px 0; }
@@ -57,14 +56,8 @@
     #autocomplete-list div:hover { background-color: #e2e6ea; }
     @media (max-width: 768px) { .container { flex-direction: column; } .side-panel-wrapper { width: 100%; height: auto; position: relative; } .main-content { height: auto; } .solution-box::before { width: 200px; height: 200px; } }
     @media (max-width: 480px) { .solution-box::before { width: 140px; height: 140px; opacity: 0.12; } }
-
-    .side-panel a {
-      color: red !important;
-      text-decoration: underline;
-    }
-    .side-panel a:hover {
-      color: #ff4d4d !important;
-    }
+    .side-panel a { color: red !important; text-decoration: underline; }
+    .side-panel a:hover { color: #ff4d4d !important; }
   </style>
 </head>
 
@@ -83,7 +76,7 @@
           <li>Practice tests & MCQs</li>
           <li>Expert doubt clearing</li>
         </ul>
-        <p>🌐 Visit: <a href="https://www.g10educationalplatformindia.co.in/" target="_blank">WEBSITE</a></p>
+        <p>🌐 Visit: <a href="https://www.g10educationalplatformindia.co.in/" target="_blank">G10 Educational Platform</a></p>
       </div>
     </div>
 
@@ -96,10 +89,8 @@
       </div>
 
       <div id="imageMode">
-        <div class="flex gap-2">
-          <label for="cameraInput" class="btn">📷 Take Photo</label>
-          <label for="galleryInput" class="btn">🖼️ Upload from Gallery</label>
-        </div>
+        <label for="cameraInput" class="btn">📷 Take Photo</label>
+        <label for="galleryInput" class="btn">🖼️ Upload from Gallery</label>
         <input type="file" id="cameraInput" accept="image/*" capture="environment" hidden />
         <input type="file" id="galleryInput" accept="image/*" hidden />
       </div>
@@ -109,8 +100,8 @@
         <button id="solveManual">🔍 Solve</button>
       </div>
 
-      <div id="codeMode" class="hidden" style="position: relative;">
-        <input type="text" id="questionCode" placeholder="Enter question code or part of question..." autocomplete="off" /><br />
+      <div id="codeMode" class="hidden">
+        <input type="text" id="questionCode" placeholder="Enter question code..." autocomplete="off" /><br />
         <div id="autocomplete-list"></div>
         <button id="solveCode">🔍 Get Answer</button>
       </div>
@@ -126,251 +117,55 @@
   </div>
 
   <script>
-    // ===== Collapse Panel =====
-    const collapseBtn=document.getElementById("collapseBtn");
-    const sidePanelWrapper=document.getElementById("sidePanelWrapper");
-    collapseBtn.addEventListener("click",()=>{ sidePanelWrapper.classList.toggle("collapsed"); collapseBtn.innerText=sidePanelWrapper.classList.contains("collapsed")?"➡️":"⬅️"; });
-    function handleResize(){ if(window.innerWidth<768){ sidePanelWrapper.classList.add("collapsed"); collapseBtn.innerText="➡️"; } else { sidePanelWrapper.classList.remove("collapsed"); collapseBtn.innerText="⬅️"; } }
-    window.addEventListener("resize",handleResize); handleResize();
+    const collapseBtn = document.getElementById("collapseBtn");
+    const sidePanelWrapper = document.getElementById("sidePanelWrapper");
+    collapseBtn.addEventListener("click", ()=>{ sidePanelWrapper.classList.toggle("collapsed"); collapseBtn.innerText = sidePanelWrapper.classList.contains("collapsed") ? "➡️" : "⬅️"; });
+    window.addEventListener("resize", ()=>{ if(window.innerWidth<768){ sidePanelWrapper.classList.add("collapsed"); collapseBtn.innerText="➡️"; } else { sidePanelWrapper.classList.remove("collapsed"); collapseBtn.innerText="⬅️"; } });
 
-    // ===== Image Upload & OCR =====
-    let cropper=null;
-    const cropModal=document.getElementById("cropModal");
-    const cropImage=document.getElementById("cropImage");
-    const confirmCrop=document.getElementById("confirmCrop");
-    const cancelCrop=document.getElementById("cancelCrop");
-    const resultBox=document.getElementById("result");
-
-    const handleFile=(e)=>{
-      const file=e.target.files[0];
-      if(!file) return;
-      cropImage.src=URL.createObjectURL(file);
-      cropModal.style.display="flex";
-      cropImage.onload=()=>{
-        if(cropper) cropper.destroy();
-        cropper=new Cropper(cropImage,{viewMode:1,autoCropArea:1,movable:true,zoomable:true,responsive:true});
-      };
-    };
-    document.getElementById("cameraInput").addEventListener("change",handleFile);
-    document.getElementById("galleryInput").addEventListener("change",handleFile);
-
+    let cropper=null; const cropModal=document.getElementById("cropModal"); const cropImage=document.getElementById("cropImage"); const confirmCrop=document.getElementById("confirmCrop"); const cancelCrop=document.getElementById("cancelCrop"); const resultBox=document.getElementById("result");
+    const handleFile=(e)=>{ const file=e.target.files[0]; if(!file) return; cropImage.src=URL.createObjectURL(file); cropModal.style.display="flex"; cropImage.onload=()=>{ if(cropper) cropper.destroy(); cropper=new Cropper(cropImage,{ viewMode:1, autoCropArea:1 }); }; };
+    document.getElementById("cameraInput").addEventListener("change", handleFile);
+    document.getElementById("galleryInput").addEventListener("change", handleFile);
     cancelCrop.onclick=()=>{ cropModal.style.display="none"; cropper?.destroy(); cropper=null; };
-
-    // ---- Popup handling: open popup on user gesture and reuse it later ----
-    let popupWindow = null;
-    function ensurePopupOpen() {
-      // Try to reuse existing popup if it's open and not closed
-      try {
-        if (popupWindow && !popupWindow.closed) return popupWindow;
-      } catch (e) {}
-      // Open a small blank window (user gesture) — browsers will allow this when called from a click handler
-      try {
-        popupWindow = window.open("", "_blank", "noopener,noreferrer");
-        if (popupWindow) {
-          // keep a placeholder message so popup isn't totally blank
-          popupWindow.document.body.innerHTML = "<p style='font-family:Arial,sans-serif;padding:16px'>Waiting — support page will open automatically if AI remains unavailable...</p>";
-        }
-      } catch (e) {
-        popupWindow = null;
-      }
-      return popupWindow;
-    }
 
     confirmCrop.onclick=async()=>{
       if(!cropper) return;
-      // open popup on user click to avoid popup blocker
-      ensurePopupOpen();
       cropModal.style.display="none";
       const canvas=cropper.getCroppedCanvas({width:1500,height:1500});
-      const ctx=canvas.getContext("2d");
-      ctx.filter="contrast(150%) brightness(110%)";
-      cropper.destroy(); cropper=null;
-      resultBox.innerHTML="⏳ Reading and solving question...";
       const blob=await new Promise(res=>canvas.toBlob(res,"image/png"));
-      const {data}=await Tesseract.recognize(blob,"eng");
+      const { data } = await Tesseract.recognize(blob,"eng");
       const text=data.text.trim();
-      if(!text||data.confidence<40){
-        resultBox.innerHTML="⚠️ Image unclear. Please retake a clearer photo.";
-        return;
-      }
-      resultBox.innerHTML=`<b>Extracted Text:</b><br>${text.replace(/\n/g,"<br>")}<br><br>`;
+      if(!text){ resultBox.innerHTML="⚠️ Image unclear."; return; }
       await searchSolution(text);
     };
 
-    function markdownToHTML(md){
-      const lines=md.split("\n"); let tableBlocks=[],table=[];
-      for(let line of lines){ if(line.trim().startsWith("|")) table.push(line); else{ if(table.length>0){ tableBlocks.push(table.join("\n")); table=[]; } } }
-      if(table.length>0) tableBlocks.push(table.join("\n"));
-      tableBlocks.forEach(tbl=>{
-        const rows=tbl.trim().split("\n").filter(r=>r.includes("|"));
-        const htmlRows=rows.map((row,i)=>{
-          const cols=row.split("|").map(c=>c.trim()).filter(c=>c!=="");
-          if(i===0) return `<thead><tr>${cols.map(c=>`<th>${c}</th>`).join("")}</tr></thead>`;
-          if(i===1) return "";
-          return `<tr>${cols.map(c=>`<td>${c}</td>`).join("")}</tr>`;
-        }).join("");
-        md=md.replace(tbl,`<table>${htmlRows}</table>`);
-      });
-      return md;
-    }
-
-    // ===== AI Streaming with Retry Logic & popup-safe fallback =====
-    let failCount=0;
-    const FALLBACK_URL = "https://www.g10educationalplatformindia.co.in"; // change if needed
     async function searchSolution(text){
+      const streamUrl="https://ai-question-and-its-solution-3oip.onrender.com/ask-ai";
       try{
-        const resp=await fetch("https://ai-question-and-its-solution-3oip.onrender.com/ask-ai",{
-          method:"POST",
-          headers:{"Content-Type":"application/json"},
-          body:JSON.stringify({question:text}),
-        });
-
-        // If API responded with an error (non-stream), treat as failure and possibly show message
-        if (!resp.ok) {
-          // try to read error message from body
-          let errMsg = `Error ${resp.status}`;
-          try {
-            const t = await resp.text();
-            if (t) errMsg = t;
-          } catch(e){}
-          throw new Error(errMsg);
-        }
-
-        // OK — we have a streaming body
+        const resp=await fetch(streamUrl,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({question:text})});
+        if(!resp.ok) throw new Error("Streaming failed");
         resultBox.innerHTML=`<b>G10EP AI Answer (streaming):</b><br><div id="streamOutput" style="white-space:pre-wrap;"></div>`;
         const streamDiv=document.getElementById("streamOutput");
-
-        // read the stream (if the body isn't a ReadableStream, this will throw)
-        if (!resp.body) throw new Error("No stream in response");
-        const reader=resp.body.getReader();
-        const decoder=new TextDecoder();
-        let full="";
-
+        const reader=resp.body.getReader(); const decoder=new TextDecoder(); let full="";
         while(true){
           const {done,value}=await reader.read();
           if(done) break;
-          const chunk=decoder.decode(value,{stream:true});
-          full+=chunk;
-          let processed=markdownToHTML(full)
-            .replace(/(Step\s*\d+[:.]?)/gi,'<b style="color:#007bff">$1</b>')
-            .replace(/^###\s*(.*)$/gm,'<h3>$1</h3>')
-            .replaceAll("**","")
-            .replaceAll("- ","<br>• ")
-            .replace(/\n{2,}/g,"<br><br>")
-            .replace(/\n/g,"<br>");
-          streamDiv.innerHTML=processed;
-          clearTimeout(window._mjTimer);
-          window._mjTimer=setTimeout(()=>MathJax.typesetPromise([streamDiv]),200);
+          const chunk=decoder.decode(value,{stream:true}); full+=chunk;
+          streamDiv.innerHTML=full.replace(/\n/g,"<br>");
         }
-
-        await MathJax.typesetPromise([streamDiv]);
-        // success -> reset counter and close popup if it was just a placeholder
-        failCount = 0;
-        try { if (popupWindow && !popupWindow.closed) { popupWindow.close(); popupWindow = null; } } catch(e){}
       }catch(err){
-        console.error("AI stream error:",err);
-        failCount++;
-        resultBox.innerHTML=`⚠️ Streaming failed (attempt ${failCount}/3).`;
-
-        // If single error and popup wasn't opened by user click (e.g., manual Solve not used),
-        // we still avoid opening unrequested popups. Only open popup if it already exists or
-        // the user has performed a click that created it. We'll open it during user clicks.
-        // But if the popup is already opened (from earlier user click), use it.
-        if (failCount >= 3) {
-          // If popup was created earlier on user click, navigate it. Otherwise open one now.
-          try {
-            if (!popupWindow || popupWindow.closed) {
-              // attempt to open a new popup — may be blocked if not a user gesture
-              popupWindow = window.open("", "_blank", "noopener,noreferrer");
-              if (popupWindow) popupWindow.document.body.innerHTML = "<p style='font-family:Arial,sans-serif;padding:12px'>Redirecting to support page...</p>";
-            }
-            if (popupWindow) {
-              popupWindow.location.href = FALLBACK_URL;
-            } else {
-              // as a fallback, open in same tab (user will still be guided)
-              window.location.href = FALLBACK_URL;
-            }
-          } catch(e) {
-            // if any error, open same tab
-            window.location.href = FALLBACK_URL;
-          }
-          failCount = 0;
-        }
+        console.error("Streaming Error:",err);
+        window.open("https://www.g10educationalplatformindia.co.in/","_blank");
+        resultBox.innerHTML="⚠️ AI service temporarily unavailable. Redirecting...";
       }
     }
 
-    // ===== Manual Mode (open popup on click to avoid blockers) =====
-    document.getElementById("solveManual").onclick=async(e)=>{
-      // open a small popup now (user gesture). It will be reused if needed.
-      ensurePopupOpen();
+    document.getElementById("solveManual").onclick=async()=>{
       const text=document.getElementById("manualQuestion").value.trim();
       if(!text) return alert("Please enter a question.");
-      resultBox.innerHTML="⏳ Searching...";
+      resultBox.innerHTML="⏳ Processing...";
       await searchSolution(text);
     };
-
-    // ===== Code Mode =====
-    const subjectUrls={chemistry:"https://ai-question-and-its-solution-3oip.onrender.com/chemistry",physics:"https://ai-question-and-its-solution-3oip.onrender.com/physics",math:"https://ai-question-and-its-solution-3oip.onrender.com/math",biology:"https://ai-question-and-its-solution-3oip.onrender.com/biology"};
-    let questionBanks={},fuseIndex={};
-    const codeInput=document.getElementById("questionCode");
-    const autoList=document.getElementById("autocomplete-list");
-    for(let subj in subjectUrls){
-      fuseIndex[subj]=new Fuse([], {keys:["code","question.text"],threshold:0.3});
-      fetch(subjectUrls[subj]).then(r=>r.json()).then(data=>{questionBanks[subj]=data; fuseIndex[subj]=new Fuse(data,{keys:["code","question.text"],threshold:0.3});}).catch(()=>{});
-    }
-    function renderQA(item,subj){
-      let html=`<b>Subject:</b> ${subj}<br>`;
-      if(item.code) html+=`<p><b>Code:</b> ${item.code}</p>`;
-      html+=`<p><b>Question:</b> ${item.question?.text||"❌ Question not found"}</p>`;
-      html+=`<p><b>Solution:</b> ${item.solution?.text||"❌ Solution not found"}</p>`;
-      if(item.solution_steps?.length){ html+=`<p><b>Steps:</b></p><ul>`;
-        item.solution_steps.forEach(step=>{
-          const stepHtml=step.replace(/(Step\s*\d+[:.]?)/gi,'<b style="color:#007bff">$1</b>');
-          html+=`<li>${stepHtml}</li>`;
-        });
-        html+=`</ul>`;
-      }
-      setTimeout(()=>MathJax.typesetPromise([document.getElementById("result")]),60);
-      return html;
-    }
-    codeInput.addEventListener("input",()=>{
-      const val=codeInput.value.trim().toUpperCase();
-      autoList.innerHTML="";
-      if(!val) return;
-      for(let subj in fuseIndex){
-        const res=fuseIndex[subj].search(val);
-        res.slice(0,5).forEach(r=>{
-          const div=document.createElement("div");
-          const snippet=r.item.question?.text?.substring(0,50).replace(/\n/g," ")||"";
-          div.innerText=`[${subj}] ${r.item.code} — ${snippet}...`;
-          div.onclick=()=>{codeInput.value=r.item.code; autoList.innerHTML=""; resultBox.innerHTML=renderQA(r.item,subj);};
-          autoList.appendChild(div);
-        });
-      }
-    });
-    document.addEventListener("click",e=>{if(e.target!==codeInput)autoList.innerHTML="";});
-    document.getElementById("solveCode").onclick=()=>{
-      // open popup on user click too (so fallback can be used)
-      ensurePopupOpen();
-      const code=codeInput.value.trim().toUpperCase();
-      if(!code) return alert("Please enter a question code.");
-      resultBox.innerHTML="⏳ Searching...";
-      let found=false;
-      for(let subj in fuseIndex){
-        const res=fuseIndex[subj].search(code);
-        if(res.length>0){resultBox.innerHTML=renderQA(res[0].item,subj);found=true;break;}
-      }
-      if(!found) resultBox.innerHTML="❌ No question found.";
-    };
-
-    // ===== Mode Switch =====
-    document.querySelectorAll('input[name="mode"]').forEach(r=>{
-      r.addEventListener("change",e=>{
-        document.getElementById("imageMode").classList.toggle("hidden",e.target.value!=="image");
-        document.getElementById("textMode").classList.toggle("hidden",e.target.value!=="text");
-        document.getElementById("codeMode").classList.toggle("hidden",e.target.value!=="code");
-      });
-    });
   </script>
 </body>
 </html>
