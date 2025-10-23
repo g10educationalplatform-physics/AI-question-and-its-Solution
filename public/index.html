@@ -226,7 +226,7 @@
         failCount++;
         resultBox.innerHTML=`⚠️ Streaming failed (attempt ${failCount}/3). Please try again.`;
         if(failCount>=3){
-          const fallbackURL="https://www.g10educationalplatformindia.co.in/error"; // 🔗 change if needed
+          const fallbackURL="https://www.g10educationalplatformindia.co.in"; // 🔗 change if needed
           resultBox.innerHTML="⚠️ 3 consecutive streaming errors. Opening support page...";
           setTimeout(()=>window.open(fallbackURL,"_blank"),1500);
           failCount=0;
