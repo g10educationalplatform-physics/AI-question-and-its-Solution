@@ -156,8 +156,30 @@
 
     cancelCrop.onclick=()=>{ cropModal.style.display="none"; cropper?.destroy(); cropper=null; };
 
+    // ---- Popup handling: open popup on user gesture and reuse it later ----
+    let popupWindow = null;
+    function ensurePopupOpen() {
+      // Try to reuse existing popup if it's open and not closed
+      try {
+        if (popupWindow && !popupWindow.closed) return popupWindow;
+      } catch (e) {}
+      // Open a small blank window (user gesture) — browsers will allow this when called from a click handler
+      try {
+        popupWindow = window.open("", "_blank", "noopener,noreferrer");
+        if (popupWindow) {
+          // keep a placeholder message so popup isn't totally blank
+          popupWindow.document.body.innerHTML = "<p style='font-family:Arial,sans-serif;padding:16px'>Waiting — support page will open automatically if AI remains unavailable...</p>";
+        }
+      } catch (e) {
+        popupWindow = null;
+      }
+      return popupWindow;
+    }
+
     confirmCrop.onclick=async()=>{
       if(!cropper) return;
+      // open popup on user click to avoid popup blocker
+      ensurePopupOpen();
       cropModal.style.display="none";
       const canvas=cropper.getCroppedCanvas({width:1500,height:1500});
       const ctx=canvas.getContext("2d");
@@ -192,17 +214,38 @@
       return md;
     }
 
-    // ===== AI Streaming with Retry Logic =====
+    // ===== AI Streaming with Retry Logic & popup-safe fallback =====
     let failCount=0;
+    const FALLBACK_URL = "https://www.g10educationalplatformindia.co.in"; // change if needed
     async function searchSolution(text){
       try{
-        const resp=await fetch("https://ai-question-and-its-solution-3oip.onrender.com/ask-ai",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({question:text})});
-        if(!resp.ok) throw new Error("streaming failed");
+        const resp=await fetch("https://ai-question-and-its-solution-3oip.onrender.com/ask-ai",{
+          method:"POST",
+          headers:{"Content-Type":"application/json"},
+          body:JSON.stringify({question:text}),
+        });
+
+        // If API responded with an error (non-stream), treat as failure and possibly show message
+        if (!resp.ok) {
+          // try to read error message from body
+          let errMsg = `Error ${resp.status}`;
+          try {
+            const t = await resp.text();
+            if (t) errMsg = t;
+          } catch(e){}
+          throw new Error(errMsg);
+        }
+
+        // OK — we have a streaming body
         resultBox.innerHTML=`<b>G10EP AI Answer (streaming):</b><br><div id="streamOutput" style="white-space:pre-wrap;"></div>`;
         const streamDiv=document.getElementById("streamOutput");
+
+        // read the stream (if the body isn't a ReadableStream, this will throw)
+        if (!resp.body) throw new Error("No stream in response");
         const reader=resp.body.getReader();
         const decoder=new TextDecoder();
         let full="";
+
         while(true){
           const {done,value}=await reader.read();
           if(done) break;
@@ -219,23 +262,47 @@
           clearTimeout(window._mjTimer);
           window._mjTimer=setTimeout(()=>MathJax.typesetPromise([streamDiv]),200);
         }
+
         await MathJax.typesetPromise([streamDiv]);
-        failCount=0; // ✅ reset on success
+        // success -> reset counter and close popup if it was just a placeholder
+        failCount = 0;
+        try { if (popupWindow && !popupWindow.closed) { popupWindow.close(); popupWindow = null; } } catch(e){}
       }catch(err){
         console.error("AI stream error:",err);
         failCount++;
-        resultBox.innerHTML=`⚠️ Streaming failed (attempt ${failCount}/3). Please try again.`;
-        if(failCount>=3){
-          const fallbackURL="https://www.g10educationalplatformindia.co.in"; // 🔗 change if needed
-          resultBox.innerHTML="⚠️ 3 consecutive streaming errors. Opening support page...";
-          setTimeout(()=>window.open(fallbackURL,"_blank"),1500);
-          failCount=0;
+        resultBox.innerHTML=`⚠️ Streaming failed (attempt ${failCount}/3).`;
+
+        // If single error and popup wasn't opened by user click (e.g., manual Solve not used),
+        // we still avoid opening unrequested popups. Only open popup if it already exists or
+        // the user has performed a click that created it. We'll open it during user clicks.
+        // But if the popup is already opened (from earlier user click), use it.
+        if (failCount >= 3) {
+          // If popup was created earlier on user click, navigate it. Otherwise open one now.
+          try {
+            if (!popupWindow || popupWindow.closed) {
+              // attempt to open a new popup — may be blocked if not a user gesture
+              popupWindow = window.open("", "_blank", "noopener,noreferrer");
+              if (popupWindow) popupWindow.document.body.innerHTML = "<p style='font-family:Arial,sans-serif;padding:12px'>Redirecting to support page...</p>";
+            }
+            if (popupWindow) {
+              popupWindow.location.href = FALLBACK_URL;
+            } else {
+              // as a fallback, open in same tab (user will still be guided)
+              window.location.href = FALLBACK_URL;
+            }
+          } catch(e) {
+            // if any error, open same tab
+            window.location.href = FALLBACK_URL;
+          }
+          failCount = 0;
         }
       }
     }
 
-    // ===== Manual Mode =====
-    document.getElementById("solveManual").onclick=async()=>{
+    // ===== Manual Mode (open popup on click to avoid blockers) =====
+    document.getElementById("solveManual").onclick=async(e)=>{
+      // open a small popup now (user gesture). It will be reused if needed.
+      ensurePopupOpen();
       const text=document.getElementById("manualQuestion").value.trim();
       if(!text) return alert("Please enter a question.");
       resultBox.innerHTML="⏳ Searching...";
@@ -283,6 +350,8 @@
     });
     document.addEventListener("click",e=>{if(e.target!==codeInput)autoList.innerHTML="";});
     document.getElementById("solveCode").onclick=()=>{
+      // open popup on user click too (so fallback can be used)
+      ensurePopupOpen();
       const code=codeInput.value.trim().toUpperCase();
       if(!code) return alert("Please enter a question code.");
       resultBox.innerHTML="⏳ Searching...";
