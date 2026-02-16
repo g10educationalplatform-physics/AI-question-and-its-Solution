@@ -67,24 +67,42 @@ app.post("/ask-ai", async (req, res) => {
     const question = (req.body?.question || "").toString().trim();
     if (!question) return res.status(400).json({ error: "No question provided" });
 
-    // Set headers for streaming (text, not JSON)
     res.setHeader("Content-Type", "text/plain; charset=utf-8");
     res.setHeader("Cache-Control", "no-cache");
-    res.setHeader("Connection", "keep-alive");
-    res.flushHeaders?.(); // force headers to send immediately
 
-    const stream = await client.chat.completions.create({
+    // ⭐ NEW STREAM CODE GOES HERE
+    const stream = await client.responses.stream({
       model: "gpt-4o-mini",
-      stream: true,
-      messages: [
+      input: [
         {
           role: "system",
-          content: "You are an expert tutor in Physics, Chemistry, Math, and Biology. Show detailed step-by-step reasoning with LaTeX ($E = mc^2$).",
+          content: "You are an expert tutor in Physics, Chemistry, Math, and Biology. Show detailed step-by-step reasoning with LaTeX ($E = mc^2$)."
         },
-        { role: "user", content: `Solve this question clearly, step-by-step:\n${question}` },
-      ],
-      max_tokens: 1500,
+        {
+          role: "user",
+          content: `Solve this question clearly, step-by-step:\n${question}`
+        }
+      ]
     });
+
+    // Abort if client disconnects
+    req.on("close", () => stream.abort?.());
+
+    // Stream response
+    for await (const event of stream) {
+      if (event.type === "response.output_text.delta") {
+        res.write(event.delta);
+      }
+    }
+
+    res.end();
+
+  } catch (err) {
+    console.error(err);
+    if (!res.headersSent) res.status(500).json({ error: "Streaming failed" });
+  }
+});
+
 
     // Stream text chunks to the client
     for await (const chunk of stream) {
