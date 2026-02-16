@@ -104,21 +104,7 @@ app.post("/ask-ai", async (req, res) => {
 });
 
 
-    // Stream text chunks to the client
-    for await (const chunk of stream) {
-      const delta = chunk.choices?.[0]?.delta?.content;
-      if (delta) {
-        res.write(delta);
-        res.flush?.(); // important: force flush on Render / Express 5
-      }
-    }
-
-    res.end();
-  } catch (err) {
-    console.error("AI stream error:", err);
-    if (!res.headersSent) res.status(500).json({ error: "Streaming failed" });
-  }
-});
+ 
 
 
 // Health-check
