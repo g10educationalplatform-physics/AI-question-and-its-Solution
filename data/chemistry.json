@@ -25,26 +25,17 @@
     ]
   },
   {
-    "code": "C121",
+    "code": "C212",
     "question": {
-      "text": "Write the reaction of copper(II) oxide with sulfuric acid.",
-      "image": null
+      "text": "State the question shown in the image.",
+      "image": "https://i.ibb.co/rRTHq7hp/U07-015-scaled.jpg"
     },
-    "options": [
-      "(1) CuO + H2SO4 → CuSO4 + H2O",
-      "(2) CuO + H2SO4 → Cu + H2O",
-      "(3) CuO + H2SO4 → CuSO4",
-      "(4) Cu + H2SO4 → CuSO4 + H2"
-    ],
-    "correct_answer": "(1) CuO + H2SO4 → CuSO4 + H2O",
+    "options": [],
+    "correct_answer": null,
     "solution": {
-      "text": "$CuO + H_{2}SO_{4} → CuSO_{4} + H_{2}O$",
-      "image": null
+      "text": "",
+      "image": "https://i.ibb.co/tMW4wKYT/che-kin-q2.jpg"
     },
-    "solution_steps": [
-      "Step 1: Skeleton reaction: CuO + H2SO4 → CuSO4 + H2O",
-      "Step 2: Check Cu, S, O, H — already balanced",
-      "Final: CuO + H2SO4 → CuSO4 + H2O"
-    ]
+    "solution_steps": []
   }
 ]
