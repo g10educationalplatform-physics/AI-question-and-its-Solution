@@ -88,17 +88,21 @@
     </div>
 
     <div class="main-content">
-      <h2>📚 AI Question Solver<br>(Physics | Chemistry | Math | Biology)</h2>
+      <h2>GET YOUR SOLUTION<br>(Physics | Chemistry | Math | Biology)</h2>
       <div class="mode-toggle">
-        <label class="toggle-label"><input type="radio" name="mode" value="image" checked /> 📷 Upload Image</label>
-        <label class="toggle-label"><input type="radio" name="mode" value="text" /> ✍️ Type Question</label>
-        <label class="toggle-label"><input type="radio" name="mode" value="code" /> 🔢 Enter Question Code</label>
-      </div>
+
+<div class="mode-toggle">
+  <label class="toggle-label">🔢 Type the question or Enter Question Code of your question</label>
+</div>
+
+<div id="codeMode" style="position: relative;">
+  <input type="text" id="questionCode" placeholder="Enter question code or part of question..." autocomplete="off" /><br />
+  <div id="autocomplete-list"></div>
+  <button id="solveCode">🔍 Get Answer</button>
+</div>
 
       <div id="imageMode">
         <div class="flex gap-2">
-          <label for="cameraInput" class="btn">📷 Take Photo</label>
-          <label for="galleryInput" class="btn">🖼️ Upload from Gallery</label>
         </div>
         <input type="file" id="cameraInput" accept="image/*" capture="environment" hidden />
         <input type="file" id="galleryInput" accept="image/*" hidden />
@@ -109,11 +113,7 @@
         <button id="solveManual">🔍 Solve</button>
       </div>
 
-      <div id="codeMode" class="hidden" style="position: relative;">
-        <input type="text" id="questionCode" placeholder="Enter question code or part of question..." autocomplete="off" /><br />
-        <div id="autocomplete-list"></div>
-        <button id="solveCode">🔍 Get Answer</button>
-      </div>
+
 
       <div id="cropModal">
         <img id="cropImage" alt="To Crop" />
@@ -121,7 +121,7 @@
         <button id="confirmCrop" class="modal-btn">✂️ Crop & Solve</button>
       </div>
 
-      <div class="solution-box" id="result">Select a mode and provide your question to see the solution.</div>
+      <div class="solution-box" id="result">Enter the code of your question to see the solution.</div>
     </div>
   </div>
 
@@ -230,14 +230,43 @@
       fetch(subjectUrls[subj]).then(r=>r.json()).then(data=>{ questionBanks[subj]=data; fuseIndex[subj]=new Fuse(data, { keys: ["code","question.text"], threshold: 0.3 }); }).catch(()=>{});
     }
 
-    function renderQA(item, subj){
-      let html=`<b>Subject:</b> ${subj}<br>`; if(item.code) html+=`<p><b>Code:</b> <span class="small">${item.code}</span></p>`;
-      html+=`<p><b>Question:</b> <span class="mathjax">${item.question?.text||"❌ Question not found"}</span></p>`;
-      html+=`<p><b>Solution:</b> <span class="mathjax">${item.solution?.text||"❌ Solution not found"}</span></p>`;
-      if(item.solution_steps?.length){ html+=`<p><b>Solution Steps:</b></p><ul class="solution-step-list">`; item.solution_steps.forEach(step=>{ const stepHtml=step.replace(/(Step\s*\d+[:.]?)/gi,'<b style="color:#007bff">$1</b>').replace(/^###\s*(.*)$/gm,'<h3>$1</h3>'); html+=`<li><span class="mathjax">${stepHtml}</span></li>`; }); html+=`</ul>`; }
-      setTimeout(()=>{ MathJax.typesetPromise([document.getElementById("result")]); },60);
-      return html;
-    }
+function renderQA(item, subj){
+
+  let html = `<b>Subject:</b> ${subj}<br>`;
+
+  if(item.code){
+    html += `<p><b>Code:</b> ${item.code}</p>`;
+  }
+
+  /* Question */
+  html += `<p><b>Question:</b> ${item.question?.text || ""}</p>`;
+
+  if(item.question?.image){
+    html += `<img src="${item.question.image}" style="max-width:100%;margin:10px 0;">`;
+  }
+
+  /* Solution */
+  html += `<p><b>Solution:</b> ${item.solution?.text || ""}</p>`;
+
+  if(item.solution?.image){
+    html += `<img src="${item.solution.image}" style="max-width:100%;margin:10px 0;">`;
+  }
+
+  /* Steps */
+  if(item.solution_steps?.length){
+    html += `<p><b>Solution Steps:</b></p><ul>`;
+    item.solution_steps.forEach(step=>{
+      html += `<li>${step}</li>`;
+    });
+    html += `</ul>`;
+  }
+
+  setTimeout(()=>{
+    MathJax.typesetPromise([document.getElementById("result")]);
+  },60);
+
+  return html;
+}
 
     codeInput.addEventListener("input",()=>{
       const val=codeInput.value.trim().toUpperCase();
