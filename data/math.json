@@ -1,50 +1,1200 @@
 [
   {
-    "code": "M101",
-    "question": { 
-      "text": "Find the derivative of f(x) = x² + 3x + 5.", 
-      "image": null 
+    "code": "CL10M01P1Q1",
+    "question": {
+      "text": "The total number of factors of a prime number is:",
+      "image": null
     },
     "options": [
-      "(1) 2x + 3",
-      "(2) x² + 3",
-      "(3) 2x + 5",
-      "(4) x² + 5"
+      "(a) 1",
+      "(b) 0",
+      "(c) 2",
+      "(d) 3"
     ],
-    "correct_answer": "(1) 2x + 3",
+    "correct_answer": "(c) 2",
     "solution": {
-      "text": "f'(x) = d/dx (x² + 3x + 5) = 2x + 3",
+      "text": "A prime number has exactly two factors: 1 and itself.",
       "image": null
     },
     "solution_steps": [
-      "Step 1: Recall derivative rules: d/dx x^n = n*x^(n-1)",
-      "Step 2: Derivative of x² = 2x, derivative of 3x = 3, derivative of 5 = 0",
-      "Step 3: Sum: 2x + 3",
-      "Final Answer: 2x + 3"
+      "Step 1: A prime number is greater than 1",
+      "Step 2: It has only two factors → 1 and itself",
+      "Example: 7 → factors = 1, 7",
+      "Example: 13 → factors = 1, 13",
+      "Final Answer: 2"
     ]
   },
   {
-    "code": "M102",
-    "question": { 
-      "text": "Integrate ∫(2x + 3) dx.", 
-      "image": null 
+    "code": "CL10M01P1Q2",
+    "question": {
+      "text": "If p = 18a^2 b^4 and q = 20a^3 b^2, find LCM (p, q).",
+      "image": null
     },
     "options": [
-      "(1) x² + 3x + C",
-      "(2) 2x² + 3x + C",
-      "(3) x² + 3x",
-      "(4) x² + 3"
+      "(a) 90a^2 b^4",
+      "(b) 180a^2 b^4",
+      "(c) 90a^3 b^4",
+      "(d) 180a^3 b^4"
     ],
-    "correct_answer": "(1) x² + 3x + C",
+    "correct_answer": "(d) 180a^3 b^4",
     "solution": {
-      "text": "∫(2x + 3) dx = ∫2x dx + ∫3 dx = x² + 3x + C",
+      "text": "$LCM = 2^2 \\times 3^2 \\times 5 \\times a^3 \\times b^4 = 180a^3 b^4$",
       "image": null
     },
     "solution_steps": [
-      "Step 1: Split integral: ∫2x dx + ∫3 dx",
-      "Step 2: ∫2x dx = x², ∫3 dx = 3x",
-      "Step 3: Add constant of integration C",
-      "Final Answer: x² + 3x + C"
+      "Step 1: 18 = 2 × 3²",
+      "Step 2: 20 = 2² × 5",
+      "Step 3: Write p and q in prime form",
+      "p = 2 × 3² × a² b⁴",
+      "q = 2² × 5 × a³ b²",
+      "Step 4: Take highest powers",
+      "Final LCM = 2² × 3² × 5 × a³ × b⁴"
+    ]
+  },
+  {
+    "code": "CL10M01P1Q3",
+    "question": {
+      "text": "If a = 2^2 × 3^x, b = 2^2 × 3 × 5, c = 2^2 × 3 × 7 and LCM(a,b,c) = 3780, find x.",
+      "image": null
+    },
+    "options": [
+      "(a) 1",
+      "(b) 2",
+      "(c) 3",
+      "(d) 4"
+    ],
+    "correct_answer": "(c) 3",
+    "solution": {
+      "text": "$140 \\times 3^x = 3780 \\Rightarrow 3^x = 27 = 3^3$",
+      "image": null
+    },
+    "solution_steps": [
+      "Step 1: LCM = 2² × 3^x × 5 × 7",
+      "Step 2: Simplify → 140 × 3^x",
+      "Step 3: 140 × 3^x = 3780",
+      "Step 4: 3^x = 27",
+      "Step 5: x = 3"
+    ]
+  },
+  {
+    "code": "CL10M01P1Q4",
+    "question": {
+      "text": "Given HCF(2520, 6600) = 40 and LCM = 252 × k, find k.",
+      "image": null
+    },
+    "options": [
+      "(a) 1650",
+      "(b) 660",
+      "(c) 420",
+      "(d) 252"
+    ],
+    "correct_answer": "(a) 1650",
+    "solution": {
+      "text": "$HCF \\times LCM = Product$",
+      "image": null
+    },
+    "solution_steps": [
+      "Step 1: Use formula → HCF × LCM = Product",
+      "Step 2: 40 × (252k) = 2520 × 6600",
+      "Step 3: Solve for k",
+      "k = 1650"
+    ]
+  },
+  {
+    "code": "CL10M01P1Q5",
+    "question": {
+      "text": "The LCM of the smallest prime number and the smallest odd composite number is:",
+      "image": null
+    },
+    "options": [
+      "(a) 6",
+      "(b) 12",
+      "(c) 9",
+      "(d) 18"
+    ],
+    "correct_answer": "(d) 18",
+    "solution": {
+      "text": "$LCM(2, 9) = 18$",
+      "image": null
+    },
+    "solution_steps": [
+      "Step 1: Smallest prime = 2",
+      "Step 2: Smallest odd composite = 9",
+      "Step 3: LCM = 18"
+    ]
+  },
+  {
+    "code": "CL10M01P1Q6",
+    "question": {
+      "text": "The greatest number that divides 281 and 1249 leaving remainders 5 and 7 respectively is:",
+      "image": null
+    },
+    "options": [
+      "(a) 69",
+      "(b) 92",
+      "(c) 138",
+      "(d) 276"
+    ],
+    "correct_answer": "(c) 138",
+    "solution": {
+      "text": "$HCF(276, 1242) = 138$",
+      "image": null
+    },
+    "solution_steps": [
+      "Step 1: 281 - 5 = 276",
+      "Step 2: 1249 - 7 = 1242",
+      "Step 3: Find HCF(276, 1242)",
+      "Answer = 138"
+    ]
+  },
+  
+  {
+    "code": "CL10M01P1Q7",
+    "question": {
+      "text": "The LCM of 28, 44, and 132 is:",
+      "image": null
+    },
+    "options": [
+      "(a) 462",
+      "(b) 528",
+      "(c) 792",
+      "(d) 924"
+    ],
+    "correct_answer": "(d) 924",
+    "solution": {
+      "text": "$LCM = 2^2 \\times 3 \\times 7 \\times 11 = 924$",
+      "image": null
+    },
+    "solution_steps": [
+      "28 = 2² × 7",
+      "44 = 2² × 11",
+      "132 = 2² × 3 × 11",
+      "Take highest powers",
+      "LCM = 924"
+    ]
+  },
+   {
+    "code": "CL10M01P1Q8",
+    "question": {
+      "text": "(Assertion–Reason)\nAssertion (A): The number $5^n$ cannot end with digit 0.\nReason (R): Prime factorisation of 5 has only two factors: 1 and 5.",
+      "image": null
+    },
+    "options": [
+      "(a) Both A and R are true and R explains A",
+      "(b) Both A and R are true but R does not explain A",
+      "(c) A is true but R is false",
+      "(d) A is false but R is true"
+    ],
+    "correct_answer": "(b) Both A and R are true but R does not explain A",
+    "solution": {
+      "text": "$5^n$ does not contain factor 2, so it cannot form $10 = 2 \\times 5$, hence it cannot end with 0.",
+      "image": null
+    },
+    "solution_steps": [
+      "Step 1: A number ends with 0 only if it has factor 10",
+      "Step 2: 10 = 2 × 5",
+      "Step 3: 5^n contains only factor 5, not 2",
+      "Step 4: So 5^n cannot end with 0",
+      "Step 5: Reason is true but does not explain the requirement of factor 2"
+    ]
+  },
+  {
+    "code": "CL10M01P1Q9",
+    "question": {
+      "text": "If $p$ and $q$ are natural numbers and $p$ is a multiple of $q$, then HCF(p, q) is:",
+      "image": null
+    },
+    "options": [
+      "(a) p",
+      "(b) 1",
+      "(c) q",
+      "(d) pq"
+    ],
+    "correct_answer": "(c) q",
+    "solution": {
+      "text": "Since $p$ is divisible by $q$, the highest common factor is $q$.",
+      "image": null
+    },
+    "solution_steps": [
+      "Step 1: p is a multiple of q ⇒ p = kq",
+      "Step 2: So q divides both p and q",
+      "Step 3: No number greater than q can divide q",
+      "Step 4: Therefore, HCF = q"
+    ]
+  },
+  {
+    "code": "CL10M01P1Q10",
+    "question": {
+      "text": "The ratio of HCF to LCM of the smallest composite number and the smallest prime number is:",
+      "image": null
+    },
+    "options": [
+      "(a) 1 : 2",
+      "(b) 2 : 1",
+      "(c) 1 : 1",
+      "(d) 2 : 4"
+    ],
+    "correct_answer": "(a) 1 : 2",
+    "solution": {
+      "text": "Smallest composite = 4, smallest prime = 2. HCF = 2, LCM = 4, so ratio = $2:4 = 1:2$.",
+      "image": null
+    },
+    "solution_steps": [
+      "Step 1: Smallest composite number = 4",
+      "Step 2: Smallest prime number = 2",
+      "Step 3: HCF(4,2) = 2",
+      "Step 4: LCM(4,2) = 4",
+      "Step 5: Ratio = 2:4 = 1:2"
+    ]
+  },
+  {
+    "code": "CL10M01P1Q11",
+    "question": {
+      "text": "If HCF(39, 91) = 13, then LCM(39, 91) is:",
+      "image": null
+    },
+    "options": [
+      "(a) 91",
+      "(b) 273",
+      "(c) 507",
+      "(d) 39"
+    ],
+    "correct_answer": "(b) 273",
+    "solution": {
+      "text": "$LCM = \\frac{39 \\times 91}{13} = 273$",
+      "image": null
+    },
+    "solution_steps": [
+      "Step 1: Use formula: HCF × LCM = Product",
+      "Step 2: 13 × LCM = 39 × 91",
+      "Step 3: LCM = (39 × 91) / 13",
+      "Step 4: LCM = 273"
+    ]
+  },
+  {
+    "code": "CL10M01P1Q12",
+    "question": {
+      "text": "Two numbers have HCF = 12 and product = 6336. How many such pairs are possible?",
+      "image": null
+    },
+    "options": [
+      "(a) 2",
+      "(b) 3",
+      "(c) 4",
+      "(d) 1"
+    ],
+    "correct_answer": "(a) 2",
+    "solution": {
+      "text": "Let numbers be $12x$ and $12y$. Then $144xy = 6336 \\Rightarrow xy = 44$. Coprime pairs of 44 are (1,44) and (4,11).",
+      "image": null
+    },
+    "solution_steps": [
+      "Step 1: Let numbers = 12x and 12y",
+      "Step 2: Product = 144xy = 6336",
+      "Step 3: xy = 44",
+      "Step 4: Coprime pairs of 44 = (1,44), (4,11)",
+      "Step 5: Total pairs = 2"
+    ]
+  },
+  {
+    "code": "CL10M01P1Q13",
+    "question": {
+      "text": "If n is any natural number, then $12^n$ cannot end with digit:",
+      "image": null
+    },
+    "options": [
+      "(a) 2",
+      "(b) 4",
+      "(c) 6",
+      "(d) 0"
+    ],
+    "correct_answer": "(d) 0",
+    "solution": {
+      "text": "$12^n = (2^2 \\times 3)^n = 2^{2n} \\times 3^n$. No factor 5, so cannot form 10.",
+      "image": null
+    },
+    "solution_steps": [
+      "Step 1: 12 = 2² × 3",
+      "Step 2: 12^n = 2^(2n) × 3^n",
+      "Step 3: No factor 5 present",
+      "Step 4: Cannot form 10 (2 × 5)",
+      "Step 5: So it cannot end with 0"
+    ]
+  },
+  {
+    "code": "CL10M01P1Q14",
+    "question": {
+      "text": "The number 385 can be expressed as the product of primes as:",
+      "image": null
+    },
+    "options": [
+      "(a) 5 × 11 × 13",
+      "(b) 5 × 7 × 11",
+      "(c) 7 × 11 × 13",
+      "(d) 5 × 7 × 13"
+    ],
+    "correct_answer": "(b) 5 × 7 × 11",
+    "solution": {
+      "text": "$385 = 5 \\times 7 \\times 11$",
+      "image": null
+    },
+    "solution_steps": [
+      "Step 1: Divide 385 by 5 → 77",
+      "Step 2: Divide 77 by 7 → 11",
+      "Step 3: 11 is prime",
+      "Step 4: So 385 = 5 × 7 × 11"
+    ]
+  },
+  {
+    "code": "CL10M01P1Q15",
+    "question": {
+      "text": "The HCF and LCM of 12, 21, and 15 respectively are:",
+      "image": null
+    },
+    "options": [
+      "(a) 3, 210",
+      "(b) 1, 420",
+      "(c) 3, 420",
+      "(d) 6, 420"
+    ],
+    "correct_answer": "(c) 3, 420",
+    "solution": {
+      "text": "HCF = 3, LCM = $2^2 \\times 3 \\times 5 \\times 7 = 420$",
+      "image": null
+    },
+    "solution_steps": [
+      "Step 1: Prime factors: 12=2²×3, 21=3×7, 15=3×5",
+      "Step 2: HCF = common factor = 3",
+      "Step 3: LCM = highest powers = 2² × 3 × 5 × 7",
+      "Step 4: LCM = 420"
+    ]
+  },
+  {
+    "code": "CL10M01P1Q16",
+    "question": {
+      "text": "LCM of two numbers = 182, HCF = 13. One number = 26. Find the other number.",
+      "image": null
+    },
+    "options": [],
+    "correct_answer": "91",
+    "solution": {
+      "text": "Using formula: $\\text{Product of numbers} = \\text{HCF} \\times \\text{LCM} = 13 \\times 182 = 2366$. \nOther number $= \\frac{2366}{26} = 91$",
+      "image": null
+    },
+    "solution_steps": [
+      "Step 1: Use formula: Product = HCF × LCM",
+      "Step 2: Product = 13 × 182 = 2366",
+      "Step 3: One number = 26",
+      "Step 4: Other number = 2366 ÷ 26",
+      "Step 5: Other number = 91"
+    ]
+  },
+  {
+    "code": "CL10M01P1Q17",
+    "question": {
+      "text": "LCM of two numbers is 9 times their HCF. Sum of LCM and HCF = 500. Find the HCF.",
+      "image": null
+    },
+    "options": [],
+    "correct_answer": "50",
+    "solution": {
+      "text": "Let HCF = $x$, then LCM = $9x$. \n$x + 9x = 500 \\Rightarrow 10x = 500 \\Rightarrow x = 50$",
+      "image": null
+    },
+    "solution_steps": [
+      "Step 1: Let HCF = x",
+      "Step 2: LCM = 9x",
+      "Step 3: x + 9x = 500",
+      "Step 4: 10x = 500",
+      "Step 5: x = 50"
+    ]
+  },
+  {
+    "code": "CL10M01P1Q18",
+    "question": {
+      "text": "If HCF(336, 54) = 6, find LCM(336, 54).",
+      "image": null
+    },
+    "options": [],
+    "correct_answer": "3024",
+    "solution": {
+      "text": "$LCM = \\frac{336 \\times 54}{6} = 336 \\times 9 = 3024$",
+      "image": null
+    },
+    "solution_steps": [
+      "Step 1: Use formula: HCF × LCM = Product",
+      "Step 2: LCM = (336 × 54) ÷ 6",
+      "Step 3: Simplify: 54 ÷ 6 = 9",
+      "Step 4: LCM = 336 × 9",
+      "Step 5: LCM = 3024"
+    ]
+  },
+  {
+    "code": "CL10M01P1Q19",
+    "question": {
+      "text": "HCF of two numbers = 5, LCM = 200. Find the product of the numbers.",
+      "image": null
+    },
+    "options": [],
+    "correct_answer": "1000",
+    "solution": {
+      "text": "$\\text{Product} = \\text{HCF} \\times \\text{LCM} = 5 \\times 200 = 1000$",
+      "image": null
+    },
+    "solution_steps": [
+      "Step 1: Use formula: Product = HCF × LCM",
+      "Step 2: Product = 5 × 200",
+      "Step 3: Product = 1000"
+    ]
+  },
+  {
+    "code": "CL10M01P1Q20",
+    "question": {
+      "text": "Find the HCF of the smallest prime number and the smallest composite number.",
+      "image": null
+    },
+    "options": [],
+    "correct_answer": "2",
+    "solution": {
+      "text": "Smallest prime number = 2, smallest composite number = 4. So, $HCF(2,4) = 2$",
+      "image": null
+    },
+    "solution_steps": [
+      "Step 1: Smallest prime number = 2",
+      "Step 2: Smallest composite number = 4",
+      "Step 3: HCF(2, 4) = 2"
+    ]
+  },
+  {
+    "code": "CL10M01P1Q21",
+    "question": {
+      "text": "Show that any number of the form $6^n$ never ends with digit 0.",
+      "image": null
+    },
+    "options": [],
+    "correct_answer": "Proven",
+    "solution": {
+      "text": "$6^n = (2 \\times 3)^n = 2^n \\times 3^n$. \nTo end with 0, a number must have factor $10 = 2 \\times 5$. \nSince factor 5 is missing, $6^n$ cannot end with 0.",
+      "image": null
+    },
+    "solution_steps": [
+      "Step 1: Write 6 as 2 × 3",
+      "Step 2: 6^n = (2 × 3)^n = 2^n × 3^n",
+      "Step 3: To end with 0, number must contain factor 10",
+      "Step 4: 10 = 2 × 5",
+      "Step 5: Factor 5 is missing",
+      "Step 6: Therefore, 6^n cannot end with 0"
+    ]
+  },
+  {
+    "code": "CL10M01P1Q22",
+    "question": {
+      "text": "HCF = 27, LCM = 162. One number = 54. Find the other number.",
+      "image": null
+    },
+    "options": [],
+    "correct_answer": "81",
+    "solution": {
+      "text": "$\\text{Product} = 27 \\times 162 = 4374$. \nOther number $= \\frac{4374}{54} = 81$",
+      "image": null
+    },
+    "solution_steps": [
+      "Step 1: Use formula: Product = HCF × LCM",
+      "Step 2: Product = 27 × 162 = 4374",
+      "Step 3: One number = 54",
+      "Step 4: Other number = 4374 ÷ 54",
+      "Step 5: Other number = 81"
+    ]
+  },
+   {
+    "code": "CL10M01P1Q24",
+    "question": {
+      "text": "Show that: $5 \\times 11 \\times 17 + 3 \\times 11$ is a composite number.",
+      "image": null
+    },
+    "options": [],
+    "correct_answer": "Composite number",
+    "solution": {
+      "text": "$5 \\times 11 \\times 17 + 3 \\times 11 = 11(5 \\times 17 + 3) = 11(85 + 3) = 11 \\times 88$",
+      "image": null
+    },
+    "solution_steps": [
+      "Step 1: Take common factor: $= 11(5 \\times 17 + 3)$",
+      "Step 2: Simplify: $= 11(85 + 3)$",
+      "Step 3: Final form: $= 11 \\times 88$",
+      "Step 4: Since it is product of numbers greater than 1, it is composite"
+    ]
+  },
+  {
+    "code": "CL10M01P1Q25",
+    "question": {
+      "text": "Check whether $6^n$ can end with digit 0 for any natural number $n$.",
+      "image": null
+    },
+    "options": [],
+    "correct_answer": "No",
+    "solution": {
+      "text": "$6^n = (2 \\times 3)^n = 2^n \\times 3^n$",
+      "image": null
+    },
+    "solution_steps": [
+      "Step 1: Write $6^n = (2 \\times 3)^n = 2^n \\times 3^n$",
+      "Step 2: A number ends with 0 if it has factor $10 = 2 \\times 5$",
+      "Step 3: Here factor 5 is missing",
+      "Step 4: Therefore, $6^n$ cannot end with 0"
+    ]
+  },
+  {
+    "code": "CL10M01P1Q26",
+    "question": {
+      "text": "Find the least number which when divided by 12, 16, and 24 leaves remainder 7 in each case.",
+      "image": null
+    },
+    "options": [],
+    "correct_answer": "55",
+    "solution": {
+      "text": "Required number $= \\text{LCM}(12,16,24) + 7 = 48 + 7 = 55$",
+      "image": null
+    },
+    "solution_steps": [
+      "Step 1: Required number $= \\text{LCM}(12,16,24) + 7$",
+      "Step 2: Prime factorisation: $12=2^2 \\times 3$, $16=2^4$, $24=2^3 \\times 3$",
+      "Step 3: $\\text{LCM} = 2^4 \\times 3 = 48$",
+      "Step 4: Final answer: $48 + 7 = 55$"
+    ]
+  },
+  {
+    "code": "CL10M01P1Q27",
+    "question": {
+      "text": "Two numbers are in the ratio $2:3$ and their LCM is 180. Find their HCF.",
+      "image": null
+    },
+    "options": [],
+    "correct_answer": "30",
+    "solution": {
+      "text": "Let numbers be $2x$ and $3x$, then LCM $= 6x = 180 \\Rightarrow x = 30$",
+      "image": null
+    },
+    "solution_steps": [
+      "Step 1: Let numbers be $2x$ and $3x$",
+      "Step 2: HCF $= x$",
+      "Step 3: LCM $= 6x$",
+      "Step 4: $6x = 180 \\Rightarrow x = 30$"
+    ]
+  },
+  {
+    "code": "CL10M01P1Q28",
+    "question": {
+      "text": "Explain why the following numbers are composite: (i) $2 \\times 3 \\times 5 + 5$ (ii) $5 \\times 7 \\times 11 + 7 \\times 5$",
+      "image": null
+    },
+    "options": [],
+    "correct_answer": "Both are composite numbers",
+    "solution": {
+      "text": "(i) $= 5(2 \\times 3 + 1) = 5 \\times 7$ \\\\ (ii) $= 5 \\times 7(11 + 1) = 5 \\times 7 \\times 12$",
+      "image": null
+    },
+    "solution_steps": [
+      "Step 1: (i) $= 5(2 \\times 3 + 1) = 5(6 + 1) = 5 \\times 7$",
+      "Step 2: (ii) $= 5 \\times 7(11 + 1) = 5 \\times 7 \\times 12$",
+      "Step 3: Both are products of numbers greater than 1",
+      "Step 4: Hence, both are composite"
+    ]
+  },
+  {
+    "code": "CL10M01P1Q29",
+    "question": {
+      "text": "If HCF of 65 and 117 can be written in the form $65n - 117$, find $n$.",
+      "image": null
+    },
+    "options": [],
+    "correct_answer": "2",
+    "solution": {
+      "text": "$\\text{HCF}(65,117)=13$, so $65n - 117 = 13$",
+      "image": null
+    },
+    "solution_steps": [
+      "Step 1: $65 = 5 \\times 13$, $117 = 9 \\times 13 \\Rightarrow \\text{HCF} = 13$",
+      "Step 2: $65n - 117 = 13$",
+      "Step 3: $65n = 130$",
+      "Step 4: $n = 2$"
+    ]
+  },
+  {
+    "code": "CL10M01P1Q30",
+    "question": {
+      "text": "Find the HCF of 612 and 1314 using prime factorisation.",
+      "image": null
+    },
+    "options": [],
+    "correct_answer": "18",
+    "solution": {
+      "text": "$\\text{HCF} = 2^1 \\times 3^2 = 18$",
+      "image": null
+    },
+    "solution_steps": [
+      "Step 1: $612 = 2^2 \\times 3^2 \\times 17$",
+      "Step 2: $1314 = 2 \\times 3^2 \\times 73$",
+      "Step 3: Common factors: $2^1 \\times 3^2$",
+      "Step 4: $\\text{HCF} = 2 \\times 9 = 18$"
+    ]
+  },
+  {
+    "code": "CL10M01P1Q31",
+    "question": {
+      "text": "Express 5050 as a product of its prime factors. Is the factorisation unique?",
+      "image": null
+    },
+    "options": [],
+    "correct_answer": "Yes, unique",
+    "solution": {
+      "text": "$5050 = 2 \\times 5^2 \\times 101$",
+      "image": null
+    },
+    "solution_steps": [
+      "Step 1: $5050 = 50 \\times 101$",
+      "Step 2: $50 = 2 \\times 5^2$",
+      "Step 3: $5050 = 2 \\times 5^2 \\times 101$",
+      "Step 4: By Fundamental Theorem of Arithmetic, factorisation is unique"
+    ]
+  },
+  {
+    "code": "CL10M01P1Q32",
+    "question": {
+      "text": "Show that 231 and 396 are not co-prime.",
+      "image": null
+    },
+    "options": [],
+    "correct_answer": "Not co-prime",
+    "solution": {
+      "text": "$\\text{HCF} = 3 \\times 11 = 33 \\neq 1$",
+      "image": null
+    },
+    "solution_steps": [
+      "Step 1: $231 = 3 \\times 7 \\times 11$",
+      "Step 2: $396 = 2^2 \\times 3^2 \\times 11$",
+      "Step 3: Common factors: $3 \\times 11 = 33$",
+      "Step 4: Since HCF $\\neq 1$, they are not co-prime"
+    ]
+  },
+  {
+    "code": "CL10M01P1Q33",
+    "question": {
+      "text": "In a teacher’s workshop, the number of teachers teaching French = 48, Hindi = 80, English = 144. Find the minimum number of rooms required if each room has the same number of teachers and all teachers in a room teach the same subject.",
+      "image": null
+    },
+    "options": [],
+    "correct_answer": "17 rooms",
+    "solution": {
+      "text": "Teachers per room $= \\text{HCF}(48,80,144) = 16$, Total rooms $= \\frac{48}{16} + \\frac{80}{16} + \\frac{144}{16} = 3 + 5 + 9 = 17$",
+      "image": null
+    },
+    "solution_steps": [
+      "Step 1: Find HCF of $48, 80, 144$",
+      "Step 2: $48 = 2^4 \\times 3$, $80 = 2^4 \\times 5$, $144 = 2^4 \\times 3^2$",
+      "Step 3: $\\text{HCF} = 2^4 = 16$",
+      "Step 4: Rooms required $= \\frac{48}{16} + \\frac{80}{16} + \\frac{144}{16}$",
+      "Step 5: $= 3 + 5 + 9 = 17$"
+    ]
+  },
+  {
+    "code": "CL10M01P1Q34",
+    "question": {
+      "text": "Find the LCM of 18180 and 7575 using prime factorisation. Also find their HCF.",
+      "image": null
+    },
+    "options": [],
+    "correct_answer": "HCF = 1515, LCM = 90900",
+    "solution": {
+      "text": "$\\text{HCF} = 3 \\times 5 \\times 101 = 1515$, $\\text{LCM} = 2^2 \\times 3^2 \\times 5^2 \\times 101 = 90900$",
+      "image": null
+    },
+    "solution_steps": [
+      "Step 1: $18180 = 2^2 \\times 3^2 \\times 5 \\times 101$",
+      "Step 2: $7575 = 3 \\times 5^2 \\times 101$",
+      "Step 3: HCF $= 3^1 \\times 5^1 \\times 101 = 1515$",
+      "Step 4: LCM $= 2^2 \\times 3^2 \\times 5^2 \\times 101 = 90900$"
+    ]
+  },
+  {
+    "code": "CL10M01P1Q35",
+    "question": {
+      "text": "Three bells ring at intervals of 6, 12, and 18 minutes. If they all ring at 6:00 AM, when will they ring together again?",
+      "image": null
+    },
+    "options": [],
+    "correct_answer": "6:36 AM",
+    "solution": {
+      "text": "$\\text{LCM}(6,12,18) = 36$ minutes, so next time $= 6:00 + 36 = 6:36\\ \\text{AM}$",
+      "image": null
+    },
+    "solution_steps": [
+      "Step 1: $6 = 2 \\times 3$, $12 = 2^2 \\times 3$, $18 = 2 \\times 3^2$",
+      "Step 2: $\\text{LCM} = 2^2 \\times 3^2 = 36$ minutes",
+      "Step 3: Add to initial time: $6:00 + 36$ minutes",
+      "Step 4: Final time $= 6:36\\ \\text{AM}$"
+    ]
+  },
+  {
+    "code": "CL10M01P1Q36",
+    "question": {
+      "text": "Find HCF and LCM of 404 and 96. Verify that HCF × LCM = Product of the numbers.",
+      "image": null
+    },
+    "options": [],
+    "correct_answer": "HCF = 4, LCM = 9696",
+    "solution": {
+      "text": "$\\text{HCF} = 4$, $\\text{LCM} = 9696$, and $4 \\times 9696 = 404 \\times 96$",
+      "image": null
+    },
+    "solution_steps": [
+      "Step 1: $404 = 2^2 \\times 101$, $96 = 2^5 \\times 3$",
+      "Step 2: HCF $= 2^2 = 4$",
+      "Step 3: LCM $= 2^5 \\times 3 \\times 101 = 9696$",
+      "Step 4: Verify: $4 \\times 9696 = 38784$",
+      "Step 5: $404 \\times 96 = 38784$",
+      "Step 6: Verified that $\\text{HCF} \\times \\text{LCM} = \\text{Product}$"
+    ]
+  },
+  {
+    "code": "CL10M01P1Q37",
+    "question": {
+      "text": "An army group of 678 soldiers is marching behind a band of 36 members. They must march in the same number of columns. Find the maximum number of columns possible.",
+      "image": null
+    },
+    "options": [],
+    "correct_answer": "6 columns",
+    "solution": {
+      "text": "$\\text{Maximum columns} = \\text{HCF}(678,36) = 6$",
+      "image": null
+    },
+    "solution_steps": [
+      "Step 1: $678 = 2 \\times 3 \\times 113$",
+      "Step 2: $36 = 2^2 \\times 3^2$",
+      "Step 3: Common factors: $2 \\times 3$",
+      "Step 4: $\\text{HCF} = 6$"
+    ]
+  },
+  {
+    "code": "CL10M01P1Q38",
+    "question": {
+      "text": "Three persons walk with step lengths of 40 cm, 42 cm, and 45 cm respectively. Find the minimum distance each must walk so that each covers the same distance in complete steps.",
+      "image": null
+    },
+    "options": [],
+    "correct_answer": "2520 cm (or 25.2 m)",
+    "solution": {
+      "text": "$\\text{LCM}(40,42,45) = 2520\\ \\text{cm} = 25.2\\ \\text{m}$",
+      "image": null
+    },
+    "solution_steps": [
+      "Step 1: $40 = 2^3 \\times 5$, $42 = 2 \\times 3 \\times 7$, $45 = 3^2 \\times 5$",
+      "Step 2: $\\text{LCM} = 2^3 \\times 3^2 \\times 5 \\times 7$",
+      "Step 3: $= 2520\\ \\text{cm}$",
+      "Step 4: Convert: $2520\\ \\text{cm} = 25.2\\ \\text{m}$"
+    ]
+  },
+  [
+  {
+    "code": "CL10M01P1Q39",
+    "question": {
+      "text": "Case Study (Prime Numbers Activity): A game starts with the number $2$. Each student multiplies it by a prime number. The final number becomes $173250$. Answer the following: (i) What is the smallest prime used? (ii) (a) How many students are there? OR (ii) (b) What is the largest prime used? (iii) Which prime is used maximum number of times?",
+      "image": null
+    },
+    "options": [],
+    "correct_answer": "(i) 2, (ii)(a) 8 OR (ii)(b) 11, (iii) 5",
+    "solution": {
+      "text": "$173250 = 2 \\times 3^2 \\times 5^3 \\times 7 \\times 11$",
+      "image": null
+    },
+    "solution_steps": [
+      "Step 1: Prime factorisation: $173250 = 2 \\times 3^2 \\times 5^3 \\times 7 \\times 11$",
+      "Step 2: Primes used: $2, 3, 5, 7, 11$",
+      "Step 3: Smallest prime = $2$",
+      "Step 4: Total factors (students) $= 1 + 2 + 3 + 1 + 1 = 8$",
+      "Step 5: Largest prime = $11$",
+      "Step 6: Maximum power is $5^3$, so most used prime = $5$"
+    ]
+  },
+  {
+    "code": "CL10M01P1Q40",
+    "question": {
+      "text": "Case Study (Books Arrangement): Books — History = 96, Science = 240, Mathematics = 336. Books must be arranged such that each stack has only one subject and equal number of books. Answer: (i) Books per stack (ii) Stacks for Mathematics (iii) (a) Total stacks OR (iii) (b) Height of each stack if thickness: History = 1.8 cm, Science = 2.2 cm, Mathematics = 2.5 cm.",
+      "image": null
+    },
+    "options": [],
+    "correct_answer": "(i) 48, (ii) 7, (iii)(a) 14 OR (iii)(b) 86.4 cm, 105.6 cm, 120 cm",
+    "solution": {
+      "text": "$\\text{HCF}(96,240,336) = 48$",
+      "image": null
+    },
+    "solution_steps": [
+      "Step 1: $96 = 2^5 \\times 3$, $240 = 2^4 \\times 3 \\times 5$, $336 = 2^4 \\times 3 \\times 7$",
+      "Step 2: $\\text{HCF} = 2^4 \\times 3 = 48$",
+      "Step 3: Books per stack = $48$",
+      "Step 4: Maths stacks $= \\frac{336}{48} = 7$",
+      "Step 5: Total stacks $= \\frac{96}{48} + \\frac{240}{48} + \\frac{336}{48} = 2 + 5 + 7 = 14$",
+      "Step 6: Heights: History $= 48 \\times 1.8 = 86.4\\,\\text{cm}$",
+      "Step 7: Science $= 48 \\times 2.2 = 105.6\\,\\text{cm}$",
+      "Step 8: Mathematics $= 48 \\times 2.5 = 120\\,\\text{cm}$"
+    ]
+  },
+  {
+    "code": "CL10M01P1Q41",
+    "question": {
+      "text": "A shopkeeper packs 396 gulab jamuns and 342 rasgullas into boxes. Each box contains equal number of pieces and only one type. Find number of pieces per box such that total boxes are minimum.",
+      "image": null
+    },
+    "options": [],
+    "correct_answer": "18",
+    "solution": {
+      "text": "$\\text{HCF}(396,342) = 18$",
+      "image": null
+    },
+    "solution_steps": [
+      "Step 1: $396 = 2^2 \\times 3^2 \\times 11$",
+      "Step 2: $342 = 2 \\times 3^2 \\times 19$",
+      "Step 3: $\\text{HCF} = 2 \\times 3^2 = 18$",
+      "Step 4: Pieces per box = $18$"
+    ]
+  },
+  {
+    "code": "CL10M01P1Q42",
+    "question": {
+      "text": "Find the largest number that divides 125, 162, and 259 leaving remainders 5, 6, and 7 respectively.",
+      "image": null
+    },
+    "options": [],
+    "correct_answer": "12",
+    "solution": {
+      "text": "$\\text{HCF}(120,156,252) = 12$",
+      "image": null
+    },
+    "solution_steps": [
+      "Step 1: Convert: $125 - 5 = 120$, $162 - 6 = 156$, $259 - 7 = 252$",
+      "Step 2: $120 = 2^3 \\times 3 \\times 5$",
+      "Step 3: $156 = 2^2 \\times 3 \\times 13$",
+      "Step 4: $252 = 2^2 \\times 3^2 \\times 7$",
+      "Step 5: $\\text{HCF} = 2^2 \\times 3 = 12$"
+    ]
+  }
+],
+ {
+    "code": "CL10M01P1Q43",
+    "question": {
+      "text": "A pair of irrational numbers whose product is a rational number is:",
+      "image": null
+    },
+    "options": [
+      "(a) (\\sqrt{16}, \\sqrt{4})",
+      "(b) (\\sqrt{5}, \\sqrt{2})",
+      "(c) (\\sqrt{3}, \\sqrt{27})",
+      "(d) (\\sqrt{36}, \\sqrt{2})"
+    ],
+    "correct_answer": "(c) (\\sqrt{3}, \\sqrt{27})",
+    "solution": {
+      "text": "Only option (c) gives irrational × irrational = rational.",
+      "image": null
+    },
+    "solution_steps": [
+      "Step 1: Check each option separately.",
+      "Step 2: (a) \\(\\sqrt{16} = 4\\), \\(\\sqrt{4} = 2\\) → both are rational → not valid.",
+      "Step 3: (b) \\(\\sqrt{5} \\times \\sqrt{2} = \\sqrt{10}\\) → irrational.",
+      "Step 4: (c) \\(\\sqrt{3} \\times \\sqrt{27} = \\sqrt{81} = 9\\) → rational.",
+      "Step 5: (d) \\(\\sqrt{36} = 6\\) (rational), \\(\\sqrt{2}\\) irrational → not valid.",
+      "Final: Only option (c) satisfies the condition."
+    ]
+  },
+  {
+    "code": "CL10M01P1Q44",
+    "question": {
+      "text": "Prove that \\(5 - 2\\sqrt{3}\\) is irrational, given that \\(\\sqrt{3}\\) is irrational.",
+      "image": null
+    },
+    "options": [],
+    "correct_answer": null,
+    "solution": {
+      "text": "\\(5 - 2\\sqrt{3}\\) is irrational.",
+      "image": null
+    },
+    "solution_steps": [
+      "Step 1: Assume \\(5 - 2\\sqrt{3}\\) is rational.",
+      "Step 2: Then \\(2\\sqrt{3} = 5 - (\\text{rational}) = \\text{rational}\\).",
+      "Step 3: So, \\(\\sqrt{3} = \\frac{\\text{rational}}{2} = \\text{rational}\\).",
+      "Step 4: This contradicts the fact that \\(\\sqrt{3}\\) is irrational.",
+      "Final: Therefore, \\(5 - 2\\sqrt{3}\\) is irrational."
+    ]
+  },
+  {
+    "code": "CL10M01P1Q45",
+    "question": {
+      "text": "If \\(\\sqrt{2}\\) is irrational, prove that \\(5 - 2\\sqrt{2}\\) is irrational.",
+      "image": null
+    },
+    "options": [],
+    "correct_answer": null,
+    "solution": {
+      "text": "\\(5 - 2\\sqrt{2}\\) is irrational.",
+      "image": null
+    },
+    "solution_steps": [
+      "Step 1: Assume \\(5 - 2\\sqrt{2}\\) is rational.",
+      "Step 2: Then \\(2\\sqrt{2} = 5 - (\\text{rational}) = \\text{rational}\\).",
+      "Step 3: So, \\(\\sqrt{2} = \\frac{\\text{rational}}{2} = \\text{rational}\\).",
+      "Step 4: This contradicts the fact that \\(\\sqrt{2}\\) is irrational.",
+      "Final: Therefore, \\(5 - 2\\sqrt{2}\\) is irrational."
+    ]
+  },
+  {
+    "code": "CL10M01P1Q46",
+    "question": {
+      "text": "Prove that \\(2 + \\sqrt{3}\\) is irrational, given that \\(\\sqrt{3}\\) is irrational.",
+      "image": null
+    },
+    "options": [],
+    "correct_answer": null,
+    "solution": {
+      "text": "\\(2 + \\sqrt{3}\\) is irrational.",
+      "image": null
+    },
+    "solution_steps": [
+      "Step 1: Assume \\(2 + \\sqrt{3}\\) is rational.",
+      "Step 2: Then \\(\\sqrt{3} = (\\text{rational}) - 2 = \\text{rational}\\).",
+      "Step 3: This contradicts the fact that \\(\\sqrt{3}\\) is irrational.",
+      "Final: Therefore, \\(2 + \\sqrt{3}\\) is irrational."
+    ]
+  },
+  {
+    "code": "CL10M01P1Q47",
+    "question": {
+      "text": "Show that \\(5 + 2\\sqrt{7}\\) is irrational, where \\(\\sqrt{7}\\) is irrational.",
+      "image": null
+    },
+    "options": [],
+    "correct_answer": null,
+    "solution": {
+      "text": "\\(5 + 2\\sqrt{7}\\) is irrational.",
+      "image": null
+    },
+    "solution_steps": [
+      "Step 1: Assume \\(5 + 2\\sqrt{7}\\) is rational.",
+      "Step 2: Then \\(2\\sqrt{7} = (\\text{rational}) - 5 = \\text{rational}\\).",
+      "Step 3: So, \\(\\sqrt{7} = \\frac{\\text{rational}}{2} = \\text{rational}\\).",
+      "Step 4: This contradicts the fact that \\(\\sqrt{7}\\) is irrational.",
+      "Final: Therefore, \\(5 + 2\\sqrt{7}\\) is irrational."
+    ]
+  },
+  {
+    "code": "CL10M01P1Q48",
+    "question": {
+      "text": "Show that \\(\\frac{3 + \\sqrt{7}}{5}\\) is irrational, given that \\(\\sqrt{7}\\) is irrational.",
+      "image": null
+    },
+    "options": [],
+    "correct_answer": null,
+    "solution": {
+      "text": "\\(\\frac{3 + \\sqrt{7}}{5}\\) is irrational.",
+      "image": null
+    },
+    "solution_steps": [
+      "Step 1: Assume \\(\\frac{3 + \\sqrt{7}}{5}\\) is rational.",
+      "Step 2: Then \\(3 + \\sqrt{7} = 5 \\times (\\text{rational}) = \\text{rational}\\).",
+      "Step 3: So, \\(\\sqrt{7} = (\\text{rational}) - 3 = \\text{rational}\\).",
+      "Step 4: This contradicts the fact that \\(\\sqrt{7}\\) is irrational.",
+      "Final: Therefore, \\(\\frac{3 + \\sqrt{7}}{5}\\) is irrational."
+    ]
+  },
+  {
+    "code": "CL10M01P1Q49",
+    "question": {
+      "text": "Given that \\(\\sqrt{2}\\) is irrational, prove that \\(5 + 3\\sqrt{2}\\) is irrational.",
+      "image": null
+    },
+    "options": [],
+    "correct_answer": null,
+    "solution": {
+      "text": "\\(5 + 3\\sqrt{2}\\) is irrational.",
+      "image": null
+    },
+    "solution_steps": [
+      "Step 1: Assume \\(5 + 3\\sqrt{2}\\) is rational.",
+      "Step 2: Then \\(3\\sqrt{2} = (\\text{rational}) - 5 = \\text{rational}\\).",
+      "Step 3: So, \\(\\sqrt{2} = \\frac{\\text{rational}}{3} = \\text{rational}\\).",
+      "Step 4: This contradicts the fact that \\(\\sqrt{2}\\) is irrational.",
+      "Final: Therefore, \\(5 + 3\\sqrt{2}\\) is irrational."
+    ]
+  },
+  {
+    "code": "CL10M01P1Q50",
+    "question": {
+      "text": "How many irrational numbers lie between \\(\\sqrt{2}\\) and \\(\\sqrt{3}\\)? Write any two examples.",
+      "image": null
+    },
+    "options": [],
+    "correct_answer": "Infinitely many irrational numbers; examples: \\(\\sqrt{2.5}, \\sqrt{2.8}\\)",
+    "solution": {
+      "text": "There are infinitely many irrational numbers between \\(\\sqrt{2}\\) and \\(\\sqrt{3}\\).",
+      "image": null
+    },
+    "solution_steps": [
+      "Step 1: Approximate values: \\(\\sqrt{2} \\approx 1.414\\), \\(\\sqrt{3} \\approx 1.732\\).",
+      "Step 2: Between any two real numbers, infinitely many irrational numbers exist.",
+      "Step 3: Choose numbers between 2 and 3 which are not perfect squares.",
+      "Step 4: Examples: \\(\\sqrt{2.5}\\), \\(\\sqrt{2.8}\\).",
+      "Step 5: Verify: \\(1.414 < \\sqrt{2.5} < \\sqrt{2.8} < 1.732\\).",
+      "Final: Hence, infinitely many irrational numbers exist between them."
+    ]
+  },
+  {
+    "code": "CL10M01P1Q51",
+    "question": {
+      "text": "Prove that \\((\\sqrt{2} + \\sqrt{3})^2\\) is irrational, given that \\(\\sqrt{6}\\) is irrational.",
+      "image": null
+    },
+    "options": [],
+    "correct_answer": null,
+    "solution": {
+      "text": "\\((\\sqrt{2} + \\sqrt{3})^2\\) is irrational.",
+      "image": null
+    },
+    "solution_steps": [
+      "Step 1: Expand: \\((\\sqrt{2} + \\sqrt{3})^2 = 2 + 3 + 2\\sqrt{6}\\).",
+      "Step 2: So, \\((\\sqrt{2} + \\sqrt{3})^2 = 5 + 2\\sqrt{6}\\).",
+      "Step 3: 5 is rational.",
+      "Step 4: \\(\\sqrt{6}\\) is irrational (given), so \\(2\\sqrt{6}\\) is irrational.",
+      "Step 5: Rational + Irrational = Irrational.",
+      "Final: Therefore, \\((\\sqrt{2} + \\sqrt{3})^2\\) is irrational."
+    ]
+  },
+  {
+    "code": "CL10M01P1Q52",
+    "question": {
+      "text": "Prove that \\(\\sqrt{3}\\) is an irrational number.",
+      "image": null
+    },
+    "options": [],
+    "correct_answer": null,
+    "solution": {
+      "text": "\\(\\sqrt{3}\\) is irrational.",
+      "image": null
+    },
+    "solution_steps": [
+      "Step 1: Assume \\(\\sqrt{3} = \\frac{p}{q}\\), where p and q are coprime integers.",
+      "Step 2: Square both sides: \\(3 = \\frac{p^2}{q^2} \\Rightarrow p^2 = 3q^2\\).",
+      "Step 3: So, \\(p^2\\) is divisible by 3 ⇒ p is divisible by 3.",
+      "Step 4: Let \\(p = 3k\\). Then \\(p^2 = 9k^2\\).",
+      "Step 5: Substitute: \\(9k^2 = 3q^2 \\Rightarrow q^2 = 3k^2\\).",
+      "Step 6: So, q is also divisible by 3.",
+      "Step 7: This contradicts that p and q are coprime.",
+      "Final: Therefore, \\(\\sqrt{3}\\) is irrational."
+    ]
+  },
+  {
+    "code": "CL10M01P1Q53",
+    "question": {
+      "text": "Prove that \\(\\sqrt{5}\\) is an irrational number.",
+      "image": null
+    },
+    "options": [],
+    "correct_answer": null,
+    "solution": {
+      "text": "\\(\\sqrt{5}\\) is irrational.",
+      "image": null
+    },
+    "solution_steps": [
+      "Step 1: Assume \\(\\sqrt{5} = \\frac{p}{q}\\), where p and q are coprime.",
+      "Step 2: Square: \\(5 = \\frac{p^2}{q^2} \\Rightarrow p^2 = 5q^2\\).",
+      "Step 3: So, p is divisible by 5.",
+      "Step 4: Let \\(p = 5k\\). Then \\(p^2 = 25k^2\\).",
+      "Step 5: Substitute: \\(25k^2 = 5q^2 \\Rightarrow q^2 = 5k^2\\).",
+      "Step 6: So, q is also divisible by 5.",
+      "Step 7: Contradiction to coprime condition.",
+      "Final: Therefore, \\(\\sqrt{5}\\) is irrational."
+    ]
+  },
+  {
+    "code": "CL10M01P1Q54",
+    "question": {
+      "text": "Prove that \\(\\sqrt{2}\\) is an irrational number.",
+      "image": null
+    },
+    "options": [],
+    "correct_answer": null,
+    "solution": {
+      "text": "\\(\\sqrt{2}\\) is irrational.",
+      "image": null
+    },
+    "solution_steps": [
+      "Step 1: Assume \\(\\sqrt{2} = \\frac{p}{q}\\), where p and q are coprime.",
+      "Step 2: Square: \\(2 = \\frac{p^2}{q^2} \\Rightarrow p^2 = 2q^2\\).",
+      "Step 3: So, p is even.",
+      "Step 4: Let \\(p = 2k\\). Then \\(p^2 = 4k^2\\).",
+      "Step 5: Substitute: \\(4k^2 = 2q^2 \\Rightarrow q^2 = 2k^2\\).",
+      "Step 6: So, q is also even.",
+      "Step 7: Contradiction.",
+      "Final: Therefore, \\(\\sqrt{2}\\) is irrational."
+    ]
+  },
+  {
+    "code": "CL10M01P1Q55",
+    "question": {
+      "text": "Prove that \\(2 + 5\\sqrt{3}\\) is irrational, given that \\(\\sqrt{3}\\) is irrational.",
+      "image": null
+    },
+    "options": [],
+    "correct_answer": null,
+    "solution": {
+      "text": "\\(2 + 5\\sqrt{3}\\) is irrational.",
+      "image": null
+    },
+    "solution_steps": [
+      "Step 1: Assume \\(2 + 5\\sqrt{3}\\) is rational.",
+      "Step 2: Then \\(5\\sqrt{3} = (\\text{rational}) - 2 = \\text{rational}\\).",
+      "Step 3: So, \\(\\sqrt{3} = \\frac{\\text{rational}}{5} = \\text{rational}\\).",
+      "Step 4: Contradiction.",
+      "Final: Therefore, \\(2 + 5\\sqrt{3}\\) is irrational."
+    ]
+  },
+  {
+    "code": "CL10M01P1Q56",
+    "question": {
+      "text": "Define an irrational number. Prove that \\(3 + 2\\sqrt{5}\\) is an irrational number.",
+      "image": null
+    },
+    "options": [],
+    "correct_answer": null,
+    "solution": {
+      "text": "An irrational number cannot be expressed as \\(\\frac{p}{q}\\). \\(3 + 2\\sqrt{5}\\) is irrational.",
+      "image": null
+    },
+    "solution_steps": [
+      "Step 1: Definition: Irrational numbers cannot be written as \\(\\frac{p}{q}\\), where p, q are integers.",
+      "Step 2: Given: \\(\\sqrt{5}\\) is irrational.",
+      "Step 3: Assume \\(3 + 2\\sqrt{5}\\) is rational.",
+      "Step 4: Then \\(2\\sqrt{5} = (\\text{rational}) - 3 = \\text{rational}\\).",
+      "Step 5: So, \\(\\sqrt{5} = \\frac{\\text{rational}}{2} = \\text{rational}\\).",
+      "Step 6: Contradiction.",
+      "Final: Therefore, \\(3 + 2\\sqrt{5}\\) is irrational."
+    ]
+  },
+  {
+    "code": "CL10M01P1Q57",
+    "question": {
+      "text": "Prove that \\(2 + \\sqrt{5}\\) is an irrational number.",
+      "image": null
+    },
+    "options": [],
+    "correct_answer": null,
+    "solution": {
+      "text": "\\(2 + \\sqrt{5}\\) is irrational.",
+      "image": null
+    },
+    "solution_steps": [
+      "Step 1: Given \\(\\sqrt{5}\\) is irrational.",
+      "Step 2: Assume \\(2 + \\sqrt{5}\\) is rational.",
+      "Step 3: Then \\(\\sqrt{5} = (\\text{rational}) - 2 = \\text{rational}\\).",
+      "Step 4: Contradiction.",
+      "Final: Therefore, \\(2 + \\sqrt{5}\\) is irrational."
     ]
   }
 ]
