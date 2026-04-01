@@ -794,7 +794,7 @@
       "Step 4: Convert: $2520\\ \\text{cm} = 25.2\\ \\text{m}$"
     ]
   },
-  
+
   {
     "code": "CL10M01P1Q39",
     "question": {
@@ -816,7 +816,7 @@
       "Step 6: Maximum power is $5^3$, so most used prime = $5$"
     ]
   },
-  {
+{
   "code": "CL10M01P1Q40",
   "search_terms": "books stack HCF history science maths arrangement equal stacks",
   "question": {
@@ -1195,6 +1195,343 @@
       "Step 3: Then \\(\\sqrt{5} = (\\text{rational}) - 2 = \\text{rational}\\).",
       "Step 4: Contradiction.",
       "Final: Therefore, \\(2 + \\sqrt{5}\\) is irrational."
+    ]
+  },
+  {
+    "code": "CL10M01P2Q1",
+    "search_terms": "assertion reason prime factorisation odd even 3^2 7^2 b number",
+    "question": {
+      "text": "Assertion–Reason: A number q is prime factorised as q = 3^2 × 7^2 × b where b is a prime number other than 3 and 7. Assertion (A): q is definitely an odd number. Reason (R): 3^2 × 7^2 is an odd number.",
+      "image": null
+    },
+    "options": [
+      "(a) Both A and R are true and R is correct explanation",
+      "(b) Both A and R are true but R is not correct explanation",
+      "(c) A is true, R is false",
+      "(d) A is false, R is true"
+    ],
+    "correct_answer": "(d) A is false, but R is true",
+    "solution": {
+      "text": "$3^2 = 9$ (odd), $7^2 = 49$ (odd) ⇒ $9 × 49 = 441$ (odd). Now $q = 441 × b$. If $b = 2$, then $q = 882$ (even).",
+      "image": null
+    },
+    "solution_steps": [
+      "Step 1: $3^2 = 9$, $7^2 = 49$",
+      "Step 2: Product $= 9 × 49 = 441$ (odd)",
+      "Step 3: $q = 441 × b$",
+      "Step 4: If $b = 2$, then $q = 882$ (even)",
+      "Step 5: Assertion is false, Reason is true"
+    ]
+  },
+  {
+    "code": "CL10M01P2Q2",
+    "search_terms": "product lcm algebra x y powers simplify",
+    "question": {
+      "text": "If $a = x^3 y^2$, $b = xy^3$, then find: (Product of a and b) / LCM(a, b).",
+      "image": null
+    },
+    "options": [
+      "(a) $x^2 y^2$",
+      "(b) $xy^2$",
+      "(c) $x^3 y$",
+      "(d) $xy$"
+    ],
+    "correct_answer": "(b) $xy^2$",
+    "solution": {
+      "text": "Product: $a × b = x^4 y^5$, LCM: $x^3 y^3$, Result: $\\frac{x^4 y^5}{x^3 y^3} = xy^2$",
+      "image": null
+    },
+    "solution_steps": [
+      "Step 1: $a × b = x^3 y^2 × xy^3 = x^4 y^5$",
+      "Step 2: LCM = highest powers = $x^3 y^3$",
+      "Step 3: Divide: $\\frac{x^4 y^5}{x^3 y^3} = xy^2$"
+    ]
+  },
+  {
+    "code": "CL10M01P2Q3",
+    "search_terms": "hcf lcm powers p q exponents",
+    "question": {
+      "text": "Let $a = p^3 q^4$, $b = p^2 q^3$. If HCF = $p^m q^n$ and LCM = $p^r q^s$, find $(m+n)(r+s)$.",
+      "image": null
+    },
+    "options": [
+      "(a) 25",
+      "(b) 30",
+      "(c) 35",
+      "(d) 40"
+    ],
+    "correct_answer": "(c) 35",
+    "solution": {
+      "text": "HCF uses lowest powers: $p^2 q^3$, LCM uses highest powers: $p^3 q^4$, So $(m+n)(r+s) = 5 × 7 = 35$",
+      "image": null
+    },
+    "solution_steps": [
+      "Step 1: HCF = lowest powers ⇒ $p^2 q^3$",
+      "Step 2: $m+n = 2+3 = 5$",
+      "Step 3: LCM = highest powers ⇒ $p^3 q^4$",
+      "Step 4: $r+s = 3+4 = 7$",
+      "Step 5: $(m+n)(r+s) = 5 × 7 = 35$"
+    ]
+  },
+  {
+    "code": "CL10M01P2Q4",
+    "search_terms": "assertion reason product hcf lcm relation",
+    "question": {
+      "text": "Assertion–Reason: Product of two numbers = 5780, HCF = 17. Assertion (A): LCM = 340. Reason (R): HCF is always a factor of LCM.",
+      "image": null
+    },
+    "options": [
+      "(a)",
+      "(b)",
+      "(c)",
+      "(d)"
+    ],
+    "correct_answer": "(b)",
+    "solution": {
+      "text": "$LCM = \\frac{5780}{17} = 340$. Both A and R are true, but R does not explain A.",
+      "image": null
+    },
+    "solution_steps": [
+      "Step 1: Formula: Product = HCF × LCM",
+      "Step 2: $LCM = \\frac{5780}{17} = 340$",
+      "Step 3: Assertion true, Reason true but not explanation"
+    ]
+  },
+  {
+    "code": "CL10M01P2Q5",
+    "search_terms": "ratio lcm hcf smallest prime composite",
+    "question": {
+      "text": "Find ratio of LCM and HCF of smallest composite number and smallest prime number.",
+      "image": null
+    },
+    "options": [
+      "(a) 1:1",
+      "(b) 2:1",
+      "(c) 1:2",
+      "(d) 3:1"
+    ],
+    "correct_answer": "(b) 2:1",
+    "solution": {
+      "text": "Numbers: 4 and 2, HCF = 2, LCM = 4 ⇒ Ratio = 4:2 = 2:1",
+      "image": null
+    },
+    "solution_steps": [
+      "Step 1: Smallest composite = 4, smallest prime = 2",
+      "Step 2: HCF(4,2) = 2",
+      "Step 3: LCM(4,2) = 4",
+      "Step 4: Ratio = 4:2 = 2:1"
+    ]
+  },
+  {
+    "code": "CL10M01P2Q6",
+    "search_terms": "find x lcm hcf relation",
+    "question": {
+      "text": "If LCM(x,18) = 36 and HCF(x,18) = 2, find x.",
+      "image": null
+    },
+    "options": [
+      "(a) 2",
+      "(b) 3",
+      "(c) 4",
+      "(d) 6"
+    ],
+    "correct_answer": "(c) 4",
+    "solution": {
+      "text": "$x × 18 = 36 × 2 = 72 ⇒ x = 4$",
+      "image": null
+    },
+    "solution_steps": [
+      "Step 1: Use formula: $x × 18 = LCM × HCF$",
+      "Step 2: $x × 18 = 72$",
+      "Step 3: $x = 72 / 18 = 4$"
+    ]
+  },
+  {
+    "code": "CL10M01P2Q7",
+    "search_terms": "sum hcf pairs coprime numbers",
+    "question": {
+      "text": "If sum of two numbers = 1215 and HCF = 81, find number of possible pairs.",
+      "image": null
+    },
+    "options": [
+      "(a) 3",
+      "(b) 5",
+      "(c) 4",
+      "(d) 6"
+    ],
+    "correct_answer": "(c) 4",
+    "solution": {
+      "text": "Let numbers = $81x, 81y$ with $HCF(x,y)=1$. Then $x+y=15$. Coprime pairs: (1,14), (2,13), (4,11), (7,8). Total = 4.",
+      "image": null
+    },
+    "solution_steps": [
+      "Step 1: Numbers = $81x, 81y$",
+      "Step 2: $81(x+y) = 1215 ⇒ x+y = 15$",
+      "Step 3: Find coprime pairs of 15",
+      "Step 4: Total pairs = 4"
+    ]
+  },
+  {
+    "code": "CL10M01P2Q8",
+    "search_terms": "lcm primes 221 find p q",
+    "question": {
+      "text": "LCM of two prime numbers p > q is 221. Find $3p - q$.",
+      "image": null
+    },
+    "options": [
+      "(a) 30",
+      "(b) 34",
+      "(c) 38",
+      "(d) 40"
+    ],
+    "correct_answer": "(c) 38",
+    "solution": {
+      "text": "$221 = 13 × 17$, so $p=17, q=13$. Hence $3p - q = 51 - 13 = 38$",
+      "image": null
+    },
+    "solution_steps": [
+      "Step 1: $221 = 13 × 17$",
+      "Step 2: $p = 17, q = 13$",
+      "Step 3: $3p - q = 51 - 13 = 38$"
+    ]
+  },
+  {
+    "code": "CL10M01P2Q9",
+    "search_terms": "hcf lcm prime factorisation A B C p q r 5400 30 find values",
+    "question": {
+      "text": "The prime factorisation of three numbers A, B, C is given as: A = 2^r × 3^p × 5^q, B = 2^p × 3^r × 5^p, C = 2^q × 3^q × 5^p where p < q < r and p, q, r are natural numbers. Given: HCF(A, B, C) = 30 and the smallest number leaving remainder 2 when divided by A, B, C is 5402. Find A, B, C.",
+      "image": null
+    },
+    "options": [],
+    "correct_answer": "A = 600, B = 270, C = 180",
+    "solution": {
+      "text": "HCF = 30 = 2 × 3 × 5 ⇒ minimum powers give p = 1. LCM = 5400 = 2^3 × 3^3 × 5^2 ⇒ r = 3, q = 2. So A = 600, B = 270, C = 180.",
+      "image": null
+    },
+    "solution_steps": [
+      "Step 1: HCF = 30 = $2^1 × 3^1 × 5^1$",
+      "Step 2: Minimum powers ⇒ $p = 1$",
+      "Step 3: LCM = 5402 - 2 = 5400",
+      "Step 4: $5400 = 2^3 × 3^3 × 5^2$",
+      "Step 5: Maximum powers ⇒ $r = 3, q = 2$",
+      "Step 6: A = $2^3 × 3^1 × 5^2 = 600$",
+      "Step 7: B = $2^1 × 3^3 × 5^1 = 270$",
+      "Step 8: C = $2^2 × 3^2 × 5^1 = 180$"
+    ]
+  },
+  {
+    "code": "CL10M01P2Q10",
+    "search_terms": "case study grouping students hcf equal groups minimum groups rooms music dance handicrafts",
+    "question": {
+      "text": "Case Study: Students registered for Music = 60, Dance = 84, Handicrafts = 108. They must be divided into groups such that each group has same number of students and same art form. Find: (i) Students per group (ii) Number of groups in each category (iii) Total rooms required.",
+      "image": null
+    },
+    "options": [],
+    "correct_answer": "(i) 12, (ii) 5, 7, 9, (iii) 21",
+    "solution": {
+      "text": "HCF(60, 84, 108) = 12 ⇒ Students per group = 12. Groups: 60/12 = 5, 84/12 = 7, 108/12 = 9. Total rooms = 5 + 7 + 9 = 21.",
+      "image": null
+    },
+    "solution_steps": [
+      "Step 1: $60 = 2^2 × 3 × 5$, $84 = 2^2 × 3 × 7$, $108 = 2^2 × 3^3$",
+      "Step 2: HCF = $2^2 × 3 = 12$",
+      "Step 3: Students per group = 12",
+      "Step 4: Music groups = $60 / 12 = 5$",
+      "Step 5: Dance groups = $84 / 12 = 7$",
+      "Step 6: Handicrafts groups = $108 / 12 = 9$",
+      "Step 7: Total rooms = $5 + 7 + 9 = 21$"
+    ]
+  },
+  {
+    "code": "CL10M01P2Q11",
+    "search_terms": "irrational number square root 23 rational irrational classification",
+    "question": {
+      "text": "If $a^2 = \\frac{23}{25}$, then a is:",
+      "image": null
+    },
+    "options": [
+      "(a) Rational",
+      "(b) Irrational",
+      "(c) Whole number",
+      "(d) Integer"
+    ],
+    "correct_answer": "(b) Irrational",
+    "solution": {
+      "text": "$a = ±\\sqrt{\\frac{23}{25}} = ±\\frac{\\sqrt{23}}{5}$. Since $\\sqrt{23}$ is irrational, a is irrational.",
+      "image": null
+    },
+    "solution_steps": [
+      "Step 1: $a = ±\\sqrt{23/25}$",
+      "Step 2: $a = ±\\frac{\\sqrt{23}}{5}$",
+      "Step 3: $\\sqrt{23}$ is irrational",
+      "Step 4: Irrational ÷ rational = irrational",
+      "Step 5: Hence, a is irrational"
+    ]
+  },
+  {
+    "code": "CL10M01P2Q12",
+    "search_terms": "composite number square root rational irrational statement true false example 4 6",
+    "question": {
+      "text": "Check whether the following statement is true or false: 'The square root of every composite number is rational.' Justify your answer.",
+      "image": null
+    },
+    "options": [],
+    "correct_answer": "False",
+    "solution": {
+      "text": "The statement is false. Example: $\\sqrt{4} = 2$ (rational) but $\\sqrt{6}$ is irrational.",
+      "image": null
+    },
+    "solution_steps": [
+      "Step 1: Composite number = number with more than two factors",
+      "Step 2: Take example $4$: $\\sqrt{4} = 2$ (rational)",
+      "Step 3: Take example $6$: $\\sqrt{6}$ is irrational",
+      "Step 4: Since not all square roots are rational, statement is false"
+    ]
+  },
+  {
+    "code": "CL10M01P2Q13",
+    "search_terms": "prove root 2 irrational proof contradiction coprime p q",
+    "question": {
+      "text": "Prove that $\\sqrt{2}$ is an irrational number.",
+      "image": null
+    },
+    "options": [],
+    "correct_answer": "$\\sqrt{2}$ is irrational",
+    "solution": {
+      "text": "Assume $\\sqrt{2} = \\frac{p}{q}$ (coprime). Then $p^2 = 2q^2$ ⇒ p is even ⇒ q is also even, contradiction. Hence irrational.",
+      "image": null
+    },
+    "solution_steps": [
+      "Step 1: Assume $\\sqrt{2} = \\frac{p}{q}$ where p, q are coprime",
+      "Step 2: $2 = \\frac{p^2}{q^2} ⇒ p^2 = 2q^2$",
+      "Step 3: $p^2$ even ⇒ p even ⇒ let $p = 2k$",
+      "Step 4: Substitute: $4k^2 = 2q^2 ⇒ q^2 = 2k^2$",
+      "Step 5: q is also even",
+      "Step 6: Contradiction (p and q both even)",
+      "Step 7: Therefore $\\sqrt{2}$ is irrational"
+    ]
+  },
+  {
+    "code": "CL10M01P2Q14",
+    "search_terms": "prove irrational 5+2 root 3 given root 3 irrational",
+    "question": {
+      "text": "Given that $\\sqrt{3}$ is irrational, prove that $5 + 2\\sqrt{3}$ is irrational.",
+      "image": null
+    },
+    "options": [],
+    "correct_answer": "$5 + 2\\sqrt{3}$ is irrational",
+    "solution": {
+      "text": "Assume $5 + 2\\sqrt{3}$ is rational ⇒ $2\\sqrt{3}$ is rational ⇒ $\\sqrt{3}$ is rational, contradiction.",
+      "image": null
+    },
+    "solution_steps": [
+      "Step 1: Assume $5 + 2\\sqrt{3}$ is rational",
+      "Step 2: $2\\sqrt{3} = (5 + 2\\sqrt{3}) - 5$",
+      "Step 3: RHS = rational − rational = rational",
+      "Step 4: So $2\\sqrt{3}$ is rational",
+      "Step 5: Divide by 2 ⇒ $\\sqrt{3}$ is rational",
+      "Step 6: Contradiction (given irrational)",
+      "Step 7: Therefore $5 + 2\\sqrt{3}$ is irrational"
     ]
   }
 ]
