@@ -817,28 +817,29 @@
     ]
   },
   {
-    "code": "CL10M01P1Q40",
-    "question": {
-      "text": "Case Study (Books Arrangement): Books — History = 96, Science = 240, Mathematics = 336. Books must be arranged such that each stack has only one subject and equal number of books. Answer: (i) Books per stack (ii) Stacks for Mathematics (iii) (a) Total stacks OR (iii) (b) Height of each stack if thickness: History = 1.8 cm, Science = 2.2 cm, Mathematics = 2.5 cm.",
-      "image": null
-    },
-    "options": [],
-    "correct_answer": "(i) 48, (ii) 7, (iii)(a) 14 OR (iii)(b) 86.4 cm, 105.6 cm, 120 cm",
-    "solution": {
-      "text": "$\\text{HCF}(96,240,336) = 48$",
-      "image": null
-    },
-    "solution_steps": [
-      "Step 1: $96 = 2^5 \\times 3$, $240 = 2^4 \\times 3 \\times 5$, $336 = 2^4 \\times 3 \\times 7$",
-      "Step 2: $\\text{HCF} = 2^4 \\times 3 = 48$",
-      "Step 3: Books per stack = $48$",
-      "Step 4: Maths stacks $= \\frac{336}{48} = 7$",
-      "Step 5: Total stacks $= \\frac{96}{48} + \\frac{240}{48} + \\frac{336}{48} = 2 + 5 + 7 = 14$",
-      "Step 6: Heights: History $= 48 \\times 1.8 = 86.4\\,\\text{cm}$",
-      "Step 7: Science $= 48 \\times 2.2 = 105.6\\,\\text{cm}$",
-      "Step 8: Mathematics $= 48 \\times 2.5 = 120\\,\\text{cm}$"
-    ]
+  "code": "CL10M01P1Q40",
+  "search_terms": "books stack HCF history science maths arrangement equal stacks",
+  "question": {
+    "text": "Case Study (Books Arrangement): Books — History = 96, Science = 240, Mathematics = 336. Books must be arranged such that each stack has only one subject and equal number of books. Answer: (i) Books per stack (ii) Stacks for Mathematics (iii) (a) Total stacks OR (iii) (b) Height of each stack if thickness: History = 1.8 cm, Science = 2.2 cm, Mathematics = 2.5 cm.",
+    "image": null
   },
+  "options": [],
+  "correct_answer": "(i) 48, (ii) 7, (iii)(a) 14 OR (iii)(b) 86.4 cm, 105.6 cm, 120 cm",
+  "solution": {
+    "text": "$\\text{HCF}(96,240,336) = 48$",
+    "image": null
+  },
+  "solution_steps": [
+    "Step 1: $96 = 2^5 \\times 3$, $240 = 2^4 \\times 3 \\times 5$, $336 = 2^4 \\times 3 \\times 7$",
+    "Step 2: $\\text{HCF} = 2^4 \\times 3 = 48$",
+    "Step 3: Books per stack = $48$",
+    "Step 4: Maths stacks $= \\frac{336}{48} = 7$",
+    "Step 5: Total stacks $= \\frac{96}{48} + \\frac{240}{48} + \\frac{336}{48} = 2 + 5 + 7 = 14$",
+    "Step 6: Heights: History $= 48 \\times 1.8 = 86.4\\,\\text{cm}$",
+    "Step 7: Science $= 48 \\times 2.2 = 105.6\\,\\text{cm}$",
+    "Step 8: Mathematics $= 48 \\times 2.5 = 120\\,\\text{cm}$"
+  ]
+},
   {
     "code": "CL10M01P1Q41",
     "question": {
