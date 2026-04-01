@@ -309,7 +309,7 @@ function renderQA(item, subj){
   }
 
   /* Solution */
-  html += `<p><b>Solution:</b> ${item.solution?.text || ""}</p>`;
+ html += `<div><b>Solution:</b><br>${item.solution?.text || ""}</div>`;
 
   if(item.solution?.image){
     html += `<img src="${item.solution.image}" style="max-width:100%;margin:10px 0;">`;
