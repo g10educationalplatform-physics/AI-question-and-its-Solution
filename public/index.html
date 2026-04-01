@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AI Question Solver</title>
+  <title>Find Your Solution</title>
 
   <!-- Libraries -->
   <script src="https://cdn.jsdelivr.net/npm/tesseract.js@4/dist/tesseract.min.js"></script>
@@ -88,7 +88,7 @@
     </div>
 
     <div class="main-content">
-      <h2>GET YOUR SOLUTION<br>(Physics | Chemistry | Math | Biology)</h2>
+     <h2>GET YOUR SOLUTION<br>(Physics | Chemistry | Math | Biology | Science)</h2>
       <div class="mode-toggle">
 
 <div class="mode-toggle">
@@ -207,6 +207,11 @@
       }
       await MathJax.typesetPromise([streamDiv]);
     }
+	
+	
+	
+	
+	
 
     document.getElementById("solveManual").onclick=async()=>{
       const text=document.getElementById("manualQuestion").value.trim();
@@ -214,6 +219,11 @@
       resultBox.innerHTML="⏳ Searching...";
       await searchSolution(text);
     };
+	
+	
+	
+	
+	
 
     // ===== Question Code Mode =====
     const subjectUrls={
@@ -223,14 +233,65 @@
   biology:"https://ai-question-and-its-solution-3oip.onrender.com/biology",
   science:"https://ai-question-and-its-solution-3oip.onrender.com/science" // ✅ NEW
 };
-    let questionBanks={}, fuseIndex={};
+    let questionBanks = {}, fuseIndex = {}, questionMap = {};
     const codeInput=document.getElementById("questionCode");
     const autoList=document.getElementById("autocomplete-list");
+	
+	
+	
+	
+	
+	
 
-    for(let subj in subjectUrls){
-      fuseIndex[subj]=new Fuse([], { keys: ["code","question.text"], threshold: 0.3 });
-      fetch(subjectUrls[subj]).then(r=>r.json()).then(data=>{ questionBanks[subj]=data; fuseIndex[subj]=new Fuse(data, { keys: ["code","question.text"], threshold: 0.3 }); }).catch(()=>{});
-    }
+  // 🔥 LOADING CONTROL START
+codeInput.disabled = true;
+autoList.innerHTML = "<div>⏳ Loading database...</div>";
+
+let loadedCount = 0;
+const totalSubjects = Object.keys(subjectUrls).length;
+
+// 🔥 FETCH DATA
+for(let subj in subjectUrls){
+
+  fuseIndex[subj] = new Fuse([], { keys: ["code","question.text"], threshold: 0.3 });
+
+  fetch(subjectUrls[subj])
+    .then(r => r.json())
+    .then(data => {
+
+      questionBanks[subj] = data;
+
+      data.forEach(q => {
+        questionMap[q.code] = { ...q, subject: subj };
+      });
+
+      fuseIndex[subj] = new Fuse(data, { keys: ["code","question.text"], threshold: 0.3 });
+
+      loadedCount++;
+
+      // ✅ ENABLE INPUT AFTER ALL LOADED
+      if(loadedCount === totalSubjects){
+        codeInput.disabled = false;
+        autoList.innerHTML = "";
+        console.log("✅ All subjects loaded");
+      }
+
+    })
+.catch(err => {
+  console.error("Error loading", subj, err);
+
+  loadedCount++; // ✅ ADD THIS
+
+  if(loadedCount === totalSubjects){
+    codeInput.disabled = false;
+    autoList.innerHTML = "<div>⚠️ Some data failed to load</div>";
+  }
+});
+}
+
+
+
+
 
 function renderQA(item, subj){
 
@@ -270,35 +331,103 @@ function renderQA(item, subj){
   return html;
 }
 
-    codeInput.addEventListener("input",()=>{
-      const val=codeInput.value.trim().toUpperCase();
-      autoList.innerHTML="";
-      if(!val) return;
-      for(let subj in fuseIndex){
-        const res=fuseIndex[subj].search(val);
-        res.slice(0,5).forEach(r=>{
-          const div=document.createElement("div");
-          const snippet=r.item.question?.text?.substring(0,50).replace(/\n/g," ") || "";
-          div.innerText=`[${subj}] ${r.item.code} — ${snippet}...`;
-          div.onclick=()=>{ codeInput.value=r.item.code; autoList.innerHTML=""; resultBox.innerHTML=renderQA(r.item, subj); };
-          autoList.appendChild(div);
-        });
-      }
+codeInput.addEventListener("input", () => {
+  const val = codeInput.value.trim().toUpperCase();
+  autoList.innerHTML = "";
+
+  // ⏳ wait for data
+  if(Object.keys(questionMap).length === 0){
+    autoList.innerHTML = "<div>⏳ Loading questions...</div>";
+    return;
+  }
+
+  if(!val) return;
+
+  let shown = 0;
+
+  // 🔵 STEP 1: CODE MATCH
+  for(let code in questionMap){
+    if(code.startsWith(val)){
+      const item = questionMap[code];
+
+      const div = document.createElement("div");
+      div.innerText = `[${item.subject}] ${code}`;
+
+      div.onclick = () => {
+        codeInput.value = code;
+        autoList.innerHTML = "";
+        resultBox.innerHTML = renderQA(item, item.subject);
+      };
+
+      autoList.appendChild(div);
+      shown++;
+
+      if(shown >= 5) return;
+    }
+  }
+
+  // 🔵 STEP 2: QUESTION SEARCH
+  for(let subj in fuseIndex){
+    const res = fuseIndex[subj].search(val);
+
+    res.slice(0, 3).forEach(r => {
+      const item = r.item;
+
+      const div = document.createElement("div");
+      const snippet = item.question?.text?.substring(0,50).replace(/\n/g," ") || "";
+
+      div.innerText = `[${subj}] ${item.code} — ${snippet}...`;
+
+      div.onclick = () => {
+        codeInput.value = item.code;
+        autoList.innerHTML = "";
+        resultBox.innerHTML = renderQA(item, subj);
+      };
+
+      autoList.appendChild(div);
     });
+  }
+});
 
-    document.addEventListener("click",e=>{ if(e.target!==codeInput) autoList.innerHTML=""; });
 
-    document.getElementById("solveCode").onclick=()=>{
-      const code=codeInput.value.trim().toUpperCase();
-      if(!code) return alert("Please enter a question code.");
-      resultBox.innerHTML="⏳ Searching question code...";
-      let found=false;
-      for(let subj in fuseIndex){
-        const res=fuseIndex[subj].search(code);
-        if(res.length>0){ resultBox.innerHTML=renderQA(res[0].item, subj); found=true; break; }
-      }
-      if(!found) resultBox.innerHTML="❌ No question found with this code.";
-    };
+
+
+   document.addEventListener("click", e => {
+  if (!codeInput.contains(e.target) && !autoList.contains(e.target)) {
+    autoList.innerHTML = "";
+  }
+});
+
+
+
+
+
+   document.getElementById("solveCode").onclick=()=>{
+  const code=codeInput.value.trim().toUpperCase();
+  if(!code) return alert("Please enter a question code.");
+
+  resultBox.innerHTML="⏳ Searching question code...";
+
+  // ✅ STEP 1: EXACT MATCH ONLY
+  for(let subj in questionBanks){
+    const exact = questionBanks[subj]?.find(q => q.code === code);
+    if(exact){
+      resultBox.innerHTML = renderQA(exact, subj);
+      return;
+    }
+  }
+
+  // ✅ STEP 2: FUZZY ONLY IF NOT FOUND
+  for(let subj in fuseIndex){
+    const res = fuseIndex[subj].search(code);
+    if(res.length > 0){
+      resultBox.innerHTML = renderQA(res[0].item, subj);
+      return;
+    }
+  }
+
+  resultBox.innerHTML="❌ No question found with this code.";
+};
 
     document.querySelectorAll('input[name="mode"]').forEach(r=>{
       r.addEventListener("change", e=>{
