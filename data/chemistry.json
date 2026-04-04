@@ -1,29 +1,35 @@
 [
   {
-    "code": "C120",
-    "question": { 
-      "text": "Write balanced reaction: sodium oxide with hydrochloric acid.", 
-      "image": null 
-    },
-    "options": [
-      "(1) Na2O + 2HCl → 2NaCl + H2O",
-      "(2) Na2O + HCl → NaCl + H2O",
-      "(3) Na2O + 2HCl → NaCl + H2O",
-      "(4) Na2O + HCl → 2NaCl + H2O"
-    ],
-    "correct_answer": "(1) Na2O + 2HCl → 2NaCl + H2O",
-    "solution": { 
-      "text": "$Na_{2}O + 2HCl → 2NaCl + H_{2}O$", 
-      "image": null 
-    },
-    "solution_steps": [
-      "Step 1: Skeleton reaction: Na2O + HCl → NaCl + H2O",
-      "Step 2: Balance Na: 2 on left → 2 NaCl on right",
-      "Step 3: Balance Cl: need 2 HCl",
-      "Step 4: Balance H: 2 H makes 1 H2O",
-      "Final: Na2O + 2HCl → 2NaCl + H2O"
-    ]
+  "code": "IN12C18T1Q1",
+  "concept": "Concentration (ppm)",
+  "question": {
+    "text": "A water sample contains 0.002 g of lead (Pb²⁺) dissolved in 500 L of water. Assuming the density of water = 1 g mL⁻¹, calculate the concentration of lead in ppm.",
+    "image": null
   },
+  "options": [
+    { "id": "a", "text": "2 ppm" },
+    { "id": "b", "text": "4 ppm" },
+    { "id": "c", "text": "0.004 ppm" },
+    { "id": "d", "text": "0.04 ppm" }
+  ],
+  "correct_answer": "b",
+  "solution": {
+    "text": "ppm = mass of solute / mass of solution × 10⁶",
+    "image": null
+  },
+  "solution_steps": [
+    "Step 1 => 0.002 g = 2 mg",
+    "Step 2 => 1 ppm ≈ 1 mg L⁻¹",
+    "Step 3 => Concentration => mass / volume",
+    "=> 2 mg / 500 L",
+    "=> 0.004 mg L⁻¹",
+    "Step 4 => 0.004 mg L⁻¹ => 0.004 ppm",
+    "=> Mass of solution => 500 × 1000 = 500000 g",
+    "=> ppm => (0.002 / 500000) × 10⁶",
+    "=> 4 ppm",
+    "Final Answer => 4 ppm"
+  ]
+},
   {
     "code": "C212",
     "question": {
