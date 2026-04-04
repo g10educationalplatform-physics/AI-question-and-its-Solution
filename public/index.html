@@ -102,6 +102,60 @@
   font-weight: bold;
   color: green;
 }
+
+
+
+
+
+
+
+
+
+
+.step-card {
+  background: #fff;
+  border-radius: 12px;
+  margin: 12px 0;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.step-header {
+  background: linear-gradient(90deg, #007bff, #00c6ff);
+  color: white;
+  padding: 10px 15px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+}
+
+.step-content {
+  padding: 12px;
+}
+
+.sub-step {
+  margin-left: 15px;
+  padding: 6px 10px;
+  border-left: 3px solid #007bff;
+  background: #f8fbff;
+  margin-top: 5px;
+  border-radius: 6px;
+}
+
+.final-answer-box {
+  background: #eaffea;
+  border-left: 5px solid green;
+  padding: 12px;
+  margin-top: 10px;
+  font-weight: bold;
+  border-radius: 8px;
+}
+
+.step-main {
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
   </style>
 </head>
 
@@ -353,38 +407,74 @@ function renderQA(item, subj){
   }
 
   /* Steps */
- if(item.solution_steps?.length){
-  html += `<p><b>Solution Steps:</b></p><div class="steps">`;
-
-  let currentStep = null;
 
 /* Steps */
+/* Premium Steps UI */
 if(item.solution_steps?.length){
+
   html += `<p><b>Solution Steps:</b></p><div class="steps">`;
+
+  let stepCount = 0;
+  let openCard = false;
 
   item.solution_steps.forEach(line => {
 
     const cleanLine = line.trim();
 
     if(/^Step\s*\d+/i.test(cleanLine)){
-      // ✅ Step line
-      html += `<div class="step"><span class="bullet">•</span><span class="step-text">${cleanLine}</span></div>`;
+
+      // close previous step
+      if(openCard){
+        html += `</div></div>`;
+      }
+
+      stepCount++;
+      openCard = true;
+
+      html += `
+        <div class="step-card">
+          <div class="step-header" onclick="toggleStep(this)">
+            <span class="step-number">Step ${stepCount}</span>
+            <span class="toggle-icon">▼</span>
+          </div>
+          <div class="step-content">
+            <div class="step-main">
+  ${cleanLine.replace(/^Step\s*\d+\s*[:=.-]?\s*/i, '')}
+</div>
+      `;
     } 
     else if(/^Final Answer/i.test(cleanLine)){
-      html += `<div class="final-answer">${cleanLine}</div>`;
+
+      // close last step
+      if(openCard){
+        html += `</div></div>`;
+        openCard = false;
+      }
+
+      html += `
+        <div class="final-answer-box">
+          🎯 ${cleanLine}
+        </div>
+      `;
     } 
     else {
-      // ✅ Sub line (proper indent)
       html += `<div class="sub-step">${cleanLine}</div>`;
     }
 
   });
 
-  html += `</div>`;
-}
+  // close last step if open
+  if(openCard){
+    html += `</div></div>`;
+  }
 
   html += `</div>`;
 }
+
+
+
+
+
 
   setTimeout(()=>{
     MathJax.typesetPromise([document.getElementById("result")]);
@@ -498,6 +588,38 @@ codeInput.addEventListener("input", () => {
         document.getElementById("codeMode").classList.toggle("hidden", e.target.value!=="code");
       });
     });
+	
+	
+	function toggleStep(header){
+  const content = header.nextElementSibling;
+  const icon = header.querySelector(".toggle-icon");
+
+  if(content.style.display === "none"){
+    content.style.display = "block";
+    icon.style.transform = "rotate(0deg)";
+  } else {
+    content.style.display = "none";
+    icon.style.transform = "rotate(-90deg)";
+  }
+}
+
+function highlightMath(text){
+
+  // Escape HTML first (VERY IMPORTANT)
+  text = text
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;");
+
+  // Highlight "="
+  text = text.replace(/=/g, "<span style=\"color:#007bff;font-weight:bold;\">=</span>");
+
+  // Highlight numbers
+  text = text.replace(/\b(\d+\.?\d*)\b/g, "<span style=\"color:#e67e22;\">$1</span>");
+
+  return text;
+}
+	
+	
   </script>
 </body>
 </html>
