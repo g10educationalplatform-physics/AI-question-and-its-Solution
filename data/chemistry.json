@@ -17,19 +17,26 @@
     "text": "ppm = mass of solute / mass of solution × 10⁶",
     "image": null
   },
-  "solution_steps": [
-    "Step 1 = Convert solute mass into mg = 0.002 g = 2 mg",
-    "Step 2 = Use dilute solution relation = 1 ppm ≈ 1 mg L⁻¹",
-    "Step 3 = Calculate concentration using formula = mass / volume",
-    "= 2 mg / 500 L",
-    "= 0.004 mg L⁻¹",
-    "Step 4 = Convert concentration into ppm",
-    "= 0.004 mg L⁻¹ = 0.004 ppm",
-    "= Mass of solution = 500 × 1000 = 500000 g",
-    "= ppm = (0.002 / 500000) × 10⁶",
-    "= 4 ppm",
-    "Final Answer = 4 ppm"
-  ]
+"solution_steps": [
+  "Step 1: Convert solute mass into mg",
+  "\\(0.002\\,g = 2\\,mg\\)",
+
+  "Step 2: Use relation",
+  "\\(1\\,ppm \\approx 1\\,mg\\,L^{-1}\\)",
+
+  "Step 3: Calculate concentration",
+  "\\(\\frac{2}{500} = 0.004\\,mg\\,L^{-1}\\)",
+
+  "Step 4: Convert into ppm",
+  "\\(0.004\\,mg\\,L^{-1} = 0.004\\,ppm\\)",
+
+  "Step 5: Using formula",
+  "\\(ppm = \\frac{0.002}{500000} \\times 10^6\\)",
+
+  "\\(= 4\\,ppm\\)",
+
+  "Final Answer: \\(4\\,ppm\\)"
+]
 },
   {
     "code": "C212",
