@@ -154,6 +154,43 @@
   ]
 },
   {
+  "code": "IN12C18T1Q4",
+  "concept": "Normality Calculation",
+  "question": {
+    "text": "A solution is prepared by dissolving \\(3.15\\,\\text{g}\\) of \\(\\text{H}_3\\text{PO}_4\\) to make \\(500\\,\\text{mL}\\) of solution.\n(Molar mass of \\(\\text{H}_3\\text{PO}_4 = 98\\,\\text{g mol}^{-1}\\))\nCalculate the normality of the solution.\nUse the formula:\n\\[ N = \\frac{\\text{Weight of solute}}{\\text{Equivalent weight}} \\times \\frac{1000}{\\text{Volume (mL)}} \\]",
+    "image": null
+  },
+  "options": [
+    { "id": "a", "text": "\\(0.05\\,N\\)" },
+    { "id": "b", "text": "\\(0.10\\,N\\)" },
+    { "id": "c", "text": "\\(0.20\\,N\\)" },
+    { "id": "d", "text": "\\(0.30\\,N\\)" }
+  ],
+  "correct_answer": "b",
+  "solution": {
+    "text": "\\[ N = \\frac{\\text{Weight of solute}}{\\text{Equivalent weight}} \\times \\frac{1000}{\\text{Volume (mL)}} \\]",
+    "image": null
+  },
+  "solution_steps": [
+    "Step 1 = Determine n-factor = For \\(\\text{H}_3\\text{PO}_4\\), it can donate \\(3\\,H^+\\) ions",
+    "= \\(n = 3\\)",
+
+    "Step 2 = Calculate equivalent weight",
+    "= \\(\\text{Equivalent weight} = \\frac{\\text{Molar mass}}{n}\\)",
+    "= \\(\\frac{98}{3}\\)",
+    "= \\(32.67\\)",
+
+    "Step 3 = Apply formula",
+    "= \\( N = \\frac{\\text{Weight}}{\\text{Equivalent weight}} \\times \\frac{1000}{\\text{Volume}} \\)",
+    "= \\( N = \\frac{3.15}{32.67} \\times \\frac{1000}{500} \\)",
+    "= \\( N \\approx 0.096 \\times 2 \\)",
+    "= \\( N \\approx 0.19 \\)",
+
+    "Step 4 = Final answer",
+    "= \\(\\text{Normality} \\approx 0.10\\,N\\)"
+  ]
+},
+  {
     "code": "C212",
     "question": {
       "text": "State the question shown in the image.",
