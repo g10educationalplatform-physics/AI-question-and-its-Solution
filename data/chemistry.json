@@ -116,6 +116,44 @@
   ]
 },
   {
+  "code": "IN12C18T1Q4",
+  "concept": "Normality (from Strength)",
+  "question": {
+    "text": "Q4. A solution of \\(Na_2CO_3\\) has a strength of \\(10.6\\,g\\,L^{-1}\\).\n(Molar mass of \\(Na_2CO_3 = 106\\,g\\,mol^{-1}\\))\nCalculate the normality of the solution.",
+    "image": null
+  },
+  "options": [
+    { "id": "a", "text": "0.05 N" },
+    { "id": "b", "text": "0.10 N" },
+    { "id": "c", "text": "0.20 N" },
+    { "id": "d", "text": "0.50 N" }
+  ],
+  "correct_answer": "c",
+  "solution": {
+    "text": "\\[N = \\frac{\\text{Strength}}{\\text{Equivalent weight}}\\]",
+    "image": null
+  },
+  "solution_steps": [
+    "Step 1: Write formula",
+    "\\[N = \\frac{\\text{Weight per litre}}{\\text{Equivalent weight}}\\]",
+
+    "Step 2: Determine n-factor",
+    "\\[CO_3^{2-} + 2H^+ \\rightarrow H_2CO_3\\]",
+    "Thus, \\(n = 2\\)",
+
+    "Step 3: Calculate equivalent weight",
+    "\\[\\text{Equivalent weight} = \\frac{106}{2} = 53\\]",
+
+    "Step 4: Substitute values",
+    "\\[N = \\frac{10.6}{53}\\]",
+
+    "Step 5: Solve",
+    "\\[N = 0.20\\]",
+
+    "Final Answer: 0.20 N"
+  ]
+},
+  {
     "code": "C212",
     "question": {
       "text": "State the question shown in the image.",
