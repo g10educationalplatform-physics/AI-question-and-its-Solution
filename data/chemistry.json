@@ -39,6 +39,42 @@
 ]
 },
   {
+  "code": "IN12C18T1Q2",
+  "concept": "Molarity and Strength",
+  "question": {
+    "text": "A solution of H₂SO₄ has a molarity of 0.25 mol L⁻¹. The molar mass of H₂SO₄ = 98 g mol⁻¹. A chemist prepares 2 L of this solution. Calculate the mass of H₂SO₄ required.",
+    "image": null
+  },
+  "options": [
+    { "id": "a", "text": "24.5 g" },
+    { "id": "b", "text": "49 g" },
+    { "id": "c", "text": "98 g" },
+    { "id": "d", "text": "196 g" }
+  ],
+  "correct_answer": "b",
+  "solution": {
+    "text": "\\( \\text{Strength} = M \\times \\text{Molar Mass} \\)",
+    "image": null
+  },
+  "solution_steps": [
+    "Step 1: Calculate strength of solution",
+    "\\( \\text{Strength} = 0.25 \\times 98 \\)",
+    "\\( = 24.5\\,g\\,L^{-1} \\)",
+
+    "Step 2: Use strength relation",
+    "\\( \\text{Strength} = \\frac{\\text{mass}}{\\text{volume}} \\)",
+
+    "Step 3: Substitute values",
+    "\\( 24.5 = \\frac{\\text{mass}}{2} \\)",
+
+    "Step 4: Calculate mass",
+    "\\( \\text{mass} = 24.5 \\times 2 \\)",
+    "\\( = 49\\,g \\)",
+
+    "Final Answer: \\(49\\,g\\)"
+  ]
+},
+  {
     "code": "C212",
     "question": {
       "text": "State the question shown in the image.",
