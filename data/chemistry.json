@@ -75,6 +75,47 @@
   ]
 },
   {
+  "code": "IN12C18T1Q3",
+  "concept": "Normality",
+  "question": {
+    "text": "Q3. A solution is prepared by dissolving \\(4.9\\,g\\) of \\(H_2SO_4\\) to make \\(500\\,mL\\) of solution.\n(Molar mass of \\(H_2SO_4 = 98\\,g\\,mol^{-1}\\))\nCalculate the normality of the solution.",
+    "image": null
+  },
+  "options": [
+    { "id": "a", "text": "0.10 N" },
+    { "id": "b", "text": "0.20 N" },
+    { "id": "c", "text": "0.40 N" },
+    { "id": "d", "text": "0.50 N" }
+  ],
+  "correct_answer": "b",
+  "solution": {
+    "text": "\\[N = \\frac{\\text{Weight of solute}}{\\text{Equivalent weight} \\times \\text{Volume}}\\]",
+    "image": null
+  },
+  "solution_steps": [
+    "Step 1: Write formula",
+    "\\[N = \\frac{\\text{Weight}}{\\text{Equivalent weight} \\times \\text{Volume}}\\]",
+
+    "Step 2: Determine n-factor",
+    "For \\(H_2SO_4\\), it donates \\(2H^+\\), so \\(n = 2\\)",
+
+    "Step 3: Calculate equivalent weight",
+    "\\[\\text{Equivalent weight} = \\frac{98}{2} = 49\\]",
+
+    "Step 4: Convert volume",
+    "\\[500\\,mL = 0.5\\,L\\]",
+
+    "Step 5: Substitute values",
+    "\\[N = \\frac{4.9}{49 \\times 0.5}\\]",
+
+    "Step 6: Solve",
+    "\\[N = \\frac{4.9}{24.5}\\]",
+    "\\[N = 0.20\\]",
+
+    "Final Answer: 0.20 N"
+  ]
+},
+  {
     "code": "C212",
     "question": {
       "text": "State the question shown in the image.",
