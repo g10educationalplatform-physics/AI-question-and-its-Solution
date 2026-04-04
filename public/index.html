@@ -65,6 +65,43 @@
 .side-panel a:hover {
   color: #ff4d4d !important; /* lighter red on hover */
 }
+
+
+.steps {
+  margin-top: 10px;
+}
+
+.step {
+  display: flex;
+  align-items: flex-start;
+  margin-top: 10px;
+  font-weight: 600;
+}
+
+.bullet {
+  color: #007bff;
+  margin-right: 8px;
+  font-size: 18px;
+  line-height: 1.2;
+}
+
+.step-text {
+  flex: 1;
+}
+
+.sub-step {
+  margin-left: 28px;   /* 👈 perfect alignment under text (not bullet) */
+  padding-left: 2px;
+  color: #333;
+  line-height: 1.6;
+}
+
+.final-answer {
+  margin-left: 28px;
+  margin-top: 10px;
+  font-weight: bold;
+  color: green;
+}
   </style>
 </head>
 
@@ -316,13 +353,38 @@ function renderQA(item, subj){
   }
 
   /* Steps */
-  if(item.solution_steps?.length){
-    html += `<p><b>Solution Steps:</b></p><ul>`;
-    item.solution_steps.forEach(step=>{
-      html += `<li>${step}</li>`;
-    });
-    html += `</ul>`;
-  }
+ if(item.solution_steps?.length){
+  html += `<p><b>Solution Steps:</b></p><div class="steps">`;
+
+  let currentStep = null;
+
+/* Steps */
+if(item.solution_steps?.length){
+  html += `<p><b>Solution Steps:</b></p><div class="steps">`;
+
+  item.solution_steps.forEach(line => {
+
+    const cleanLine = line.trim();
+
+    if(/^Step\s*\d+/i.test(cleanLine)){
+      // ✅ Step line
+      html += `<div class="step"><span class="bullet">•</span><span class="step-text">${cleanLine}</span></div>`;
+    } 
+    else if(/^Final Answer/i.test(cleanLine)){
+      html += `<div class="final-answer">${cleanLine}</div>`;
+    } 
+    else {
+      // ✅ Sub line (proper indent)
+      html += `<div class="sub-step">${cleanLine}</div>`;
+    }
+
+  });
+
+  html += `</div>`;
+}
+
+  html += `</div>`;
+}
 
   setTimeout(()=>{
     MathJax.typesetPromise([document.getElementById("result")]);
