@@ -3,7 +3,7 @@
   "code": "IN12C18T1Q1",
   "concept": "Concentration (ppm)",
   "question": {
-    "text": "A water sample contains 0.002 g of lead (Pb²⁺) dissolved in 500 L of water. Assuming the density of water = 1 g mL⁻¹, calculate the concentration of lead in ppm.",
+    "text": "Q1. A water sample contains 0.002 g of lead (Pb²⁺) dissolved in 500 L of water.\nAssuming the density of water = 1 g mL⁻¹, calculate the concentration of lead in ppm.\nUse the relation:\nppm = mass of solute / total mass of solution × 10⁶\nAlso, for dilute aqueous solutions:\n1 ppm ≈ 1 mg L⁻¹",
     "image": null
   },
   "options": [
@@ -18,16 +18,17 @@
     "image": null
   },
   "solution_steps": [
-    "Step 1 => 0.002 g = 2 mg",
-    "Step 2 => 1 ppm ≈ 1 mg L⁻¹",
-    "Step 3 => Concentration => mass / volume",
-    "=> 2 mg / 500 L",
-    "=> 0.004 mg L⁻¹",
-    "Step 4 => 0.004 mg L⁻¹ => 0.004 ppm",
-    "=> Mass of solution => 500 × 1000 = 500000 g",
-    "=> ppm => (0.002 / 500000) × 10⁶",
-    "=> 4 ppm",
-    "Final Answer => 4 ppm"
+    "Step 1 = Convert solute mass into mg = 0.002 g = 2 mg",
+    "Step 2 = Use dilute solution relation = 1 ppm ≈ 1 mg L⁻¹",
+    "Step 3 = Calculate concentration using formula = mass / volume",
+    "= 2 mg / 500 L",
+    "= 0.004 mg L⁻¹",
+    "Step 4 = Convert concentration into ppm",
+    "= 0.004 mg L⁻¹ = 0.004 ppm",
+    "= Mass of solution = 500 × 1000 = 500000 g",
+    "= ppm = (0.002 / 500000) × 10⁶",
+    "= 4 ppm",
+    "Final Answer = 4 ppm"
   ]
 },
   {
