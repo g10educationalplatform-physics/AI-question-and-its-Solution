@@ -191,6 +191,42 @@
   ]
 },
   {
+  "code": "IN12C18T1Q5",
+  "concept": "Normality from Strength",
+  "question": {
+    "text": "A solution of \\(\\text{Ca(OH)}_2\\) has a strength of \\(7.4\\,\\text{g L}^{-1}\\). Calculate the normality of the solution.\n(Molar mass of \\(\\text{Ca(OH)}_2 = 74\\,\\text{g mol}^{-1}\\))\nUse the formula:\n\\[ N = \\frac{\\text{Strength of solution (g L}^{-1})}{\\text{Equivalent weight}} \\]",
+    "image": null
+  },
+  "options": [
+    { "id": "a", "text": "\\(0.10\\,N\\)" },
+    { "id": "b", "text": "\\(0.20\\,N\\)" },
+    { "id": "c", "text": "\\(0.40\\,N\\)" },
+    { "id": "d", "text": "\\(0.50\\,N\\)" }
+  ],
+  "correct_answer": "b",
+  "solution": {
+    "text": "\\[ N = \\frac{\\text{Strength}}{\\text{Equivalent weight}} \\]",
+    "image": null
+  },
+  "solution_steps": [
+    "Step 1 = Determine n-factor = For \\(\\text{Ca(OH)}_2\\), it furnishes \\(2\\,OH^-\\) ions",
+    "= \\(n = 2\\)",
+
+    "Step 2 = Calculate equivalent weight",
+    "= \\(\\text{Equivalent weight} = \\frac{\\text{Molar mass}}{n}\\)",
+    "= \\(\\frac{74}{2}\\)",
+    "= \\(37\\)",
+
+    "Step 3 = Apply formula",
+    "= \\( N = \\frac{\\text{Strength}}{\\text{Equivalent weight}} \\)",
+    "= \\( N = \\frac{7.4}{37} \\)",
+    "= \\( N = 0.20 \\)",
+
+    "Step 4 = Final answer",
+    "= \\(\\text{Normality} = 0.20\\,N\\)"
+  ]
+},
+  {
     "code": "C212",
     "question": {
       "text": "State the question shown in the image.",
