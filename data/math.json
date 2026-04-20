@@ -1802,5 +1802,313 @@
       "Step 3: Therefore number of zeroes = 1",
       "Final Answer: (b) 1"
     ]
+  },
+  {
+    "code": "CL10M02P1Q10",
+    "search_terms": "sum of zeroes formula quadratic find k 2x^2-k√2 x+1",
+    "question": {
+      "text": "If the sum of zeroes of the polynomial $p(x)=2x^2 - k\\sqrt{2}x + 1$ is $\\sqrt{2}$, then value of $k$ is:",
+      "image": "#"
+    },
+    "options": [
+      "(a) 1",
+      "(b) 2",
+      "(c) 3",
+      "(d) 4"
+    ],
+    "correct_answer": "(b) 2",
+    "solution": {
+      "text": "Using sum of zeroes $\\alpha+\\beta=-b/a$, we get $(k\\sqrt{2})/2=\\sqrt{2}$ so $k=2$",
+      "image": "#"
+    },
+    "solution_steps": [
+      "Step 1: Use formula:",
+      "$\\alpha+\\beta = -\\frac{b}{a}$",
+      "Step 2: Substitute values:",
+      "$= -\\frac{-k\\sqrt{2}}{2} = \\frac{k\\sqrt{2}}{2}$",
+      "Step 3: Given sum = $\\sqrt{2}$",
+      "$\\frac{k\\sqrt{2}}{2} = \\sqrt{2}$",
+      "Step 4: Solve:",
+      "$k = 2$",
+      "Final Answer: (b) 2"
+    ]
+  },
+  {
+    "code": "CL10M02P1Q11",
+    "search_terms": "zeroes twice relation find p quadratic",
+    "question": {
+      "text": "The zeroes of polynomial $x^2+px+q$ are twice the zeroes of polynomial $4x^2-5x-6$. Find $p$.",
+      "image": "#"
+    },
+    "options": [
+      "(a) 5/2",
+      "(b) -5/2",
+      "(c) -5/2",
+      "(d) 5"
+    ],
+    "correct_answer": "(c) -5/2",
+    "solution": {
+      "text": "New sum = $2(\\alpha+\\beta)=5/2$ and for $x^2+px+q$, sum = $-p$, so $p=-5/2$",
+      "image": "#"
+    },
+    "solution_steps": [
+      "Step 1: For $4x^2-5x-6$:",
+      "$\\alpha+\\beta = \\frac{5}{4}$",
+      "Step 2: New zeroes:",
+      "$2\\alpha, 2\\beta$",
+      "Step 3: New sum:",
+      "$2(\\alpha+\\beta)=2 \\times \\frac{5}{4} = \\frac{5}{2}$",
+      "Step 4: For $x^2+px+q$:",
+      "$\\alpha+\\beta = -p$",
+      "Step 5: Solve:",
+      "$-p = \\frac{5}{2}$",
+      "$p = -\\frac{5}{2}$",
+      "Final Answer: (c) -5/2"
+    ]
+  },
+  {
+    "code": "CL10M02P1Q12",
+    "search_terms": "sum of zeroes -30x^2+45x+a+b",
+    "question": {
+      "text": "If $\\alpha,\\beta$ are zeroes of polynomial $-30x^2+45x+(a+b)=0$, find the required value.",
+      "image": "#"
+    },
+    "options": [
+      "(a) 1/2",
+      "(b) 1",
+      "(c) 3/2",
+      "(d) 2"
+    ],
+    "correct_answer": "(c) 3/2",
+    "solution": {
+      "text": "Using $\\alpha+\\beta=-b/a$, we get $45/30=3/2$",
+      "image": "#"
+    },
+    "solution_steps": [
+      "Step 1: Use formula:",
+      "$\\alpha+\\beta = -\\frac{b}{a}$",
+      "Step 2: Substitute values:",
+      "$= -\\frac{45}{-30}$",
+      "Step 3: Simplify:",
+      "$= \\frac{45}{30} = \\frac{3}{2}$",
+      "Final Answer: (c) 3/2"
+    ]
+  },
+  {
+    "code": "CL10M02P1Q13",
+    "search_terms": "factorization x^2+4x+3 zeroes",
+    "question": {
+      "text": "The zeroes of polynomial $x^2+4x+3$ are:",
+      "image": "#"
+    },
+    "options": [
+      "(a) 1, 3",
+      "(b) -1, -3",
+      "(c) 1, -3",
+      "(d) -1, 3"
+    ],
+    "correct_answer": "(b) -1, -3",
+    "solution": {
+      "text": "Factorizing: $(x+1)(x+3)=0$, so zeroes are -1 and -3",
+      "image": "#"
+    },
+    "solution_steps": [
+      "Step 1: $x^2+4x+3=0$",
+      "Step 2: Factorize:",
+      "$(x+1)(x+3)=0$",
+      "Step 3: Solve:",
+      "$x=-1, x=-3$",
+      "Final Answer: (b) -1, -3"
+    ]
+  },
+  {
+    "code": "CL10M02P1Q14",
+    "search_terms": "alpha beta square sum formula quadratic",
+    "question": {
+      "text": "If $\\alpha,\\beta$ are zeroes of $ax^2-bx$, find $\\alpha^2+\\beta^2$.",
+      "image": "#"
+    },
+    "options": [
+      "(a) $\\frac{b}{a}$",
+      "(b) $\\frac{b^2}{a^2}$",
+      "(c) $\\frac{a^2}{b^2}$",
+      "(d) $\\frac{a}{b}$"
+    ],
+    "correct_answer": "(b) $\\frac{b^2}{a^2}$",
+    "solution": {
+      "text": "Using identity $(\\alpha+\\beta)^2-2\\alpha\\beta$, we get $(b/a)^2$",
+      "image": "#"
+    },
+    "solution_steps": [
+      "Step 1: Sum:",
+      "$\\alpha+\\beta = \\frac{b}{a}$",
+      "Step 2: Product:",
+      "$\\alpha\\beta = 0$",
+      "Step 3: Use identity:",
+      "$\\alpha^2+\\beta^2 = (\\alpha+\\beta)^2 - 2\\alpha\\beta$",
+      "Step 4: Substitute:",
+      "$= (\\frac{b}{a})^2$",
+      "Final Answer: (b) $\\frac{b^2}{a^2}$"
+    ]
+  },
+  {
+    "code": "CL10M02P1Q15",
+    "search_terms": "number of polynomials given zeroes infinite",
+    "question": {
+      "text": "The number of polynomials having zeroes -3 and 5 is:",
+      "image": "#"
+    },
+    "options": [
+      "(a) 1",
+      "(b) Infinite",
+      "(c) 2",
+      "(d) 0"
+    ],
+    "correct_answer": "(b) Infinite",
+    "solution": {
+      "text": "General form $k(x+3)(x-5)$ where k can be any non-zero number, hence infinite polynomials",
+      "image": "#"
+    },
+    "solution_steps": [
+      "Step 1: General form:",
+      "$k(x+3)(x-5)$",
+      "Step 2: $k$ can be any non-zero number",
+      "Step 3: Therefore infinite polynomials possible",
+      "Final Answer: (b) Infinite"
+    ]
+  },
+  {
+    "code": "CL10M02P1Q16",
+    "search_terms": "quadratic polynomial from zeroes 3 and 0",
+    "question": {
+      "text": "Which of the following is a quadratic polynomial with zeroes 3 and 0?",
+      "image": "#"
+    },
+    "options": [
+      "(a) $3x(3x-5)$",
+      "(b) $x(x-3)$",
+      "(c) $x+3$",
+      "(d) $3x-3$"
+    ],
+    "correct_answer": "(b) $x(x-3)$",
+    "solution": {
+      "text": "Polynomial with zeroes 0 and 3 is $x(x-3)$",
+      "image": "#"
+    },
+    "solution_steps": [
+      "Step 1: Zeroes are 0 and 3",
+      "Step 2: Polynomial:",
+      "$x(x-3)$",
+      "Final Answer: (b) $x(x-3)$"
+    ]
+  },
+  {
+    "code": "CL10M02P1Q17",
+    "search_terms": "1/alpha+1/beta formula x^2+x-1",
+    "question": {
+      "text": "If $\\alpha,\\beta$ are zeroes of $x^2+x-1$, find $\\frac{1}{\\alpha}+\\frac{1}{\\beta}$.",
+      "image": "#"
+    },
+    "options": [
+      "(a) 1",
+      "(b) -1",
+      "(c) 0",
+      "(d) 2"
+    ],
+    "correct_answer": "(a) 1",
+    "solution": {
+      "text": "Using $(\\alpha+\\beta)/\\alpha\\beta = (-1)/(-1)=1$",
+      "image": "#"
+    },
+    "solution_steps": [
+      "Step 1: $\\alpha+\\beta=-1$, $\\alpha\\beta=-1$",
+      "Step 2: Formula:",
+      "$\\frac{1}{\\alpha}+\\frac{1}{\\beta} = \\frac{\\alpha+\\beta}{\\alpha\\beta}$",
+      "Step 3: Substitute:",
+      "$= \\frac{-1}{-1} = 1$",
+      "Final Answer: (a) 1"
+    ]
+  },
+  {
+    "code": "CL10M02P1Q18",
+    "search_terms": "sum of zeroes x^2-1",
+    "question": {
+      "text": "If $\\alpha,\\beta$ are zeroes of $x^2-1$, find $\\alpha+\\beta$.",
+      "image": "#"
+    },
+    "options": [
+      "(a) 1",
+      "(b) -1",
+      "(c) 2",
+      "(d) 0"
+    ],
+    "correct_answer": "(d) 0",
+    "solution": {
+      "text": "Roots are 1 and -1, so sum = 0",
+      "image": "#"
+    },
+    "solution_steps": [
+      "Step 1: Factorize:",
+      "$(x-1)(x+1)=0$",
+      "Step 2: Roots:",
+      "$\\alpha=1, \\beta=-1$",
+      "Step 3: Sum:",
+      "$\\alpha+\\beta=0$",
+      "Final Answer: (d) 0"
+    ]
+  },
+  {
+    "code": "CL10M02P1Q19",
+    "search_terms": "1/alpha+1/beta 4x^2-3x-7",
+    "question": {
+      "text": "If $\\alpha,\\beta$ are zeroes of $p(x)=4x^2-3x-7$, then $\\frac{1}{\\alpha}+\\frac{1}{\\beta}$ is:",
+      "image": "https://i.ibb.co/vxWkTrDj/m219.jpg"
+    },
+    "options": [
+      "(a) 7/3",
+      "(b) -7/3",
+      "(c) 3/7",
+      "(d) -3/7"
+    ],
+    "correct_answer": "(d) -3/7",
+    "solution": {
+      "text": "Using $(\\alpha+\\beta)/\\alpha\\beta = (3/4)/(-7/4) = -3/7$",
+      "image": "#"
+    },
+    "solution_steps": [
+      "Step 1: Sum:",
+      "$\\alpha+\\beta=3/4$",
+      "Step 2: Product:",
+      "$\\alpha\\beta=-7/4$",
+      "Step 3: Formula:",
+      "$\\frac{1}{\\alpha}+\\frac{1}{\\beta} = \\frac{\\alpha+\\beta}{\\alpha\\beta}$",
+      "Step 4: Substitute:",
+      "$= \\frac{3/4}{-7/4} = -\\frac{3}{7}$",
+      "Final Answer: (d) -3/7"
+    ]
+  },
+  {
+    "code": "CL10M02P1Q20",
+    "search_terms": "shape of quadratic graph parabola",
+    "question": {
+      "text": "What is the shape of the curve EFG?",
+      "image": "#"
+    },
+    "options": [
+      "(a) Parabola",
+      "(b) Circle",
+      "(c) Line",
+      "(d) Ellipse"
+    ],
+    "correct_answer": "(a) Parabola",
+    "solution": {
+      "text": "Graph of quadratic polynomial is always a parabola",
+      "image": "#"
+    },
+    "solution_steps": [
+      "Step 1: Curve represents a quadratic polynomial",
+      "Step 2: Graph of quadratic polynomial is a parabola",
+      "Final Answer: (a) Parabola"
+    ]
   }
 ]
