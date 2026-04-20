@@ -1740,5 +1740,67 @@
       "$10+k=0$",
       "$k=-10$"
     ]
+  },
+  {
+    "code": "CL10M02P1Q8",
+    "search_terms": "graph of polynomial touching x axis equal roots quadratic assertion reason",
+    "question": {
+      "text": "Assertion (A): If the graph of a polynomial touches x-axis at only one point, then the polynomial cannot be a quadratic polynomial.\nReason (R): A polynomial of degree n can have at most n zeroes.",
+      "image": "#"
+    },
+    "options": [
+      "(a) Both A and R are true and R is correct explanation of A",
+      "(b) Both A and R are true but R is not correct explanation of A",
+      "(c) A is true but R is false",
+      "(d) A is false but R is true"
+    ],
+    "correct_answer": "(d) A is false but R is true",
+    "solution": {
+      "text": "A quadratic polynomial can touch the x-axis at exactly one point when roots are equal. Also, a polynomial of degree n can have at most n zeroes.",
+      "image": "#"
+    },
+    "solution_steps": [
+      "Step 1: Understand Assertion (A)",
+      "A quadratic polynomial can touch the x-axis at one point when roots are equal",
+      "Example: $y=(x-2)^2$",
+      "Step 2: Therefore Assertion (A) is false",
+      "Step 3: Understand Reason (R)",
+      "A polynomial of degree n has at most n zeroes",
+      "Step 4: Therefore Reason (R) is true",
+      "Step 5: Final conclusion:",
+      "Assertion is false but Reason is true",
+      "Final Answer: (d) Assertion (A) is false but Reason (R) is true",
+      "Concept Tip:",
+      "If graph touches x-axis → Equal roots",
+      "If graph cuts x-axis → Distinct roots"
+    ]
+  },
+  {
+    "code": "CL10M02P1Q9",
+    "search_terms": "number of zeroes from graph polynomial intersections x axis",
+    "question": {
+      "text": "The graph of $y=p(x)$ is given. The number of zeroes of $p(x)$ from the graph is:",
+      "image": "https://i.ibb.co/HkS9PK3/m21.jpg"
+    },
+    "options": [
+      "(a) 3",
+      "(b) 1",
+      "(c) 2",
+      "(d) 0"
+    ],
+    "correct_answer": "(b) 1",
+    "solution": {
+      "text": "Number of zeroes is equal to the number of points where the graph cuts or touches the x-axis. From the graph, it intersects the x-axis only once.",
+      "image": "#"
+    },
+    "solution_steps": [
+      "Step 1: Key concept:",
+      "Number of zeroes = number of points where graph cuts or touches x-axis",
+      "Step 2: Observe the graph",
+      "The graph intersects/touches the x-axis only once",
+      "Other parts do not intersect the x-axis",
+      "Step 3: Therefore number of zeroes = 1",
+      "Final Answer: (b) 1"
+    ]
   }
 ]
