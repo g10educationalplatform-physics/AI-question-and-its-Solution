@@ -392,15 +392,33 @@ function renderQA(item, subj){
     html += `<p><b>Code:</b> ${item.code}</p>`;
   }
 
-  /* Question */
-  html += `<p><b>Question:</b> ${item.question?.text || ""}</p>`;
+ /* Question */
+html += `<p><b>Question:</b> ${item.question?.text || ""}</p>`;
 
-  if(item.question?.image){
-    html += `<img src="${item.question.image}" style="max-width:100%;margin:10px 0;">`;
-  }
+if(item.question?.image){
+  html += `<img src="${item.question.image}" style="max-width:100%;margin:10px 0;">`;
+}
 
-  /* Solution */
- html += `<div><b>Solution:</b><br>${item.solution?.text || ""}</div>`;
+/* ✅ ADD OPTIONS HERE */
+if(item.options && item.options.length){
+  html += `<p><b>Options:</b></p><ul style="list-style:none;padding-left:0;">`;
+
+  item.options.forEach(opt => {
+    html += `<li style="
+      background:#f8f9fa;
+      margin:6px 0;
+      padding:8px 12px;
+      border-radius:6px;
+      border-left:4px solid #007bff;
+      font-weight:500;
+    ">${opt}</li>`;
+  });
+
+  html += `</ul>`;
+}
+
+/* Solution */
+html += `<div><b>Solution:</b><br>${item.solution?.text || ""}</div>`;
 
   if(item.solution?.image){
     html += `<img src="${item.solution.image}" style="max-width:100%;margin:10px 0;">`;
