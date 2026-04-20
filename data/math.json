@@ -2372,5 +2372,138 @@
       "$= x^2+3x+2$",
       "Final Answer: $x^2+3x+2$"
     ]
+  },
+  {
+    "code": "CL10M02P1Q31",
+    "search_terms": "form quadratic polynomial zeroes 3 and -4",
+    "question": {
+      "text": "Find the quadratic polynomial whose zeroes are 3 and -4.",
+      "image": "#"
+    },
+    "options": [],
+    "correct_answer": "$x^2+x-12$",
+    "solution": {
+      "text": "Polynomial with zeroes 3 and -4 is $(x-3)(x+4)=x^2+x-12$",
+      "image": "#"
+    },
+    "solution_steps": [
+      "Step 1: Zeroes are 3 and -4",
+      "Step 2: Form factors:",
+      "$(x-3)(x+4)$",
+      "Step 3: Multiply:",
+      "$= x^2 + x - 12$",
+      "Final Answer: $x^2+x-12$"
+    ]
+  },
+  {
+    "code": "CL10M02P1Q32",
+    "search_terms": "alpha beta sum product 5x^2-6x+1",
+    "question": {
+      "text": "If $\\alpha,\\beta$ are zeroes of polynomial $p(x)=5x^2-6x+1$, then find the value of $\\alpha+\\beta+\\alpha\\beta$",
+      "image": "#"
+    },
+    "options": [],
+    "correct_answer": "$\\frac{7}{5}$",
+    "solution": {
+      "text": "Using sum $=6/5$ and product $=1/5$, result is $7/5$",
+      "image": "#"
+    },
+    "solution_steps": [
+      "Step 1: Sum of zeroes:",
+      "$\\alpha+\\beta = -\\frac{b}{a} = \\frac{6}{5}$",
+      "Step 2: Product of zeroes:",
+      "$\\alpha\\beta = \\frac{c}{a} = \\frac{1}{5}$",
+      "Step 3: Required value:",
+      "$\\alpha+\\beta+\\alpha\\beta$",
+      "$= \\frac{6}{5} + \\frac{1}{5}$",
+      "$= \\frac{7}{5}$",
+      "Final Answer: $\\frac{7}{5}$"
+    ]
+  },
+  {
+    "code": "CL10M02P1Q33",
+    "search_terms": "reciprocal zeroes 6x^2+37x-(k-2)",
+    "question": {
+      "text": "If one zero of the polynomial $6x^2+37x-(k-2)$ is reciprocal of the other, find the value of $k$.",
+      "image": "#"
+    },
+    "options": [],
+    "correct_answer": "$-4$",
+    "solution": {
+      "text": "Using $\\alpha\\beta=1$, we get $(-k+2)/6=1$ giving $k=-4$",
+      "image": "#"
+    },
+    "solution_steps": [
+      "Step 1: If zeroes are reciprocal:",
+      "$\\alpha\\beta = 1$",
+      "Step 2: Product formula:",
+      "$\\alpha\\beta = \\frac{c}{a}$",
+      "Step 3: Substitute:",
+      "$c = -(k-2) = -k+2, a=6$",
+      "$\\frac{-k+2}{6} = 1$",
+      "Step 4: Solve:",
+      "$-k+2 = 6$",
+      "$-k = 4$",
+      "$k = -4$",
+      "Final Answer: $k=-4$"
+    ]
+  },
+  {
+    "code": "CL10M02P1Q34",
+    "search_terms": "alpha beta condition (alpha+1)(beta+1)=0 find c",
+    "question": {
+      "text": "If $\\alpha,\\beta$ are zeroes of the polynomial $x^2-px+(1+c)=0$ such that $(\\alpha+1)(\\beta+1)=0$, find $c$.",
+      "image": "#"
+    },
+    "options": [],
+    "correct_answer": "$-2$",
+    "solution": {
+      "text": "Using expansion and substitution, we get $c=-2$",
+      "image": "#"
+    },
+    "solution_steps": [
+      "Step 1: Expand:",
+      "$(\\alpha+1)(\\beta+1) = \\alpha\\beta + \\alpha + \\beta + 1 = 0$",
+      "Step 2: Using formulas:",
+      "$\\alpha+\\beta = p$",
+      "$\\alpha\\beta = 1+c$",
+      "Step 3: Substitute:",
+      "$(1+c) + p + 1 = 0$",
+      "$c + p + 2 = 0$",
+      "Step 4: Given condition:",
+      "One root = -1",
+      "Step 5: Substitute $x=-1$ in polynomial:",
+      "$(-1)^2 - p(-1) + (1+c) = 0$",
+      "$1 + p + 1 + c = 0$",
+      "$p + c + 2 = 0$",
+      "Step 6: Compare both equations:",
+      "$c = -2$",
+      "Final Answer: $c=-2$"
+    ]
+  },
+  {
+    "code": "CL10M02P1Q35",
+    "search_terms": "1/alpha+1/beta 4x^2+3x+7",
+    "question": {
+      "text": "If $\\alpha,\\beta$ are zeroes of $4x^2+3x+7$, find the value of $\\frac{1}{\\alpha}+\\frac{1}{\\beta}$",
+      "image": "#"
+    },
+    "options": [],
+    "correct_answer": "$-\\frac{3}{7}$",
+    "solution": {
+      "text": "Using $(\\alpha+\\beta)/\\alpha\\beta = (-3/4)/(7/4) = -3/7$",
+      "image": "#"
+    },
+    "solution_steps": [
+      "Step 1: Sum:",
+      "$\\alpha+\\beta = -\\frac{b}{a} = -\\frac{3}{4}$",
+      "Step 2: Product:",
+      "$\\alpha\\beta = \\frac{c}{a} = \\frac{7}{4}$",
+      "Step 3: Formula:",
+      "$\\frac{1}{\\alpha}+\\frac{1}{\\beta} = \\frac{\\alpha+\\beta}{\\alpha\\beta}$",
+      "Step 4:",
+      "$= \\frac{-3/4}{7/4} = -\\frac{3}{7}$",
+      "Final Answer: $-\\frac{3}{7}$"
+    ]
   }
 ]
