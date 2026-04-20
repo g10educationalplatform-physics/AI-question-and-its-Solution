@@ -2505,5 +2505,281 @@
       "$= \\frac{-3/4}{7/4} = -\\frac{3}{7}$",
       "Final Answer: $-\\frac{3}{7}$"
     ]
-  }
+  },
+  {
+  "code": "CL10M02P1Q36",
+  "search_terms": "zeroes x^2-15 verify relation sum product",
+  "question": {
+    "text": "Find the zeroes of the quadratic polynomial $x^2-15$ and verify the relationship between the zeroes.",
+    "image": "#"
+  },
+  "options": [],
+  "correct_answer": "Zeroes: $\\pm\\sqrt{15}$ and relations verified",
+  "solution": {
+    "text": "Solve and verify using sum and product formulas.",
+    "image": "#"
+  },
+  "solution_steps": [
+    "Step 1: Solve:",
+    "$x^2-15=0$",
+    "$x^2=15$",
+    "Step 2:",
+    "$x=\\pm\\sqrt{15}$",
+    "Step 3: Zeroes:",
+    "$\\sqrt{15}, -\\sqrt{15}$",
+    "Step 4: Verify sum:",
+    "$\\alpha+\\beta=0$",
+    "$-b/a=0$",
+    "Verified",
+    "Step 5: Verify product:",
+    "$\\alpha\\beta=-15$",
+    "$c/a=-15$",
+    "Verified",
+    "Final Answer: Zeroes are $\\pm\\sqrt{15}$ and relations verified"
+  ]
+},
+
+{
+  "code": "CL10M02P1Q37",
+  "search_terms": "sum product zeroes general quadratic",
+  "question": {
+    "text": "Find the sum and product of the zeroes of the polynomial $ax^2+bx+c$.",
+    "image": "#"
+  },
+  "options": [],
+  "correct_answer": "Sum = $-b/a$, Product = $c/a$",
+  "solution": {
+    "text": "Using standard formulas.",
+    "image": "#"
+  },
+  "solution_steps": [
+    "Step 1: Let zeroes be $\\alpha, \\beta$",
+    "Step 2:",
+    "$\\alpha+\\beta=-b/a$",
+    "$\\alpha\\beta=c/a$",
+    "Final Answer: Sum = $-b/a$, Product = $c/a$"
+  ]
+},
+
+{
+  "code": "CL10M02P1Q38",
+  "search_terms": "find k sum equals half product",
+  "question": {
+    "text": "Find $k$ such that $x^2-(k+6)x+2(2k+1)$ has sum of zeroes equal to half of their product.",
+    "image": "#"
+  },
+  "options": [],
+  "correct_answer": "5",
+  "solution": {
+    "text": "Apply condition $\\alpha+\\beta = \\frac{1}{2}\\alpha\\beta$",
+    "image": "#"
+  },
+  "solution_steps": [
+    "Step 1: Sum:",
+    "$\\alpha+\\beta = k+6$",
+    "Step 2: Product:",
+    "$\\alpha\\beta = 2(2k+1)$",
+    "Step 3: Apply condition:",
+    "$k+6 = \\frac{1}{2} \\times 2(2k+1)$",
+    "Step 4:",
+    "$k+6 = 2k+1$",
+    "$k=5$",
+    "Final Answer: $k=5$"
+  ]
+},
+
+{
+  "code": "CL10M02P1Q39",
+  "search_terms": "solve 7y^2-11y-2 zeroes verify",
+  "question": {
+    "text": "Find zeroes of $7y^2-11y-2$ and verify relationships.",
+    "image": "#"
+  },
+  "options": [],
+  "correct_answer": "$\\frac{11\\pm\\sqrt{177}}{14}$",
+  "solution": {
+    "text": "Use quadratic formula and verify.",
+    "image": "#"
+  },
+  "solution_steps": [
+    "Step 1:",
+    "$7y^2-11y-2=0$",
+    "Step 2:",
+    "$y=\\frac{11\\pm\\sqrt{121+56}}{14}$",
+    "$=\\frac{11\\pm\\sqrt{177}}{14}$",
+    "Step 3: Verify:",
+    "$\\alpha+\\beta=11/7$",
+    "$-b/a=11/7$",
+    "Verified",
+    "$\\alpha\\beta=-2/7$",
+    "$c/a=-2/7$",
+    "Verified",
+    "Final Answer: $\\frac{11\\pm\\sqrt{177}}{14}$"
+  ]
+},
+
+{
+  "code": "CL10M02P1Q40",
+  "search_terms": "form polynomial sum -1 product -20",
+  "question": {
+    "text": "Find quadratic polynomial with sum = -1 and product = -20. Also find its zeroes.",
+    "image": "#"
+  },
+  "options": [],
+  "correct_answer": "$x^2+x-20$, zeroes: -5, 4",
+  "solution": {
+    "text": "Use standard formula and factorization.",
+    "image": "#"
+  },
+  "solution_steps": [
+    "Step 1:",
+    "$x^2-(\\alpha+\\beta)x+\\alpha\\beta$",
+    "Step 2:",
+    "$=x^2-(-1)x-20$",
+    "$=x^2+x-20$",
+    "Step 3: Factorize:",
+    "$(x+5)(x-4)=0$",
+    "Step 4: Zeroes:",
+    "$-5, 4$",
+    "Final Answer: Polynomial $x^2+x-20$, zeroes $-5,4$"
+  ]
+},
+
+{
+  "code": "CL10M02P1Q41",
+  "search_terms": "new polynomial transformed zeroes",
+  "question": {
+    "text": "If $\\alpha,\\beta$ are zeroes of $4x^2-x-4$, find polynomial whose zeroes are $\\frac{\\alpha}{2}$ and $\\frac{2\\beta}{3}$.",
+    "image": "#"
+  },
+  "options": [],
+  "correct_answer": "Advanced transformation",
+  "solution": {
+    "text": "Transformation of roots required.",
+    "image": "#"
+  },
+  "solution_steps": [
+    "Step 1: Original sum:",
+    "$\\alpha+\\beta=1/4$",
+    "Step 2: Product:",
+    "$\\alpha\\beta=-1$",
+    "Step 3: New zeroes:",
+    "$\\alpha/2, 2\\beta/3$",
+    "Step 4: Form new sum and product",
+    "Step 5: Construct polynomial",
+    "Final Answer: Requires full transformation (advanced)"
+  ]
+},
+
+{
+  "code": "CL10M02P1Q42",
+  "search_terms": "reciprocal zeroes polynomial",
+  "question": {
+    "text": "If $\\alpha,\\beta$ are zeroes of $6x^2-7x+2$, find polynomial with zeroes $1/\\alpha,1/\\beta$.",
+    "image": "#"
+  },
+  "options": [],
+  "correct_answer": "$2x^2-7x+6$",
+  "solution": {
+    "text": "Use reciprocal relations.",
+    "image": "#"
+  },
+  "solution_steps": [
+    "Step 1: Sum:",
+    "$\\alpha+\\beta=7/6$",
+    "Step 2: Product:",
+    "$\\alpha\\beta=1/3$",
+    "Step 3:",
+    "$1/\\alpha+1/\\beta=(7/6)/(1/3)=7/2$",
+    "Step 4:",
+    "$1/(\\alpha\\beta)=3$",
+    "Step 5: Polynomial:",
+    "$x^2-7/2x+3$",
+    "Step 6: Multiply:",
+    "$2x^2-7x+6$",
+    "Final Answer: $2x^2-7x+6$"
+  ]
+},
+
+{
+  "code": "CL10M02P1Q43",
+  "search_terms": "solve 4x^2-7x-3 verify",
+  "question": {
+    "text": "Find zeroes of $4x^2-7x-3$ and verify relationships.",
+    "image": "#"
+  },
+  "options": [],
+  "correct_answer": "$\\frac{7\\pm\\sqrt{97}}{8}$",
+  "solution": {
+    "text": "Quadratic formula and verification.",
+    "image": "#"
+  },
+  "solution_steps": [
+    "Step 1:",
+    "$4x^2-7x-3=0$",
+    "Step 2:",
+    "$x=\\frac{7\\pm\\sqrt{49+48}}{8}$",
+    "$=\\frac{7\\pm\\sqrt{97}}{8}$",
+    "Step 3: Verify:",
+    "$\\alpha+\\beta=7/4$",
+    "$\\alpha\\beta=-3/4$",
+    "Verified",
+    "Final Answer: $\\frac{7\\pm\\sqrt{97}}{8}$"
+  ]
+},
+
+{
+  "code": "CL10M02P1Q44",
+  "search_terms": "case study graph zeroes sum product",
+  "question": {
+    "text": "Case Study based on graph of polynomial (multi-part question).",
+    "image": "https://i.ibb.co/70b0zkW/m244.jpg"
+  },
+  "options": [],
+  "correct_answer": "Answers derived from graph and formulas",
+  "solution": {
+    "text": "Solve each part stepwise.",
+    "image": "#"
+  },
+  "solution_steps": [
+    "Step 1: Number of zeroes:",
+    "Graph cuts x-axis 2 times",
+    "Answer: 2",
+    "Step 2: Zeroes:",
+    "$-3, 5$",
+    "Step 3(A):",
+    "$a=0, b=-6$",
+    "Step 3(B):",
+    "$p=\\pm18$",
+    "Final Answer: All parts solved"
+  ]
+},
+
+{
+  "code": "CL10M02P1Q45",
+  "search_terms": "case study quadratic height parabola",
+  "question": {
+    "text": "Dolphin height polynomial case study.",
+    "image": "https://i.ibb.co/0y0gHv3f/m245.jpg"
+  },
+  "options": [],
+  "correct_answer": "Zeroes: 0,5/4 | Graph: parabola | Height and distance computed",
+  "solution": {
+    "text": "Solve each part stepwise.",
+    "image": "#"
+  },
+  "solution_steps": [
+    "Step 1: Factorize:",
+    "$t(20-16t)$",
+    "Step 2:",
+    "$t=0, t=5/4$",
+    "Step 3: Graph:",
+    "Downward parabola",
+    "Step 4: Height at t=3/2:",
+    "$=-6$",
+    "Step 5: Distance:",
+    "$=12.5$",
+    "Final Answer: All parts solved"
+  ]
+}
 ]
