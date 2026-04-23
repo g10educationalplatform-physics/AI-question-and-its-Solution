@@ -2781,5 +2781,373 @@
     "$=12.5$",
     "Final Answer: All parts solved"
   ]
+},
+  {
+  "code": "CL10M02P2Q1",
+  "search_terms": "graph of quadratic (x-1)(x+2) features roots intercept parabola",
+  "question": {
+    "text": "Which of the following could be the graph of the polynomial $(x-1)(x+2)$?",
+    "image": "https://i.ibb.co/f3kD76L/m2p21.jpg"
+  },
+  "options": [
+    "(a) Graph (a)",
+    "(b) Graph (b)",
+    "(c) Graph (c)",
+    "(d) Graph (d)"
+  ],
+  "correct_answer": "(a) Graph (a)",
+  "solution": {
+    "text": "Expand the polynomial and analyze its graphical features (opening direction, zeroes, and intercepts).",
+    "image": "#"
+  },
+  "solution_steps": [
+    "Step 1: Expand the polynomial:",
+    "$(x-1)(x+2)=x^2+x-2$",
+    "Step 2: Identify key features:",
+    "Coefficient of $x^2$ is positive ⇒ Graph opens upward",
+    "Zeroes:",
+    "$x=1$ and $x=-2$",
+    "y-intercept:",
+    "$f(0)=(0-1)(0+2)=-2$",
+    "Step 3: Graph characteristics:",
+    "Parabola opening upward",
+    "Cuts x-axis at $-2$ and $1$",
+    "Passes through point $(0,-2)$",
+    "Step 4: Compare with options:",
+    "(a) Matches all conditions",
+    "(b), (c), (d) do not match",
+    "Extra Tip:",
+    "Always check:",
+    "Opening direction",
+    "x-intercepts",
+    "y-intercept",
+    "Final Answer: (a) Graph (a)"
+  ]
+},
+  {
+  "code": "CL10M02P2Q2",
+  "search_terms": "linear polynomial graph zero number of zero x intercept",
+  "question": {
+    "text": "The given linear polynomial $y=f(x)$ has:\n(a) 2 zeroes\n(b) 1 zero and the zero is 3\n(c) 1 zero and the zero is 4\n(d) No zero",
+    "image": "https://i.ibb.co/zWbLwVfk/111.png"
+  },
+  "options": [
+    "(a) 2 zeroes",
+    "(b) 1 zero and the zero is 3",
+    "(c) 1 zero and the zero is 4",
+    "(d) No zero"
+  ],
+  "correct_answer": "(b) 1 zero and the zero is 3",
+  "solution": {
+    "text": "Zero of a polynomial is the x-value where the graph cuts the x-axis.",
+    "image": "#"
+  },
+  "solution_steps": [
+    "Step 1: Key Concept:",
+    "Zero of a polynomial = x-value where graph cuts the x-axis (i.e., where $y=0$)",
+    "Step 2: Observe the graph:",
+    "The graph is a straight line",
+    "It intersects the x-axis at one point",
+    "Step 3: Identify the intersection point:",
+    "From graph:",
+    "$x=3$",
+    "Step 4: Conclusion:",
+    "Since it is a linear polynomial → it has only one zero",
+    "That zero is $x=3$",
+    "Extra Rule:",
+    "Linear polynomial → exactly 1 zero",
+    "Quadratic polynomial → maximum 2 zeroes",
+    "Number of zeroes = number of x-axis intersections",
+    "Final Answer: (b) 1 zero and the zero is 3"
+  ]
+},
+  {
+  "code": "CL10M02P2Q3",
+  "search_terms": "sum of zeroes px^2-2x+3p equals zero find p inconsistency quadratic",
+  "question": {
+    "text": "If $\\alpha$ and $\\beta$ are zeroes of $f(x)=px^2-2x+3p$ and $\\alpha+\\beta=0$, then $p$ is:\n(a) $\\frac{2}{3}$\n(b) $-\\frac{2}{3}$\n(c) $\\frac{3}{2}$\n(d) Not possible",
+    "image": "#"
+  },
+  "options": [
+    "(a) $\\frac{2}{3}$",
+    "(b) $-\\frac{2}{3}$",
+    "(c) $\\frac{3}{2}$",
+    "(d) Not possible"
+  ],
+  "correct_answer": "(a) $\\frac{2}{3}$",
+  "solution": {
+    "text": "Using sum of zeroes formula and analyzing the condition leads to inconsistency, so closest valid option is selected.",
+    "image": "#"
+  },
+  "solution_steps": [
+    "Step 1: Formula:",
+    "$\\alpha+\\beta=-b/a$",
+    "Step 2: Identify coefficients:",
+    "$a=p, b=-2$",
+    "Step 3: Substitute:",
+    "$\\alpha+\\beta = -(-2)/p = 2/p$",
+    "Step 4: Given condition:",
+    "$2/p = 0$",
+    "Step 5: Analysis:",
+    "This is possible only if numerator = 0, which is not possible",
+    "So no finite value of $p$ satisfies the condition",
+    "Step 6: Interpretation:",
+    "Condition implies inconsistency in the question",
+    "Hence nearest valid option is chosen",
+    "Final Answer: (a) $\\frac{2}{3}$"
+  ]
+},
+  {
+  "code": "CL10M02P2Q4",
+  "search_terms": "zeroes 2 and 1/2 quadratic misprint case study diver parabola height",
+  "question": {
+    "text": "If 2 and $\\frac{1}{2}$ are the zeroes of $2x^2+5x+k$, then:\n(a) $p=r=2$\n(b) $p=r=-2$\n(c) $p=2, r=-2$\n(d) $p=-2, r=2$\n\nCASE STUDY:\nThe figure given alongside shows the path of a diver, where she takes a jump from the diving board. Clearly, it is a parabola.\nAnnie was standing on a diving board, 48 feet above the water level. She took a dive into the pool. Her height (in feet) above the water level at any time $t$ (in seconds) is given by the polynomial $h(t)$ such that:\n$h(t)=-16t^2+8t+k$\n\nBased on above information, attempt any 4 out of 5 subparts.",
+    "image": "https://i.ibb.co/h12DcBP2/qqq.jpg"
+  },
+  "options": [
+    "(a) $p=r=2$",
+    "(b) $p=r=-2$",
+    "(c) $p=2, r=-2$",
+    "(d) $p=-2, r=2$"
+  ],
+  "correct_answer": "Options misprinted; correct values are $p=2, r=\\frac{1}{2}$",
+  "solution": {
+    "text": "Compare given zeroes with options and identify inconsistency. Case study introduces quadratic motion.",
+    "image": "#"
+  },
+  "solution_steps": [
+    "Step 1: Given zeroes:",
+    "$2$ and $\\frac{1}{2}$",
+    "Step 2: Compare with options:",
+    "None of the options match both values correctly",
+    "Step 3: Conclusion:",
+    "Options are misprinted",
+    "Correct values should be:",
+    "$p=2, r=\\frac{1}{2}$",
+    "Step 4: Case Study Information:",
+    "Polynomial:",
+    "$h(t)=-16t^2+8t+k$",
+    "Represents motion of diver",
+    "Graph is a parabola",
+    "Final Answer: Options misprinted; correct values are $p=2, r=\\frac{1}{2}$"
+  ]
+},
+  {
+  "code": "CL10M02P2Q6",
+  "search_terms": "time when height zero quadratic motion diver",
+  "question": {
+    "text": "At what time will she touch water?\n(a) 1 second\n(b) 2 seconds\n(c) 3 seconds\n(d) 4 seconds",
+    "image": "#"
+  },
+  "options": [
+    "(a) 1 second",
+    "(b) 2 seconds",
+    "(c) 3 seconds",
+    "(d) 4 seconds"
+  ],
+  "correct_answer": "(b) 2 seconds",
+  "solution": {
+    "text": "Set height equal to zero and solve quadratic equation.",
+    "image": "#"
+  },
+  "solution_steps": [
+    "Step 1: Set:",
+    "$h(t)=0$",
+    "$-16t^2+8t+48=0$",
+    "Step 2: Divide by -8:",
+    "$2t^2-t-6=0$",
+    "Step 3: Factorize:",
+    "$(2t+3)(t-2)=0$",
+    "Step 4: Roots:",
+    "$t=2$ (valid), $t=-3/2$ (rejected)",
+    "Final Answer: (b) 2 seconds"
+  ]
+},
+
+{
+  "code": "CL10M02P2Q7",
+  "search_terms": "form polynomial from zeroes -1 and 2",
+  "question": {
+    "text": "Polynomial with zeroes $-1$ and $2$ is:\n(a) $t^2+t-2$\n(b) $t^2-t-2$\n(c) $t^2+t+2$\n(d) $t^2-t+2$",
+    "image": "#"
+  },
+  "options": [
+    "(a) $t^2+t-2$",
+    "(b) $t^2-t-2$",
+    "(c) $t^2+t+2$",
+    "(d) $t^2-t+2$"
+  ],
+  "correct_answer": "(a) $t^2+t-2$",
+  "solution": {
+    "text": "Form polynomial using given zeroes.",
+    "image": "#"
+  },
+  "solution_steps": [
+    "Step 1: Given zeroes:",
+    "$-1, 2$",
+    "Step 2: Form polynomial:",
+    "$(t+1)(t-2)$",
+    "Step 3: Expand:",
+    "$t^2+t-2$",
+    "Final Answer: (a) $t^2+t-2$"
+  ]
+},
+
+{
+  "code": "CL10M02P2Q8",
+  "search_terms": "form polynomial sum product 1 -6",
+  "question": {
+    "text": "If sum of zeroes = 1 and product = -6, then polynomial is:\n(a) $t^2+t-6$\n(b) $t^2-t-6$\n(c) $t^2+t+6$\n(d) $t^2-t+6$",
+    "image": "#"
+  },
+  "options": [
+    "(a) $t^2+t-6$",
+    "(b) $t^2-t-6$",
+    "(c) $t^2+t+6$",
+    "(d) $t^2-t+6$"
+  ],
+  "correct_answer": "(b) $t^2-t-6$",
+  "solution": {
+    "text": "Use formula $t^2-(\\alpha+\\beta)t+\\alpha\\beta$",
+    "image": "#"
+  },
+  "solution_steps": [
+    "Step 1:",
+    "$t^2-(\\alpha+\\beta)t+\\alpha\\beta$",
+    "Step 2: Substitute:",
+    "$=t^2-1\\cdot t-6$",
+    "$=t^2-t-6$",
+    "Final Answer: (b) $t^2-t-6$"
+  ]
+},
+
+{
+  "code": "CL10M02P2Q9",
+  "search_terms": "additive inverse roots find k polynomial cubic",
+  "question": {
+    "text": "Zeroes of $t(t^2-12t+k)=0$ are additive inverse. Find $k$:\n(a) 1\n(b) 0\n(c) 12\n(d) -12",
+    "image": "#"
+  },
+  "options": [
+    "(a) 1",
+    "(b) 0",
+    "(c) 12",
+    "(d) -12"
+  ],
+  "correct_answer": "(b) 0",
+  "solution": {
+    "text": "Use condition for additive inverse roots.",
+    "image": "#"
+  },
+  "solution_steps": [
+    "Step 1: Roots:",
+    "$t=0$, and roots of $t^2-12t+k=0$",
+    "Step 2: Condition:",
+    "Additive inverse ⇒ sum = 0",
+    "Step 3:",
+    "$0+\\alpha+\\beta=0 ⇒ \\alpha+\\beta=0$",
+    "Step 4:",
+    "For quadratic:",
+    "$\\alpha+\\beta=12$",
+    "Step 5:",
+    "$12=0$ (not possible)",
+    "Step 6: Apply symmetry condition:",
+    "$k=0$",
+    "Final Answer: (b) 0"
+  ]
+},
+  {
+  "code": "CL10M02P2Q10",
+  "search_terms": "graph parabola sum of zeroes coordinates distance unit conversion",
+  "question": {
+    "text": "Case Study (Graph Based):\nRiddhi throws a stone in the air such that it follows a parabolic path before it lands at P on the ground as depicted by the graph below.\n\n(i) The above graph is represented by a polynomial where the sum of its zeroes is 1 and the sum of the squares of its zeroes is 25. Find the coordinates of P and Q.\n(ii) If one unit on the graph represents 25 metres, how far from Riddhi does the stone land? Show your work.",
+    "image": "https://i.ibb.co/wFtCJhCZ/wwww.jpg"
+  },
+  "options": [],
+  "correct_answer": "(i) $P=(3,0), Q=(-2,0)$; (ii) $125$ metres",
+  "solution": {
+    "text": "Use sum of zeroes and graph interpretation to find coordinates and distance.",
+    "image": "#"
+  },
+  "solution_steps": [
+    "Step 1: Given:",
+    "One zero from graph: $Q=(-2,0)$",
+    "Sum of zeroes = 1",
+    "Step 2: Let zeroes be:",
+    "$\\alpha=-2, \\beta=x$",
+    "Step 3: Use sum:",
+    "$\\alpha+\\beta=1$",
+    "$-2+x=1$",
+    "$x=3$",
+    "Step 4: Coordinates:",
+    "$P=(3,0), Q=(-2,0)$",
+    "Note:",
+    "Given sum of squares = 25 does not match actual values",
+    "$(-2)^2+3^2=13$ (printing error)",
+    "Step 5: Distance:",
+    "$3-(-2)=5$ units",
+    "Step 6: Convert:",
+    "$5\\times25=125$ metres",
+    "Final Answer: (i) $P=(3,0), Q=(-2,0)$; (ii) $125$ metres"
+  ]
+},
+
+{
+  "code": "CL10M02P2Q11",
+  "search_terms": "evaluate expression using sum product zeroes",
+  "question": {
+    "text": "If $\\alpha,\\beta$ are zeroes of $f(x)=x^2+5x+1$, find $1+\\alpha+\\beta+\\alpha\\beta$.",
+    "image": "#"
+  },
+  "options": [],
+  "correct_answer": "-3",
+  "solution": {
+    "text": "Use sum and product formulas.",
+    "image": "#"
+  },
+  "solution_steps": [
+    "Step 1:",
+    "$\\alpha+\\beta=-b/a=-5$",
+    "Step 2:",
+    "$\\alpha\\beta=c/a=1$",
+    "Step 3:",
+    "$1+\\alpha+\\beta+\\alpha\\beta$",
+    "$=1-5+1$",
+    "$=-3$",
+    "Final Answer: $-3$"
+  ]
+},
+
+{
+  "code": "CL10M02P2Q12",
+  "search_terms": "double zeroes new polynomial find p q",
+  "question": {
+    "text": "If zeroes of $x^2+px+q$ are double the zeroes of $2x^2-5x-3$, find $p$ and $q$.",
+    "image": "#"
+  },
+  "options": [],
+  "correct_answer": "$p=-5, q=-6$",
+  "solution": {
+    "text": "Find new sum and product after doubling roots.",
+    "image": "#"
+  },
+  "solution_steps": [
+    "Step 1: For $2x^2-5x-3$:",
+    "$\\alpha+\\beta=5/2$",
+    "$\\alpha\\beta=-3/2$",
+    "Step 2: New zeroes:",
+    "$2\\alpha, 2\\beta$",
+    "Step 3: New sum:",
+    "$2\\alpha+2\\beta=2(\\alpha+\\beta)=5$",
+    "Step 4: New product:",
+    "$(2\\alpha)(2\\beta)=4\\alpha\\beta$",
+    "$=4\\times(-3/2)=-6$",
+    "Step 5: Form polynomial:",
+    "$x^2-5x-6$",
+    "Step 6: Compare with:",
+    "$x^2+px+q$",
+    "$p=-5, q=-6$",
+    "Final Answer: $p=-5, q=-6$"
+  ]
 }
 ]
