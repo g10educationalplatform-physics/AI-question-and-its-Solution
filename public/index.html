@@ -40,8 +40,24 @@
     button, label.btn { display: inline-block; margin-top: 10px; padding: 12px 20px; background: #3498db; color: white; font-size: 1rem; border: none; border-radius: 8px; cursor: pointer; text-decoration: none; }
     button:hover, label.btn:hover { background: #2c80b9; }
     .solution-box { position: relative; background: #fff; border-radius: 10px; padding: 15px; margin-top: 15px; box-shadow: 0 6px 18px rgba(0,0,0,0.06); text-align: left; font-size: 1rem; line-height: 1.5; overflow-x: auto; word-wrap: break-word; -webkit-overflow-scrolling: touch; }
-    .solution-box::before { content: ""; position: absolute; top: 50%; left: 50%; width: 300px; height: 300px; background: url("https://i.ibb.co/WNZTWPwv/LOGO-PNG-2025-fab.png") no-repeat center center; background-size: contain; opacity: 0.15; transform: translate(-50%, -50%); pointer-events: none; z-index: 0; }
-    .solution-box * { position: relative; z-index: 1; }
+    
+.solution-box::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 260px;              /* slightly balanced size */
+  height: 260px;
+  background: url("https://i.ibb.co/WNZTWPwv/LOGO-PNG-2025-fab.png") no-repeat center center;
+  background-size: contain;
+  opacity: 0.08;             /* 👈 increase visibility (was too low/uneven) */
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 0;
+  filter: grayscale(20%) contrast(120%);
+}
+    
+	.solution-box * { position: relative; z-index: 1; }
     .solution-box h3, .solution-box h4, .solution-box strong, .solution-box b { color: #007bff !important; font-weight: 700; }
     table { border-collapse: collapse; width: 100%; margin: 10px 0; }
     th, td { border: 1px solid #ccc; padding: 8px; text-align: left; vertical-align: top; }
@@ -120,13 +136,33 @@
 }
 
 .step-header {
-  background: linear-gradient(90deg, #007bff, #00c6ff);
-  color: white;
-  padding: 10px 15px;
+  background: linear-gradient(90deg, #e3f2fd, #f0f9ff); /* light soft blue */
+  color: #2c3e50; /* dark text for readability */
+  padding: 12px 15px;
   cursor: pointer;
   display: flex;
   justify-content: space-between;
-  font-weight: bold;
+  font-weight: 600;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+/* Hover effect */
+.step-header:hover {
+  background: linear-gradient(90deg, #d6ecff, #eaf7ff);
+  transform: translateY(-1px);
+}
+
+/* Step number text */
+.step-number {
+  color: #007bff;
+  font-weight: 700;
+}
+
+/* Arrow icon */
+.toggle-icon {
+  color: #555;
+  transition: transform 0.3s ease;
 }
 
 .step-content {
@@ -154,6 +190,12 @@
 .step-main {
   font-weight: 600;
   margin-bottom: 6px;
+}
+.step-card {
+  background: #fff;
+  border-radius: 12px;
+  margin: 12px 0;
+  box-shadow: 0 6px 20px rgba(0,123,255,0.08); /* soft blue glow */
 }
 
   </style>
