@@ -2092,7 +2092,7 @@
     "search_terms": "shape of quadratic graph parabola",
     "question": {
       "text": "What is the shape of the curve EFG?",
-      "image": "#"
+      "image": "https://i.ibb.co/XZffXVyw/wwwwwwwww.jpg"
     },
     "options": [
       "(a) Parabola",
@@ -2116,7 +2116,7 @@
     "search_terms": "zeroes of -(x^2+4x+3) graph polynomial factorization",
     "question": {
       "text": "If the curve ABC shown in the graph is represented by $f(x)=-(x^2+4x+3)$, then its zeroes are:",
-      "image": "#"
+      "image": "https://i.ibb.co/XZffXVyw/wwwwwwwww.jpg"
     },
     "options": [
       "(a) 1, 3",
@@ -2146,7 +2146,7 @@
     "search_terms": "form polynomial from zeroes -1 and 2",
     "question": {
       "text": "If the path traced by the car has zeroes at -1 and 2, then it is given by:",
-      "image": "#"
+      "image": "https://i.ibb.co/XZffXVyw/wwwwwwwww.jpg"
     },
     "options": [
       "(a) $x^2+x-2$",
@@ -2173,26 +2173,26 @@
     "search_terms": "number of zeroes from graph intersections",
     "question": {
       "text": "The number of zeroes of the polynomial representing the whole curve is:",
-      "image": "#"
+      "image": "https://i.ibb.co/XZffXVyw/wwwwwwwww.jpg"
     },
     "options": [
       "(a) 1",
-      "(b) 3",
+      "(b) 4",
       "(c) 2",
       "(d) 0"
     ],
-    "correct_answer": "(b) 3",
+    "correct_answer": "(b) 4",
     "solution": {
-      "text": "Number of zeroes equals number of intersections with x-axis. From graph, there are 3 intersections.",
+      "text": "Number of zeroes equals number of intersections with x-axis. From graph, there are 4 intersections.",
       "image": "#"
     },
     "solution_steps": [
       "Step 1: Key concept:",
       "Number of zeroes = number of points where graph cuts/touches x-axis",
       "Step 2: Observe graph",
-      "Curve intersects x-axis 3 times",
+      "Curve intersects x-axis 4 times",
       "Step 3: Therefore number of zeroes = 3",
-      "Final Answer: (b) 3"
+      "Final Answer: (b) 4"
     ]
   },
   {
@@ -2200,7 +2200,7 @@
     "search_terms": "distance between two points on x axis graph",
     "question": {
       "text": "The distance between G and H is:",
-      "image": "#"
+      "image": "https://i.ibb.co/XZffXVyw/wwwwwwwww.jpg"
     },
     "options": [
       "(a) 4 units",
@@ -2226,7 +2226,7 @@
     "search_terms": "form polynomial from sum and product of zeroes",
     "question": {
       "text": "The quadratic polynomial, the sum of whose zeroes is -5 and their product is 6, is:",
-      "image": "#"
+      "image": "https://i.ibb.co/XZffXVyw/wwwwwwwww.jpg"
     },
     "options": [
       "(a) $x^2+5x+6$",
