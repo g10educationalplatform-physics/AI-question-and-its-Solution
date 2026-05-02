@@ -1922,35 +1922,37 @@
     ]
   },
   {
-    "code": "CL10M02P1Q14",
-    "search_terms": "alpha beta square sum formula quadratic",
-    "question": {
-      "text": "If $\\alpha,\\beta$ are zeroes of $ax^2-bx$, find $\\alpha^2+\\beta^2$.",
-      "image": "#"
-    },
-    "options": [
-      "(a) $\\frac{b}{a}$",
-      "(b) $\\frac{b^2}{a^2}$",
-      "(c) $\\frac{a^2}{b^2}$",
-      "(d) $\\frac{a}{b}$"
-    ],
-    "correct_answer": "(b) $\\frac{b^2}{a^2}$",
-    "solution": {
-      "text": "Using identity $(\\alpha+\\beta)^2-2\\alpha\\beta$, we get $(b/a)^2$",
-      "image": "#"
-    },
-    "solution_steps": [
-      "Step 1: Sum:",
-      "$\\alpha+\\beta = \\frac{b}{a}$",
-      "Step 2: Product:",
-      "$\\alpha\\beta = 0$",
-      "Step 3: Use identity:",
-      "$\\alpha^2+\\beta^2 = (\\alpha+\\beta)^2 - 2\\alpha\\beta$",
-      "Step 4: Substitute:",
-      "$= (\\frac{b}{a})^2$",
-      "Final Answer: (b) $\\frac{b^2}{a^2}$"
-    ]
+  "code": "CL10M02P1Q14",
+  "search_terms": "alpha beta square sum quadratic identity zeroes",
+  "question": {
+    "text": "If $\\alpha,\\beta$ are the zeroes of the quadratic polynomial $ax^2 - bx$, find $\\alpha^2 + \\beta^2$.",
+    "image": "#"
   },
+  "options": [
+    "(a) $a^2 - b^2$",
+    "(b) $\\frac{a^2 + b^2}{2a}$",
+    "(c) $\\frac{b^2}{a^2}$",
+    "(d) $\\frac{b^2 + 2a}{2a}$"
+  ],
+  "correct_answer": "(c) $\\frac{b^2}{a^2}$",
+  "solution": {
+    "text": "Using identity $(\\alpha+\\beta)^2 - 2\\alpha\\beta$, substitute sum $\\frac{b}{a}$ and product $0$ to get $\\frac{b^2}{a^2}$.",
+    "image": "#"
+  },
+  "solution_steps": [
+    "Step 1: Sum of zeroes:",
+    "$\\alpha + \\beta = \\frac{b}{a}$",
+    "Step 2: Product of zeroes:",
+    "$\\alpha \\beta = 0$",
+    "Step 3: Use identity:",
+    "$\\alpha^2 + \\beta^2 = (\\alpha + \\beta)^2 - 2\\alpha \\beta$",
+    "Step 4: Substitute values:",
+    "$= \\left(\\frac{b}{a}\\right)^2 - 0$",
+    "Step 5: Simplify:",
+    "$= \\frac{b^2}{a^2}$",
+    "Final Answer: (c) $\\frac{b^2}{a^2}$"
+  ]
+},
   {
     "code": "CL10M02P1Q15",
     "search_terms": "number of polynomials given zeroes infinite",
