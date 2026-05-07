@@ -1660,36 +1660,40 @@
       "$k = -4$"
     ]
   },
-  {
-    "code": "CL10M02P1Q5",
-    "search_terms": "find k substitution quadratic (k-1)x^2+kx+1",
-    "question": {
-      "text": "If one zero of quadratic polynomial $(k-1)x^2 + kx + 1$ is 3, find $k$.",
-      "image": "#"
-    },
-    "options": [
-      "(a) 1",
-      "(b) 2",
-      "(c) $\\frac{2}{3}$",
-      "(d) $\\frac{3}{2}$"
-    ],
-    "correct_answer": "(c) $\\frac{2}{3}$",
-    "solution": {
-      "text": "Substitute $x=3$ to get $9(k-1)+3k+1=0$, solving gives $k=\\frac{2}{3}$",
-      "image": "#"
-    },
-    "solution_steps": [
-      "Step 1: Substitute $x=3$",
-      "Step 2: Form equation:",
-      "$9(k-1)+3k+1=0$",
-      "Step 3: Expand:",
-      "$9k-9+3k+1=0$",
-      "$12k-8=0$",
-      "Step 4: Solve:",
-      "$12k=8$",
-      "$k=\\frac{2}{3}$"
-    ]
+ {
+  "code": "CL10M02P1Q5",
+  "search_terms": "find k substitution quadratic (k-1)x^2+kx+1 zero -3",
+  "question": {
+    "text": "If one of the zeroes of the quadratic polynomial $(k-1)x^2+kx+1$ is $-3$, then find the value of $k$.",
+    "image": "#"
   },
+  "options": [
+    "(a) $\\frac{4}{3}$",
+    "(b) $-\\frac{4}{3}$",
+    "(c) $\\frac{2}{3}$",
+    "(d) $-\\frac{2}{3}$"
+  ],
+  "correct_answer": "(a) $\\frac{4}{3}$",
+  "solution": {
+    "text": "Since $-3$ is a zero of the polynomial, substitute $x=-3$ in $(k-1)x^2+kx+1=0$. Solving gives $k=\\frac{4}{3}$.",
+    "image": "#"
+  },
+  "solution_steps": [
+    "Step 1: Given polynomial:",
+    "$p(x)=(k-1)x^2+kx+1$",
+    "Step 2: Substitute $x=-3$",
+    "$p(-3)=0$",
+    "$(k-1)(-3)^2+k(-3)+1=0$",
+    "Step 3: Simplify:",
+    "$9(k-1)-3k+1=0$",
+    "$9k-9-3k+1=0$",
+    "$6k-8=0$",
+    "Step 4: Solve for $k$:",
+    "$6k=8$",
+    "$k=\\frac{8}{6}$",
+    "$k=\\frac{4}{3}$"
+  ]
+},
   {
     "code": "CL10M02P1Q6",
     "search_terms": "degree of polynomial from zeroes concept",
