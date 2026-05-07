@@ -1746,39 +1746,41 @@
     ]
   },
   {
-    "code": "CL10M02P1Q8",
-    "search_terms": "graph of polynomial touching x axis equal roots quadratic assertion reason",
-    "question": {
-      "text": "Assertion (A): If the graph of a polynomial touches x-axis at only one point, then the polynomial cannot be a quadratic polynomial.\nReason (R): A polynomial of degree n can have at most n zeroes.",
-      "image": "#"
-    },
-    "options": [
-      "(a) Both A and R are true and R is correct explanation of A",
-      "(b) Both A and R are true but R is not correct explanation of A",
-      "(c) A is true but R is false",
-      "(d) A is false but R is true"
-    ],
-    "correct_answer": "(d) A is false but R is true",
-    "solution": {
-      "text": "A quadratic polynomial can touch the x-axis at exactly one point when roots are equal. Also, a polynomial of degree n can have at most n zeroes.",
-      "image": "#"
-    },
-    "solution_steps": [
-      "Step 1: Understand Assertion (A)",
-      "A quadratic polynomial can touch the x-axis at one point when roots are equal",
-      "Example: $y=(x-2)^2$",
-      "Step 2: Therefore Assertion (A) is false",
-      "Step 3: Understand Reason (R)",
-      "A polynomial of degree n has at most n zeroes",
-      "Step 4: Therefore Reason (R) is true",
-      "Step 5: Final conclusion:",
-      "Assertion is false but Reason is true",
-      "Final Answer: (d) Assertion (A) is false but Reason (R) is true",
-      "Concept Tip:",
-      "If graph touches x-axis → Equal roots",
-      "If graph cuts x-axis → Distinct roots"
-    ]
+  "code": "CL10M02P1Q8",
+  "search_terms": "assertion reason quadratic polynomial touches x axis one point equal roots",
+  "question": {
+    "text": "Assertion (A): If the graph of a polynomial touches the x-axis at only one point, then the polynomial cannot be a quadratic polynomial.\n\nReason (R): A polynomial of degree $n$ $(n>1)$ can have at most $n$ zeroes.",
+    "image": "#"
   },
+  "options": [
+    "(a) Both Assertion (A) and Reason (R) are true and Reason (R) is the correct explanation of Assertion (A)",
+    "(b) Both Assertion (A) and Reason (R) are true but Reason (R) is not the correct explanation of Assertion (A)",
+    "(c) Assertion (A) is true but Reason (R) is false",
+    "(d) Assertion (A) is false but Reason (R) is true"
+  ],
+  "correct_answer": "(d) Assertion (A) is false but Reason (R) is true",
+  "solution": {
+    "text": "A quadratic polynomial can touch the x-axis at exactly one point when it has equal roots, so Assertion (A) is false. The statement that a polynomial of degree $n$ can have at most $n$ zeroes is true.",
+    "image": "#"
+  },
+  "solution_steps": [
+    "Step 1: Analyse Assertion (A):",
+    "A quadratic polynomial can touch the x-axis at exactly one point when both roots are equal.",
+    "Example:",
+    "$y=(x-2)^2$",
+    "The graph touches the x-axis at $x=2$ only.",
+    "Therefore, Assertion (A) is FALSE.",
+    "Step 2: Analyse Reason (R):",
+    "A polynomial of degree $n$ can have at most $n$ zeroes.",
+    "This statement is TRUE.",
+    "Step 3: Choose the correct option:",
+    "Assertion (A) is false but Reason (R) is true."
+  ],
+  "extra_concept": {
+    "text": "If a graph touches the x-axis, the polynomial has equal roots. If a graph cuts the x-axis, the polynomial has distinct roots.",
+    "image": "#"
+  }
+},
   {
     "code": "CL10M02P1Q9",
     "search_terms": "number of zeroes from graph polynomial intersections x axis",
@@ -1838,123 +1840,165 @@
     ]
   },
   {
-    "code": "CL10M02P1Q11",
-    "search_terms": "zeroes twice relation find p quadratic",
-    "question": {
-      "text": "The zeroes of polynomial $x^2+px+q$ are twice the zeroes of polynomial $4x^2-5x-6$. Find $p$.",
-      "image": "#"
-    },
-    "options": [
-      "(a) 5/2",
-      "(b) -5/2",
-      "(c) -5/2",
-      "(d) 5"
-    ],
-    "correct_answer": "(c) -5/2",
-    "solution": {
-      "text": "New sum = $2(\\alpha+\\beta)=5/2$ and for $x^2+px+q$, sum = $-p$, so $p=-5/2$",
-      "image": "#"
-    },
-    "solution_steps": [
-      "Step 1: For $4x^2-5x-6$:",
-      "$\\alpha+\\beta = \\frac{5}{4}$",
-      "Step 2: New zeroes:",
-      "$2\\alpha, 2\\beta$",
-      "Step 3: New sum:",
-      "$2(\\alpha+\\beta)=2 \\times \\frac{5}{4} = \\frac{5}{2}$",
-      "Step 4: For $x^2+px+q$:",
-      "$\\alpha+\\beta = -p$",
-      "Step 5: Solve:",
-      "$-p = \\frac{5}{2}$",
-      "$p = -\\frac{5}{2}$",
-      "Final Answer: (c) -5/2"
-    ]
-  },
-  {
-    "code": "CL10M02P1Q12",
-    "search_terms": "sum of zeroes -30x^2+45x+a+b",
-    "question": {
-      "text": "If $\\alpha,\\beta$ are zeroes of polynomial $-30x^2+45x+(a+b)=0$, find the required value.",
-      "image": "#"
-    },
-    "options": [
-      "(a) 1/2",
-      "(b) 1",
-      "(c) 3/2",
-      "(d) 2"
-    ],
-    "correct_answer": "(c) 3/2",
-    "solution": {
-      "text": "Using $\\alpha+\\beta=-b/a$, we get $45/30=3/2$",
-      "image": "#"
-    },
-    "solution_steps": [
-      "Step 1: Use formula:",
-      "$\\alpha+\\beta = -\\frac{b}{a}$",
-      "Step 2: Substitute values:",
-      "$= -\\frac{45}{-30}$",
-      "Step 3: Simplify:",
-      "$= \\frac{45}{30} = \\frac{3}{2}$",
-      "Final Answer: (c) 3/2"
-    ]
-  },
-  {
-    "code": "CL10M02P1Q13",
-    "search_terms": "factorization x^2+4x+3 zeroes",
-    "question": {
-      "text": "The zeroes of polynomial $x^2+4x+3$ are:",
-      "image": "#"
-    },
-    "options": [
-      "(a) 1, 3",
-      "(b) -1, -3",
-      "(c) 1, -3",
-      "(d) -1, 3"
-    ],
-    "correct_answer": "(b) -1, -3",
-    "solution": {
-      "text": "Factorizing: $(x+1)(x+3)=0$, so zeroes are -1 and -3",
-      "image": "#"
-    },
-    "solution_steps": [
-      "Step 1: $x^2+4x+3=0$",
-      "Step 2: Factorize:",
-      "$(x+1)(x+3)=0$",
-      "Step 3: Solve:",
-      "$x=-1, x=-3$",
-      "Final Answer: (b) -1, -3"
-    ]
-  },
-  {
-  "code": "CL10M02P1Q14",
-  "search_terms": "alpha beta square sum quadratic identity zeroes",
+  "code": "CL10M02P1Q11",
+  "search_terms": "zeroes twice polynomial 4x^2-5x-6 find p",
   "question": {
-    "text": "If $\\alpha,\\beta$ are the zeroes of the quadratic polynomial $ax^2 - bx$, find $\\alpha^2 + \\beta^2$.",
+    "text": "The zeroes of the polynomial $x^2+px+q$ are twice the zeroes of the polynomial $4x^2-5x-6$. Find the value of $p$.",
     "image": "#"
   },
   "options": [
-    "(a) $a^2 - b^2$",
-    "(b) $\\frac{a^2 + b^2}{2a}$",
-    "(c) $\\frac{b^2}{a^2}$",
-    "(d) $\\frac{b^2 + 2a}{2a}$"
+    "(a) $\\frac{5}{2}$",
+    "(b) $-\\frac{3}{2}$",
+    "(c) $-\\frac{5}{2}$",
+    "(d) $\\frac{3}{2}$"
   ],
-  "correct_answer": "(c) $\\frac{b^2}{a^2}$",
+  "correct_answer": "(c) $-\\frac{5}{2}$",
   "solution": {
-    "text": "Using identity $(\\alpha+\\beta)^2 - 2\\alpha\\beta$, substitute sum $\\frac{b}{a}$ and product $0$ to get $\\frac{b^2}{a^2}$.",
+    "text": "First find the zeroes of $4x^2-5x-6$ by factorisation. Then multiply each zero by $2$ to get the zeroes of $x^2+px+q$. Using the relation between zeroes and coefficients, we get $p=-\\frac{5}{2}$.",
     "image": "#"
   },
   "solution_steps": [
-    "Step 1: Sum of zeroes:",
-    "$\\alpha + \\beta = \\frac{b}{a}$",
-    "Step 2: Product of zeroes:",
-    "$\\alpha \\beta = 0$",
-    "Step 3: Use identity:",
-    "$\\alpha^2 + \\beta^2 = (\\alpha + \\beta)^2 - 2\\alpha \\beta$",
-    "Step 4: Substitute values:",
-    "$= \\left(\\frac{b}{a}\\right)^2 - 0$",
-    "Step 5: Simplify:",
-    "$= \\frac{b^2}{a^2}$",
-    "Final Answer: (c) $\\frac{b^2}{a^2}$"
+    "Step 1: Factorise the polynomial:",
+    "$4x^2-5x-6$",
+    "Split the middle term:",
+    "$4x^2-8x+3x-6$",
+    "$=4x(x-2)+3(x-2)$",
+    "$=(x-2)(4x+3)$",
+    "Step 2: Find the zeroes:",
+    "$x-2=0 \\Rightarrow x=2$",
+    "$4x+3=0 \\Rightarrow x=-\\frac{3}{4}$",
+    "So, the zeroes are:",
+    "$2$ and $-\\frac{3}{4}$",
+    "Step 3: Find the new zeroes:",
+    "The zeroes of $x^2+px+q$ are twice these values.",
+    "$2(2)=4$",
+    "$2\\left(-\\frac{3}{4}\\right)=-\\frac{3}{2}$",
+    "So, the new zeroes are:",
+    "$4$ and $-\\frac{3}{2}$",
+    "Step 4: Use relation between zeroes and coefficients:",
+    "For polynomial $x^2+px+q$,",
+    "Sum of zeroes $=-p$",
+    "Now,",
+    "$4+\\left(-\\frac{3}{2}\\right)=\\frac{8-3}{2}=\\frac{5}{2}$",
+    "Therefore,",
+    "$-p=\\frac{5}{2}$",
+    "$p=-\\frac{5}{2}$"
+  ]
+},
+  {
+  "code": "CL10M02P1Q12",
+  "search_terms": "alpha beta zeroes kx^2-30x+45k alpha plus beta equals alpha beta find k",
+  "question": {
+    "text": "If $\\alpha$ and $\\beta$ are the zeroes of the polynomial $p(x)=kx^2-30x+45k$ and $\\alpha+\\beta=\\alpha\\beta$, then find the value of $k$.",
+    "image": "#"
+  },
+  "options": [
+    "(a) $\\frac{3}{2}$",
+    "(b) $-\\frac{2}{3}$",
+    "(c) $-\\frac{3}{2}$",
+    "(d) $\\frac{2}{3}$"
+  ],
+  "correct_answer": "(d) $\\frac{2}{3}$",
+  "solution": {
+    "text": "Using the relations between zeroes and coefficients, we get $\\alpha+\\beta=\\frac{30}{k}$ and $\\alpha\\beta=45$. Since $\\alpha+\\beta=\\alpha\\beta$, solving gives $k=\\frac{2}{3}$.",
+    "image": "#"
+  },
+  "solution_steps": [
+    "Step 1: Given polynomial:",
+    "$p(x)=kx^2-30x+45k$",
+    "Here,",
+    "$a=k,\\ b=-30,\\ c=45k$",
+    "Step 2: Use relations between zeroes and coefficients:",
+    "For a quadratic polynomial $ax^2+bx+c$,",
+    "Sum of zeroes:",
+    "$\\alpha+\\beta=-\\frac{b}{a}$",
+    "Product of zeroes:",
+    "$\\alpha\\beta=\\frac{c}{a}$",
+    "Step 3: Find the sum and product of zeroes:",
+    "$\\alpha+\\beta=-\\frac{-30}{k}=\\frac{30}{k}$",
+    "$\\alpha\\beta=\\frac{45k}{k}=45$",
+    "Step 4: Use the given condition:",
+    "$\\alpha+\\beta=\\alpha\\beta$",
+    "So,",
+    "$\\frac{30}{k}=45$",
+    "Step 5: Solve for $k$:",
+    "$30=45k$",
+    "$k=\\frac{30}{45}$",
+    "$k=\\frac{2}{3}$"
+  ]
+},
+  {
+  "code": "CL10M02P1Q13",
+  "search_terms": "zeroes polynomial x^2+4x+3 factorisation",
+  "question": {
+    "text": "The zeroes of the polynomial $p(x)=x^2+4x+3$ are:",
+    "image": "#"
+  },
+  "options": [
+    "(a) $1$ and $3$",
+    "(b) $-1$ and $-3$",
+    "(c) $-1$ and $3$",
+    "(d) $1$ and $-3$"
+  ],
+  "correct_answer": "(b) $-1$ and $-3$",
+  "solution": {
+    "text": "Factorise the polynomial $x^2+4x+3$ as $(x+1)(x+3)$. Equating each factor to zero gives the zeroes $-1$ and $-3$.",
+    "image": "#"
+  },
+  "solution_steps": [
+    "Step 1: Given polynomial:",
+    "$p(x)=x^2+4x+3$",
+    "Step 2: Put $p(x)=0$",
+    "$x^2+4x+3=0$",
+    "Step 3: Factorise the polynomial:",
+    "We need two numbers whose product is $3$ and sum is $4$.",
+    "The numbers are $1$ and $3$.",
+    "So,",
+    "$x^2+4x+3=(x+1)(x+3)$",
+    "Step 4: Find the zeroes:",
+    "$(x+1)(x+3)=0$",
+    "Therefore,",
+    "$x+1=0 \\quad \\text{or} \\quad x+3=0$",
+    "$x=-1 \\quad \\text{or} \\quad x=-3$"
+  ]
+},
+  {
+  "code": "CL10M02P1Q14",
+  "search_terms": "alpha beta zeroes ax^2-bx find alpha square plus beta square",
+  "question": {
+    "text": "If $\\alpha$ and $\\beta$ are the zeroes of the quadratic polynomial $p(x)=ax^2-bx$, then the value of $\\alpha^2+\\beta^2$ is:",
+    "image": "#"
+  },
+  "options": [
+    "(a) $a^2-b^2$",
+    "(b) $\\frac{a^2+b^2}{2a}$",
+    "(c) $\\frac{b^2}{a^2}$",
+    "(d) $\\frac{b^2+2a}{2a}$"
+  ],
+  "correct_answer": "(c) $\\frac{b^2}{a^2}$",
+  "solution": {
+    "text": "Using the relations between zeroes and coefficients, we get $\\alpha+\\beta=\\frac{b}{a}$ and $\\alpha\\beta=0$. Applying the identity $\\alpha^2+\\beta^2=(\\alpha+\\beta)^2-2\\alpha\\beta$ gives $\\frac{b^2}{a^2}$.",
+    "image": "#"
+  },
+  "solution_steps": [
+    "Step 1: Given polynomial:",
+    "$p(x)=ax^2-bx$",
+    "Here,",
+    "$a=a,\\ b=-b,\\ c=0$",
+    "Step 2: Use relations between zeroes and coefficients:",
+    "For a quadratic polynomial $ax^2+bx+c$,",
+    "Sum of zeroes:",
+    "$\\alpha+\\beta=-\\frac{b}{a}$",
+    "Product of zeroes:",
+    "$\\alpha\\beta=\\frac{c}{a}$",
+    "Step 3: Find the sum and product:",
+    "$\\alpha+\\beta=-\\frac{-b}{a}=\\frac{b}{a}$",
+    "$\\alpha\\beta=\\frac{0}{a}=0$",
+    "Step 4: Use the identity:",
+    "$\\alpha^2+\\beta^2=(\\alpha+\\beta)^2-2\\alpha\\beta$",
+    "Substitute the values:",
+    "$\\alpha^2+\\beta^2=\\left(\\frac{b}{a}\\right)^2-2(0)$",
+    "$\\alpha^2+\\beta^2=\\frac{b^2}{a^2}$"
   ]
 },
   {
@@ -1984,30 +2028,37 @@
     ]
   },
   {
-    "code": "CL10M02P1Q16",
-    "search_terms": "quadratic polynomial from zeroes 3 and 0",
-    "question": {
-      "text": "Which of the following is a quadratic polynomial with zeroes 3 and 0?",
-      "image": "#"
-    },
-    "options": [
-      "(a) $3x(3x-5)$",
-      "(b) $x(x-3)$",
-      "(c) $x+3$",
-      "(d) $3x-3$"
-    ],
-    "correct_answer": "(b) $x(x-3)$",
-    "solution": {
-      "text": "Polynomial with zeroes 0 and 3 is $x(x-3)$",
-      "image": "#"
-    },
-    "solution_steps": [
-      "Step 1: Zeroes are 0 and 3",
-      "Step 2: Polynomial:",
-      "$x(x-3)$",
-      "Final Answer: (b) $x(x-3)$"
-    ]
+  "code": "CL10M02P1Q16",
+  "search_terms": "quadratic polynomial zeroes 5/3 and 0",
+  "question": {
+    "text": "Which of the following is a quadratic polynomial with zeroes $\\frac{5}{3}$ and $0$?",
+    "image": "#"
   },
+  "options": [
+    "(a) $3x(3x-5)$",
+    "(b) $3x(x-5)$",
+    "(c) $x^2-\\frac{5}{3}$",
+    "(d) $\\frac{5}{3}x^2$"
+  ],
+  "correct_answer": "(a) $3x(3x-5)$",
+  "solution": {
+    "text": "For option (a), putting $p(x)=0$ gives $3x(3x-5)=0$. Solving gives the zeroes $0$ and $\\frac{5}{3}$. Hence, option (a) is correct.",
+    "image": "#"
+  },
+  "solution_steps": [
+    "Step 1: Consider option (a):",
+    "$p(x)=3x(3x-5)$",
+    "Step 2: Put $p(x)=0$",
+    "$3x(3x-5)=0$",
+    "Step 3: Find the zeroes:",
+    "$3x=0 \\Rightarrow x=0$",
+    "$3x-5=0 \\Rightarrow x=\\frac{5}{3}$",
+    "Step 4: Compare with the given zeroes:",
+    "The zeroes are $0$ and $\\frac{5}{3}$.",
+    "Hence, the required polynomial is:",
+    "$3x(3x-5)$"
+  ]
+},
   {
     "code": "CL10M02P1Q17",
     "search_terms": "1/alpha+1/beta formula x^2+x-1",
@@ -2118,35 +2169,39 @@
     ]
   },
   {
-    "code": "CL10M02P1Q21",
-    "search_terms": "zeroes of -(x^2+4x+3) graph polynomial factorization",
-    "question": {
-      "text": "If the curve ABC shown in the graph is represented by $f(x)=-(x^2+4x+3)$, then its zeroes are:",
-      "image": "https://i.ibb.co/XZffXVyw/wwwwwwwww.jpg"
-    },
-    "options": [
-      "(a) 1, 3",
-      "(b) -1, 3",
-      "(c) 1, -3",
-      "(d) -1, -3"
-    ],
-    "correct_answer": "(d) -1, -3",
-    "solution": {
-      "text": "Solve $-(x^2+4x+3)=0$ → $x^2+4x+3=0$ → $(x+1)(x+3)=0$",
-      "image": "#"
-    },
-    "solution_steps": [
-      "Step 1: Set equation:",
-      "$-(x^2+4x+3)=0$",
-      "Step 2: Multiply both sides by -1:",
-      "$x^2+4x+3=0$",
-      "Step 3: Factorize:",
-      "$(x+1)(x+3)=0$",
-      "Step 4: Solve:",
-      "$x=-1, x=-3$",
-      "Final Answer: (d) -1 and -3"
-    ]
+  "code": "CL10M02P1Q21",
+  "search_terms": "zeroes polynomial -(x^2+4x+3)",
+  "question": {
+    "text": "If the curve $ABC$ is represented by the polynomial $f(x)=-(x^2+4x+3)$, then its zeroes are:",
+    "image": "https://i.ibb.co/XZffXVyw/wwwwwwwww.jpg"
   },
+  "options": [
+    "(a) $1$ and $-3$",
+    "(b) $-1$ and $3$",
+    "(c) $1$ and $3$",
+    "(d) $-1$ and $-3$"
+  ],
+  "correct_answer": "(d) $-1$ and $-3$",
+  "solution": {
+    "text": "To find the zeroes, put $f(x)=0$. This gives $x^2+4x+3=0$. Factorising as $(x+1)(x+3)=0$ gives the zeroes $-1$ and $-3$.",
+    "image": "#"
+  },
+  "solution_steps": [
+    "Step 1: Given polynomial:",
+    "$f(x)=-(x^2+4x+3)$",
+    "Step 2: Put $f(x)=0$",
+    "$-(x^2+4x+3)=0$",
+    "$x^2+4x+3=0$",
+    "Step 3: Factorise the polynomial:",
+    "$x^2+4x+3=(x+1)(x+3)$",
+    "Step 4: Find the zeroes:",
+    "$(x+1)(x+3)=0$",
+    "So,",
+    "$x+1=0 \\Rightarrow x=-1$",
+    "or",
+    "$x+3=0 \\Rightarrow x=-3$"
+  ]
+},
   {
     "code": "CL10M02P1Q22",
     "search_terms": "form polynomial from zeroes -1 and 2",
@@ -2202,109 +2257,136 @@
     ]
   },
   {
-    "code": "CL10M02P1Q24",
-    "search_terms": "distance between two points on x axis graph",
-    "question": {
-      "text": "The distance between G and H is:",
-      "image": "https://i.ibb.co/XZffXVyw/wwwwwwwww.jpg"
-    },
-    "options": [
-      "(a) 4 units",
-      "(b) 6 units",
-      "(c) 8 units",
-      "(d) 10 units"
-    ],
-    "correct_answer": "(b) 6 units",
-    "solution": {
-      "text": "Distance on x-axis is difference of coordinates. From graph, distance is 6 units.",
-      "image": "#"
-    },
-    "solution_steps": [
-      "Step 1: Use concept:",
-      "Distance = difference of x-coordinates",
-      "Step 2: From graph:",
-      "Distance = 6 units",
-      "Final Answer: (b) 6 units"
-    ]
+  "code": "CL10M02P1Q24",
+  "search_terms": "distance between points C and G on x axis graph",
+  "question": {
+    "text": "The distance between points $C$ and $G$ is:",
+    "image": "https://i.ibb.co/XZffXVyw/wwwwwwwww.jpg"
   },
+  "options": [
+    "(a) $4$ units",
+    "(b) $6$ units",
+    "(c) $8$ units",
+    "(d) $7$ units"
+  ],
+  "correct_answer": "(b) $6$ units",
+  "solution": {
+    "text": "The distance between two points on the x-axis is the difference between their x-coordinates. From the graph, the distance between $C$ and $G$ is $6$ units.",
+    "image": "#"
+  },
+  "solution_steps": [
+    "Step 1: Use the concept of distance on the x-axis:",
+    "Distance between two points on the x-axis is the difference of their x-coordinates.",
+    "Step 2: Observe the graph:",
+    "From the graph, the distance between points $C$ and $G$ is $6$ units.",
+    "Step 3: Write the answer:",
+    "Distance $=6$ units."
+  ]
+},
   {
-    "code": "CL10M02P1Q25",
-    "search_terms": "form polynomial from sum and product of zeroes",
-    "question": {
-      "text": "The quadratic polynomial, the sum of whose zeroes is -5 and their product is 6, is:",
-      "image": "https://i.ibb.co/XZffXVyw/wwwwwwwww.jpg"
-    },
-    "options": [
-      "(a) $x^2+5x+6$",
-      "(b) $x^2-5x+6$",
-      "(c) $x^2+5x-6$",
-      "(d) $x^2-5x-6$"
-    ],
-    "correct_answer": "(a) $x^2+5x+6$",
-    "solution": {
-      "text": "Using formula $x^2-(\\alpha+\\beta)x+\\alpha\\beta$, we get $x^2+5x+6$",
-      "image": "#"
-    },
-    "solution_steps": [
-      "Step 1: Given:",
-      "$\\alpha+\\beta=-5, \\alpha\\beta=6$",
-      "Step 2: Use formula:",
-      "$x^2-(\\alpha+\\beta)x+\\alpha\\beta$",
-      "Step 3: Substitute:",
-      "$= x^2-(-5)x+6$",
-      "$= x^2+5x+6$",
-      "Final Answer: (a) $x^2+5x+6$"
-    ]
+  "code": "CL10M02P1Q25",
+  "search_terms": "quadratic polynomial sum of zeroes -5 product 6",
+  "question": {
+    "text": "The quadratic polynomial, the sum of whose zeroes is $-5$ and their product is $6$, is:",
+    "image": "https://i.ibb.co/XZffXVyw/wwwwwwwww.jpg"
   },
+  "options": [
+    "(a) $x^2+5x+6$",
+    "(b) $x^2-5x+6$",
+    "(c) $x^2-5x-6$",
+    "(d) $-x^2+5x+6$"
+  ],
+  "correct_answer": "(a) $x^2+5x+6$",
+  "solution": {
+    "text": "Using the standard form of a quadratic polynomial with zeroes $\\alpha$ and $\\beta$, substitute the given sum and product of zeroes to get $x^2+5x+6$.",
+    "image": "#"
+  },
+  "solution_steps": [
+    "Step 1: Let the zeroes be:",
+    "$\\alpha$ and $\\beta$",
+    "Given:",
+    "$\\alpha+\\beta=-5$",
+    "$\\alpha\\beta=6$",
+    "Step 2: Use the standard form:",
+    "A quadratic polynomial with zeroes $\\alpha$ and $\\beta$ is:",
+    "$x^2-(\\alpha+\\beta)x+\\alpha\\beta$",
+    "Step 3: Substitute the given values:",
+    "$x^2-(-5)x+6$",
+    "$=x^2+5x+6$"
+  ]
+},
   {
-    "code": "CL10M02P1Q26",
-    "search_terms": "1/alpha+1/beta x^2-x-4",
-    "question": {
-      "text": "If $\\alpha,\\beta$ are zeroes of $f(x)=x^2-x-4$, find $\\frac{1}{\\alpha}+\\frac{1}{\\beta}$.",
-      "image": "#"
-    },
-    "options": [],
-    "correct_answer": "$-\\frac{1}{4}$",
-    "solution": {
-      "text": "Using $(\\alpha+\\beta)/\\alpha\\beta = 1/(-4) = -1/4$",
-      "image": "#"
-    },
-    "solution_steps": [
-      "Step 1: Sum:",
-      "$\\alpha+\\beta = 1$",
-      "Step 2: Product:",
-      "$\\alpha\\beta = -4$",
-      "Step 3: Formula:",
-      "$\\frac{1}{\\alpha}+\\frac{1}{\\beta} = \\frac{\\alpha+\\beta}{\\alpha\\beta}$",
-      "Step 4: Substitute:",
-      "$= \\frac{1}{-4} = -\\frac{1}{4}$",
-      "Final Answer: $-\\frac{1}{4}$"
-    ]
+  "code": "CL10M02P1Q26",
+  "search_terms": "alpha beta zeroes x^2-x-4 find 1/alpha plus 1/beta minus alpha beta",
+  "question": {
+    "text": "If $\\alpha$ and $\\beta$ are the zeroes of the quadratic polynomial $f(x)=x^2-x-4$, find the value of $\\frac{1}{\\alpha}+\\frac{1}{\\beta}-\\alpha\\beta$.",
+    "image": "#"
   },
+  "options": [
+    "(a) $\\frac{11}{4}$",
+    "(b) $\\frac{15}{4}$",
+    "(c) $\\frac{7}{4}$",
+    "(d) $\\frac{19}{4}$"
+  ],
+  "correct_answer": "(b) $\\frac{15}{4}$",
+  "solution": {
+    "text": "Using the relations between zeroes and coefficients, we get $\\alpha+\\beta=1$ and $\\alpha\\beta=-4$. Then, $\\frac{1}{\\alpha}+\\frac{1}{\\beta}=\\frac{\\alpha+\\beta}{\\alpha\\beta}=-\\frac{1}{4}$. Substituting gives the final value $\\frac{15}{4}$.",
+    "image": "#"
+  },
+  "solution_steps": [
+    "Step 1: Given polynomial:",
+    "$f(x)=x^2-x-4$",
+    "Let the zeroes be $\\alpha$ and $\\beta$.",
+    "Step 2: Identify coefficients:",
+    "For $x^2-x-4$,",
+    "$a=1,\\ b=-1,\\ c=-4$",
+    "Step 3: Use relations between zeroes and coefficients:",
+    "$\\alpha+\\beta=-\\frac{b}{a}=-\\frac{-1}{1}=1$",
+    "$\\alpha\\beta=\\frac{c}{a}=\\frac{-4}{1}=-4$",
+    "Step 4: Find:",
+    "$\\frac{1}{\\alpha}+\\frac{1}{\\beta}$",
+    "$\\frac{1}{\\alpha}+\\frac{1}{\\beta}=\\frac{\\alpha+\\beta}{\\alpha\\beta}$",
+    "$=\\frac{1}{-4}$",
+    "$=-\\frac{1}{4}$",
+    "Step 5: Find the required value:",
+    "$\\frac{1}{\\alpha}+\\frac{1}{\\beta}-\\alpha\\beta$",
+    "$=-\\frac{1}{4}-(-4)$",
+    "$=-\\frac{1}{4}+4$",
+    "$=\\frac{-1+16}{4}$",
+    "$=\\frac{15}{4}$"
+  ]
+},
   {
-    "code": "CL10M02P1Q27",
-    "search_terms": "find k given root quadratic",
-    "question": {
-      "text": "If one zero of the quadratic polynomial $x^2+3x+k=0$ is 2, find the value of $k$.",
-      "image": "#"
-    },
-    "options": [],
-    "correct_answer": "-10",
-    "solution": {
-      "text": "Substitute $x=2$: $4+6+k=0$ gives $k=-10$",
-      "image": "#"
-    },
-    "solution_steps": [
-      "Step 1: Substitute $x=2$",
-      "Step 2:",
-      "$2^2+3(2)+k=0$",
-      "$4+6+k=0$",
-      "Step 3:",
-      "$10+k=0$",
-      "$k=-10$",
-      "Final Answer: $-10$"
-    ]
+  "code": "CL10M02P1Q27",
+  "search_terms": "find k if 2 is zero of x^2+3x+k",
+  "question": {
+    "text": "If one zero of the quadratic polynomial $x^2+3x+k$ is $2$, then find the value of $k$.",
+    "image": "#"
   },
+  "options": [
+    "(a) $10$",
+    "(b) $-10$",
+    "(c) $6$",
+    "(d) $-6$"
+  ],
+  "correct_answer": "(b) $-10$",
+  "solution": {
+    "text": "Since $2$ is a zero of the polynomial, substitute $x=2$ in $x^2+3x+k=0$. Solving gives $k=-10$.",
+    "image": "#"
+  },
+  "solution_steps": [
+    "Step 1: Given polynomial:",
+    "$p(x)=x^2+3x+k$",
+    "Step 2: Since $2$ is a zero of the polynomial:",
+    "$p(2)=0$",
+    "Step 3: Substitute $x=2$:",
+    "$(2)^2+3(2)+k=0$",
+    "$4+6+k=0$",
+    "$10+k=0$",
+    "Step 4: Solve for $k$:",
+    "$k=-10$"
+  ]
+},
   {
     "code": "CL10M02P1Q28",
     "search_terms": "1/alpha+1/beta 2x^2-5x-4",
@@ -2455,38 +2537,41 @@
     ]
   },
   {
-    "code": "CL10M02P1Q34",
-    "search_terms": "alpha beta condition (alpha+1)(beta+1)=0 find c",
-    "question": {
-      "text": "If $\\alpha,\\beta$ are zeroes of the polynomial $x^2-px+(1+c)=0$ such that $(\\alpha+1)(\\beta+1)=0$, find $c$.",
-      "image": "#"
-    },
-    "options": [],
-    "correct_answer": "$-2$",
-    "solution": {
-      "text": "Using expansion and substitution, we get $c=-2$",
-      "image": "#"
-    },
-    "solution_steps": [
-      "Step 1: Expand:",
-      "$(\\alpha+1)(\\beta+1) = \\alpha\\beta + \\alpha + \\beta + 1 = 0$",
-      "Step 2: Using formulas:",
-      "$\\alpha+\\beta = p$",
-      "$\\alpha\\beta = 1+c$",
-      "Step 3: Substitute:",
-      "$(1+c) + p + 1 = 0$",
-      "$c + p + 2 = 0$",
-      "Step 4: Given condition:",
-      "One root = -1",
-      "Step 5: Substitute $x=-1$ in polynomial:",
-      "$(-1)^2 - p(-1) + (1+c) = 0$",
-      "$1 + p + 1 + c = 0$",
-      "$p + c + 2 = 0$",
-      "Step 6: Compare both equations:",
-      "$c = -2$",
-      "Final Answer: $c=-2$"
-    ]
+  "code": "CL10M02P1Q34",
+  "search_terms": "alpha beta zeroes x^2-p(x+1)+c find c",
+  "question": {
+    "text": "If $\\alpha$ and $\\beta$ are the zeroes of the polynomial $x^2-p(x+1)+c$ such that $(\\alpha+1)(\\beta+1)=0$, then find the value of $c$.",
+    "image": "#"
   },
+  "options": [
+    "(a) $1$",
+    "(b) $-1$",
+    "(c) $0$",
+    "(d) $p$"
+  ],
+  "correct_answer": "(b) $-1$",
+  "solution": {
+    "text": "Expand the given condition and use the relations between zeroes and coefficients. Substituting the values gives $c=-1$.",
+    "image": "#"
+  },
+  "solution_steps": [
+    "Step 1: Rewrite the polynomial:",
+    "$x^2-p(x+1)+c=x^2-px-p+c$",
+    "Let the zeroes be $\\alpha$ and $\\beta$.",
+    "Step 2: Expand the given condition:",
+    "$(\\alpha+1)(\\beta+1)=0$",
+    "$\\alpha\\beta+\\alpha+\\beta+1=0$",
+    "Step 3: Use relations between zeroes and coefficients:",
+    "For $x^2-px-p+c$,",
+    "$\\alpha+\\beta=-\\frac{-p}{1}=p$",
+    "$\\alpha\\beta=\\frac{-p+c}{1}=c-p$",
+    "Step 4: Substitute into the condition:",
+    "$(c-p)+p+1=0$",
+    "$c+1=0$",
+    "Step 5: Solve for $c$:",
+    "$c=-1$"
+  ]
+},
   {
     "code": "CL10M02P1Q35",
     "search_terms": "1/alpha+1/beta 4x^2+3x+7",
@@ -2514,34 +2599,42 @@
   },
   {
   "code": "CL10M02P1Q36",
-  "search_terms": "zeroes x^2-15 verify relation sum product",
+  "search_terms": "find zeroes x^2-15 verify relationship between zeroes and coefficients",
   "question": {
-    "text": "Find the zeroes of the quadratic polynomial $x^2-15$ and verify the relationship between the zeroes.",
+    "text": "Find the zeroes of the quadratic polynomial $x^2-15$ and verify the relationship between the zeroes and the coefficients of the polynomial.",
     "image": "#"
   },
-  "options": [],
-  "correct_answer": "Zeroes: $\\pm\\sqrt{15}$ and relations verified",
+  "options": [
+    "(a) $\\pm\\sqrt{15}$",
+    "(b) $\\pm15$",
+    "(c) $\\pm\\sqrt{5}$",
+    "(d) $\\pm3$"
+  ],
+  "correct_answer": "(a) $\\pm\\sqrt{15}$",
   "solution": {
-    "text": "Solve and verify using sum and product formulas.",
+    "text": "Solving $x^2-15=0$ gives the zeroes $\\sqrt{15}$ and $-\\sqrt{15}$. Their sum and product satisfy the relations between zeroes and coefficients.",
     "image": "#"
   },
   "solution_steps": [
-    "Step 1: Solve:",
+    "Step 1: Given polynomial:",
+    "$x^2-15$",
+    "Step 2: Find the zeroes:",
     "$x^2-15=0$",
     "$x^2=15$",
-    "Step 2:",
     "$x=\\pm\\sqrt{15}$",
-    "Step 3: Zeroes:",
-    "$\\sqrt{15}, -\\sqrt{15}$",
-    "Step 4: Verify sum:",
-    "$\\alpha+\\beta=0$",
-    "$-b/a=0$",
-    "Verified",
-    "Step 5: Verify product:",
-    "$\\alpha\\beta=-15$",
-    "$c/a=-15$",
-    "Verified",
-    "Final Answer: Zeroes are $\\pm\\sqrt{15}$ and relations verified"
+    "So, the zeroes are:",
+    "$\\sqrt{15}$ and $-\\sqrt{15}$",
+    "Step 3: Verify the relation for sum of zeroes:",
+    "Let $\\alpha=\\sqrt{15}$ and $\\beta=-\\sqrt{15}$",
+    "$\\alpha+\\beta=\\sqrt{15}+(-\\sqrt{15})=0$",
+    "For $ax^2+bx+c$,",
+    "$-\\frac{b}{a}=-\\frac{0}{1}=0$",
+    "Hence verified.",
+    "Step 4: Verify the relation for product of zeroes:",
+    "$\\alpha\\beta=(\\sqrt{15})(-\\sqrt{15})=-15$",
+    "For $ax^2+bx+c$,",
+    "$\\frac{c}{a}=\\frac{-15}{1}=-15$",
+    "Hence verified."
   ]
 },
 
@@ -2596,31 +2689,57 @@
 
 {
   "code": "CL10M02P1Q39",
-  "search_terms": "solve 7y^2-11y-2 zeroes verify",
+  "search_terms": "find zeroes 7y^2-11/3 y-2/3 verify relationship between zeroes and coefficients",
   "question": {
-    "text": "Find zeroes of $7y^2-11y-2$ and verify relationships.",
+    "text": "Find the zeroes of the quadratic polynomial $7y^2-\\frac{11}{3}y-\\frac{2}{3}$ and verify the relationship between the zeroes and the coefficients.",
     "image": "#"
   },
-  "options": [],
-  "correct_answer": "$\\frac{11\\pm\\sqrt{177}}{14}$",
+  "options": [
+    "(a) $\\frac{2}{3}$ and $-\\frac{1}{7}$",
+    "(b) $-\\frac{2}{3}$ and $\\frac{1}{7}$",
+    "(c) $\\frac{1}{3}$ and $-\\frac{2}{7}$",
+    "(d) $\\frac{2}{7}$ and $-\\frac{1}{3}$"
+  ],
+  "correct_answer": "(a) $\\frac{2}{3}$ and $-\\frac{1}{7}$",
   "solution": {
-    "text": "Use quadratic formula and verify.",
+    "text": "Multiply the polynomial by $3$ to remove fractions and factorise the resulting equation. The zeroes are $\\frac{2}{3}$ and $-\\frac{1}{7}$. Their sum and product satisfy the relations between zeroes and coefficients.",
     "image": "#"
   },
   "solution_steps": [
-    "Step 1:",
-    "$7y^2-11y-2=0$",
-    "Step 2:",
-    "$y=\\frac{11\\pm\\sqrt{121+56}}{14}$",
-    "$=\\frac{11\\pm\\sqrt{177}}{14}$",
-    "Step 3: Verify:",
-    "$\\alpha+\\beta=11/7$",
-    "$-b/a=11/7$",
-    "Verified",
-    "$\\alpha\\beta=-2/7$",
-    "$c/a=-2/7$",
-    "Verified",
-    "Final Answer: $\\frac{11\\pm\\sqrt{177}}{14}$"
+    "Step 1: Given polynomial:",
+    "$p(y)=7y^2-\\frac{11}{3}y-\\frac{2}{3}$",
+    "Step 2: Remove fractions:",
+    "Multiply the polynomial by $3$:",
+    "$3p(y)=21y^2-11y-2$",
+    "Now solve:",
+    "$21y^2-11y-2=0$",
+    "Step 3: Factorise the polynomial:",
+    "We need two numbers whose product is $21\\times(-2)=-42$ and sum is $-11$.",
+    "The numbers are $-14$ and $3$.",
+    "$21y^2-14y+3y-2=0$",
+    "$7y(3y-2)+1(3y-2)=0$",
+    "$(3y-2)(7y+1)=0$",
+    "Step 4: Find the zeroes:",
+    "$3y-2=0 \\Rightarrow y=\\frac{2}{3}$",
+    "$7y+1=0 \\Rightarrow y=-\\frac{1}{7}$",
+    "Hence, the zeroes are:",
+    "$\\frac{2}{3}$ and $-\\frac{1}{7}$",
+    "Step 5: Verify the relation for sum of zeroes:",
+    "Let $\\alpha=\\frac{2}{3}$ and $\\beta=-\\frac{1}{7}$",
+    "$\\alpha+\\beta=\\frac{2}{3}-\\frac{1}{7}$",
+    "$=\\frac{14-3}{21}$",
+    "$=\\frac{11}{21}$",
+    "For the polynomial:",
+    "$a=7,\\ b=-\\frac{11}{3},\\ c=-\\frac{2}{3}$",
+    "$-\\frac{b}{a}=-\\frac{-11/3}{7}$",
+    "$=\\frac{11}{21}$",
+    "Thus, $\\alpha+\\beta=-\\frac{b}{a}$ verified.",
+    "Step 6: Verify the relation for product of zeroes:",
+    "$\\alpha\\beta=\\frac{2}{3}\\times\\left(-\\frac{1}{7}\\right)$",
+    "$=-\\frac{2}{21}$",
+    "$\\frac{c}{a}=\\frac{-2/3}{7}$",
+    "$=-\\frac{2}{21}$",
+    "Thus, $\\alpha\\beta=\\frac{c}{a}$ verified."
   ]
 },
 
@@ -2709,28 +2828,55 @@
 
 {
   "code": "CL10M02P1Q43",
-  "search_terms": "solve 4x^2-7x-3 verify",
+  "search_terms": "find zeroes 6x^2-7x-3 verify relationship between zeroes and coefficients",
   "question": {
-    "text": "Find zeroes of $4x^2-7x-3$ and verify relationships.",
+    "text": "Find the zeroes of the quadratic polynomial $6x^2-3-7x$ and verify the relationship between the zeroes and coefficients.",
     "image": "#"
   },
-  "options": [],
-  "correct_answer": "$\\frac{7\\pm\\sqrt{97}}{8}$",
+  "options": [
+    "(a) $\\frac{3}{2}$ and $-\\frac{1}{3}$",
+    "(b) $-\\frac{3}{2}$ and $\\frac{1}{3}$",
+    "(c) $\\frac{1}{2}$ and $-\\frac{1}{3}$",
+    "(d) $\\frac{3}{2}$ and $\\frac{1}{3}$"
+  ],
+  "correct_answer": "(a) $\\frac{3}{2}$ and $-\\frac{1}{3}$",
   "solution": {
-    "text": "Quadratic formula and verification.",
+    "text": "Rewrite the polynomial in standard form as $6x^2-7x-3$. Factorising gives the zeroes $\\frac{3}{2}$ and $-\\frac{1}{3}$. Their sum and product satisfy the relations between zeroes and coefficients.",
     "image": "#"
   },
   "solution_steps": [
-    "Step 1:",
-    "$4x^2-7x-3=0$",
-    "Step 2:",
-    "$x=\\frac{7\\pm\\sqrt{49+48}}{8}$",
-    "$=\\frac{7\\pm\\sqrt{97}}{8}$",
-    "Step 3: Verify:",
-    "$\\alpha+\\beta=7/4$",
-    "$\\alpha\\beta=-3/4$",
-    "Verified",
-    "Final Answer: $\\frac{7\\pm\\sqrt{97}}{8}$"
+    "Step 1: Rewrite the polynomial in standard form:",
+    "$p(x)=6x^2-3-7x$",
+    "$=6x^2-7x-3$",
+    "Step 2: Find the zeroes:",
+    "Put",
+    "$6x^2-7x-3=0$",
+    "We need two numbers whose product is $6\\times(-3)=-18$ and sum is $-7$.",
+    "The numbers are $-9$ and $2$.",
+    "$6x^2-9x+2x-3=0$",
+    "$3x(2x-3)+1(2x-3)=0$",
+    "$(2x-3)(3x+1)=0$",
+    "Step 3: Find the zeroes:",
+    "$2x-3=0 \\Rightarrow x=\\frac{3}{2}$",
+    "$3x+1=0 \\Rightarrow x=-\\frac{1}{3}$",
+    "Hence, the zeroes are:",
+    "$\\frac{3}{2}$ and $-\\frac{1}{3}$",
+    "Step 4: Verify the relation for sum of zeroes:",
+    "Let $\\alpha=\\frac{3}{2}$ and $\\beta=-\\frac{1}{3}$",
+    "$\\alpha+\\beta=\\frac{3}{2}-\\frac{1}{3}$",
+    "$=\\frac{9-2}{6}$",
+    "$=\\frac{7}{6}$",
+    "For the polynomial $6x^2-7x-3$,",
+    "$a=6,\\ b=-7,\\ c=-3$",
+    "$-\\frac{b}{a}=-\\frac{-7}{6}$",
+    "$=\\frac{7}{6}$",
+    "Thus, $\\alpha+\\beta=-\\frac{b}{a}$ verified.",
+    "Step 5: Verify the relation for product of zeroes:",
+    "$\\alpha\\beta=\\frac{3}{2}\\times\\left(-\\frac{1}{3}\\right)$",
+    "$=-\\frac{1}{2}$",
+    "$\\frac{c}{a}=\\frac{-3}{6}$",
+    "$=-\\frac{1}{2}$",
+    "Thus, $\\alpha\\beta=\\frac{c}{a}$ verified."
   ]
 },
 
@@ -2869,73 +3015,109 @@
 },
   {
   "code": "CL10M02P2Q3",
-  "search_terms": "sum of zeroes px^2-2x+3p equals zero find p inconsistency quadratic",
+  "search_terms": "alpha beta zeroes px^2-2x+3p alpha plus beta equals alpha beta find p",
   "question": {
-    "text": "If $\\alpha$ and $\\beta$ are zeroes of $f(x)=px^2-2x+3p$ and $\\alpha+\\beta=0$, then $p$ is:\n(a) $\\frac{2}{3}$\n(b) $-\\frac{2}{3}$\n(c) $\\frac{3}{2}$\n(d) Not possible",
+    "text": "If $\\alpha$ and $\\beta$ are the zeroes of the polynomial $f(x)=px^2-2x+3p$ and $\\alpha+\\beta=\\alpha\\beta$, then $p$ is:",
     "image": "#"
   },
   "options": [
-    "(a) $\\frac{2}{3}$",
-    "(b) $-\\frac{2}{3}$",
-    "(c) $\\frac{3}{2}$",
-    "(d) Not possible"
+    "(a) $-\\frac{2}{3}$",
+    "(b) $\\frac{2}{3}$",
+    "(c) $\\frac{1}{3}$",
+    "(d) $-\\frac{1}{3}$"
   ],
-  "correct_answer": "(a) $\\frac{2}{3}$",
+  "correct_answer": "(b) $\\frac{2}{3}$",
   "solution": {
-    "text": "Using sum of zeroes formula and analyzing the condition leads to inconsistency, so closest valid option is selected.",
+    "text": "Using the relations between zeroes and coefficients, we get $\\alpha+\\beta=\\frac{2}{p}$ and $\\alpha\\beta=3$. Since $\\alpha+\\beta=\\alpha\\beta$, solving gives $p=\\frac{2}{3}$.",
     "image": "#"
   },
   "solution_steps": [
-    "Step 1: Formula:",
-    "$\\alpha+\\beta=-b/a$",
+    "Step 1: Given polynomial:",
+    "$f(x)=px^2-2x+3p$",
+    "Let the zeroes be $\\alpha$ and $\\beta$.",
     "Step 2: Identify coefficients:",
-    "$a=p, b=-2$",
-    "Step 3: Substitute:",
-    "$\\alpha+\\beta = -(-2)/p = 2/p$",
-    "Step 4: Given condition:",
-    "$2/p = 0$",
-    "Step 5: Analysis:",
-    "This is possible only if numerator = 0, which is not possible",
-    "So no finite value of $p$ satisfies the condition",
-    "Step 6: Interpretation:",
-    "Condition implies inconsistency in the question",
-    "Hence nearest valid option is chosen",
-    "Final Answer: (a) $\\frac{2}{3}$"
+    "$a=p,\\ b=-2,\\ c=3p$",
+    "Step 3: Use relations between zeroes and coefficients:",
+    "For a quadratic polynomial $ax^2+bx+c$,",
+    "$\\alpha+\\beta=-\\frac{b}{a}$",
+    "$\\alpha\\beta=\\frac{c}{a}$",
+    "Step 4: Find the sum and product of zeroes:",
+    "$\\alpha+\\beta=-\\frac{-2}{p}=\\frac{2}{p}$",
+    "$\\alpha\\beta=\\frac{3p}{p}=3$",
+    "Step 5: Use the given condition:",
+    "$\\alpha+\\beta=\\alpha\\beta$",
+    "So,",
+    "$\\frac{2}{p}=3$",
+    "Step 6: Solve for $p$:",
+    "$2=3p$",
+    "$p=\\frac{2}{3}$"
   ]
 },
   {
-  "code": "CL10M02P2Q4",
-  "search_terms": "zeroes 2 and 1/2 quadratic misprint case study diver parabola height",
+  "code": "CL10M02P2Q3",
+  "search_terms": "alpha beta zeroes px^2-2x+3p alpha plus beta equals alpha beta find p",
   "question": {
-    "text": "If 2 and $\\frac{1}{2}$ are the zeroes of $2x^2+5x+k$, then:\n(a) $p=r=2$\n(b) $p=r=-2$\n(c) $p=2, r=-2$\n(d) $p=-2, r=2$\n\nCASE STUDY:\nThe figure given alongside shows the path of a diver, where she takes a jump from the diving board. Clearly, it is a parabola.\nAnnie was standing on a diving board, 48 feet above the water level. She took a dive into the pool. Her height (in feet) above the water level at any time $t$ (in seconds) is given by the polynomial $h(t)$ such that:\n$h(t)=-16t^2+8t+k$\n\nBased on above information, attempt any 4 out of 5 subparts.",
-    "image": "https://i.ibb.co/h12DcBP2/qqq.jpg"
+    "text": "If $\\alpha$ and $\\beta$ are the zeroes of the polynomial $f(x)=px^2-2x+3p$ and $\\alpha+\\beta=\\alpha\\beta$, then $p$ is:",
+    "image": "#"
   },
   "options": [
-    "(a) $p=r=2$",
-    "(b) $p=r=-2$",
-    "(c) $p=2, r=-2$",
-    "(d) $p=-2, r=2$"
+    "(a) $-\\frac{2}{3}$",
+    "(b) $\\frac{2}{3}$",
+    "(c) $\\frac{1}{3}$",
+    "(d) $-\\frac{1}{3}$"
   ],
-  "correct_answer": "Options misprinted; correct values are $p=2, r=\\frac{1}{2}$",
+  "correct_answer": "(b) $\\frac{2}{3}$",
   "solution": {
-    "text": "Compare given zeroes with options and identify inconsistency. Case study introduces quadratic motion.",
+    "text": "Using the relations between zeroes and coefficients, we get $\\alpha+\\beta=\\frac{2}{p}$ and $\\alpha\\beta=3$. Since $\\alpha+\\beta=\\alpha\\beta$, solving gives $p=\\frac{2}{3}$.",
     "image": "#"
   },
   "solution_steps": [
-    "Step 1: Given zeroes:",
-    "$2$ and $\\frac{1}{2}$",
-    "Step 2: Compare with options:",
-    "None of the options match both values correctly",
-    "Step 3: Conclusion:",
-    "Options are misprinted",
-    "Correct values should be:",
-    "$p=2, r=\\frac{1}{2}$",
-    "Step 4: Case Study Information:",
-    "Polynomial:",
-    "$h(t)=-16t^2+8t+k$",
-    "Represents motion of diver",
-    "Graph is a parabola",
-    "Final Answer: Options misprinted; correct values are $p=2, r=\\frac{1}{2}$"
+    "Step 1: Given polynomial:",
+    "$f(x)=px^2-2x+3p$",
+    "Let the zeroes be $\\alpha$ and $\\beta$.",
+    "Step 2: Identify coefficients:",
+    "$a=p,\\ b=-2,\\ c=3p$",
+    "Step 3: Use relations between zeroes and coefficients:",
+    "For a quadratic polynomial $ax^2+bx+c$,",
+    "$\\alpha+\\beta=-\\frac{b}{a}$",
+    "$\\alpha\\beta=\\frac{c}{a}$",
+    "Step 4: Find the sum and product of zeroes:",
+    "$\\alpha+\\beta=-\\frac{-2}{p}=\\frac{2}{p}$",
+    "$\\alpha\\beta=\\frac{3p}{p}=3$",
+    "Step 5: Use the given condition:",
+    "$\\alpha+\\beta=\\alpha\\beta$",
+    "So,",
+    "$\\frac{2}{p}=3$",
+    "Step 6: Solve for $p$:",
+    "$2=3p$",
+    "$p=\\frac{2}{3}$"
+  ]
+},
+  {
+  "code": "CL10M02P2Q5",
+  "search_terms": "find value of k initial height 48 ft",
+  "question": {
+    "text": "Find the value of $k$ if the initial height of an object is $48$ ft and at $t=0$, the height is represented by $h(0)=k$.",
+    "image": "#"
+  },
+  "options": [
+    "(a) $24$",
+    "(b) $36$",
+    "(c) $48$",
+    "(d) $60$"
+  ],
+  "correct_answer": "(c) $48$",
+  "solution": {
+    "text": "At time $t=0$, the height of the object is equal to the initial height. Since the initial height is $48$ ft, we get $k=48$.",
+    "image": "#"
+  },
+  "solution_steps": [
+    "Step 1: Given initial height:",
+    "$48$ ft",
+    "Step 2: At time $t=0$:",
+    "$h(0)=k$",
+    "Step 3: Substitute the given value:",
+    "$k=48$"
   ]
 },
   {
@@ -2972,30 +3154,43 @@
 
 {
   "code": "CL10M02P2Q7",
-  "search_terms": "form polynomial from zeroes -1 and 2",
+  "search_terms": "polynomial with zeroes -1 and 2 initial height 48",
   "question": {
-    "text": "Polynomial with zeroes $-1$ and $2$ is:\n(a) $t^2+t-2$\n(b) $t^2-t-2$\n(c) $t^2+t+2$\n(d) $t^2-t+2$",
+    "text": "Tania’s height (in feet) above the water level is given by another polynomial $p(t)$ with zeroes $-1$ and $2$. Then $p(t)$ is given by:",
     "image": "#"
   },
   "options": [
     "(a) $t^2+t-2$",
-    "(b) $t^2-t-2$",
-    "(c) $t^2+t+2$",
-    "(d) $t^2-t+2$"
+    "(b) $t^2+2t-1$",
+    "(c) $24t^2+24t+48$",
+    "(d) $-24t^2+24t+48$"
   ],
-  "correct_answer": "(a) $t^2+t-2$",
+  "correct_answer": "(d) $-24t^2+24t+48$",
   "solution": {
-    "text": "Form polynomial using given zeroes.",
+    "text": "Using the zeroes $-1$ and $2$, form the polynomial and determine the constant using the condition that the initial height at $t=0$ is $48$ ft. This gives $p(t)=-24t^2+24t+48$.",
     "image": "#"
   },
   "solution_steps": [
     "Step 1: Given zeroes:",
-    "$-1, 2$",
-    "Step 2: Form polynomial:",
-    "$(t+1)(t-2)$",
-    "Step 3: Expand:",
-    "$t^2+t-2$",
-    "Final Answer: (a) $t^2+t-2$"
+    "$-1$ and $2$",
+    "Step 2: Find the sum and product of zeroes:",
+    "$\\alpha+\\beta=(-1)+2=1$",
+    "$\\alpha\\beta=(-1)(2)=-2$",
+    "Step 3: Form the quadratic polynomial:",
+    "A quadratic polynomial with zeroes $\\alpha$ and $\\beta$ is:",
+    "$p(t)=k[t^2-(\\alpha+\\beta)t+\\alpha\\beta]$",
+    "Substitute the values:",
+    "$p(t)=k[t^2-(1)t+(-2)]$",
+    "$=k[t^2-t-2]$",
+    "Step 4: Use the initial condition:",
+    "Initially when $t=0$, the height is $48$ ft.",
+    "$p(0)=48$",
+    "$k[0^2-0-2]=48$",
+    "$-2k=48$",
+    "$k=-24$",
+    "Step 5: Find the polynomial:",
+    "$p(t)=-24[t^2-t-2]$",
+    "$=-24t^2+24t+48$"
   ]
 },
 
@@ -3029,37 +3224,40 @@
 
 {
   "code": "CL10M02P2Q9",
-  "search_terms": "additive inverse roots find k polynomial cubic",
+  "search_terms": "zeroes additive inverse polynomial -12t^2+(k-3)t+48 find k",
   "question": {
-    "text": "Zeroes of $t(t^2-12t+k)=0$ are additive inverse. Find $k$:\n(a) 1\n(b) 0\n(c) 12\n(d) -12",
+    "text": "The zeroes of the polynomial $r(t)=-12t^2+(k-3)t+48$ are additive inverses of each other. Then $k$ is:",
     "image": "#"
   },
   "options": [
-    "(a) 1",
-    "(b) 0",
-    "(c) 12",
-    "(d) -12"
+    "(a) $3$",
+    "(b) $0$",
+    "(c) $-15$",
+    "(d) $-3$"
   ],
-  "correct_answer": "(b) 0",
+  "correct_answer": "(a) $3$",
   "solution": {
-    "text": "Use condition for additive inverse roots.",
+    "text": "If the zeroes are additive inverses, then their sum is $0$. Using the relation between zeroes and coefficients, solving gives $k=3$.",
     "image": "#"
   },
   "solution_steps": [
-    "Step 1: Roots:",
-    "$t=0$, and roots of $t^2-12t+k=0$",
-    "Step 2: Condition:",
-    "Additive inverse ⇒ sum = 0",
-    "Step 3:",
-    "$0+\\alpha+\\beta=0 ⇒ \\alpha+\\beta=0$",
-    "Step 4:",
-    "For quadratic:",
-    "$\\alpha+\\beta=12$",
-    "Step 5:",
-    "$12=0$ (not possible)",
-    "Step 6: Apply symmetry condition:",
-    "$k=0$",
-    "Final Answer: (b) 0"
+    "Step 1: Given polynomial:",
+    "$r(t)=-12t^2+(k-3)t+48$",
+    "Step 2: Use the condition of additive inverses:",
+    "If the zeroes are $\\alpha$ and $-\\alpha$, then",
+    "$\\alpha+(-\\alpha)=0$",
+    "So, sum of zeroes $=0$.",
+    "Step 3: Use the relation between zeroes and coefficients:",
+    "For a quadratic polynomial $at^2+bt+c$,",
+    "Sum of zeroes $=-\\frac{b}{a}$",
+    "Here,",
+    "$a=-12,\\ b=(k-3)$",
+    "Therefore,",
+    "$-\\frac{k-3}{-12}=0$",
+    "$\\frac{k-3}{12}=0$",
+    "Step 4: Solve for $k$:",
+    "$k-3=0$",
+    "$k=3$"
   ]
 },
   {
@@ -3100,27 +3298,48 @@
 
 {
   "code": "CL10M02P2Q11",
-  "search_terms": "evaluate expression using sum product zeroes",
+  "search_terms": "alpha beta zeroes 5x^2+5x+1 find alpha square plus beta square and reciprocal sum",
   "question": {
-    "text": "If $\\alpha,\\beta$ are zeroes of $f(x)=x^2+5x+1$, find $1+\\alpha+\\beta+\\alpha\\beta$.",
+    "text": "If $\\alpha,\\beta$ are the zeroes of the quadratic polynomial $f(x)=5x^2+5x+1$, find the values of:\n1. $\\alpha^2+\\beta^2$\n2. $\\alpha^{-1}+\\beta^{-1}$",
     "image": "#"
   },
-  "options": [],
-  "correct_answer": "-3",
+  "options": [
+    "(a) $\\frac{3}{5}$ and $-5$",
+    "(b) $\\frac{5}{3}$ and $5$",
+    "(c) $\\frac{3}{5}$ and $5$",
+    "(d) $\\frac{5}{3}$ and $-5$"
+  ],
+  "correct_answer": "(a) $\\frac{3}{5}$ and $-5$",
   "solution": {
-    "text": "Use sum and product formulas.",
+    "text": "Using the relations between zeroes and coefficients, we get $\\alpha+\\beta=-1$ and $\\alpha\\beta=\\frac{1}{5}$. Applying standard identities gives $\\alpha^2+\\beta^2=\\frac{3}{5}$ and $\\alpha^{-1}+\\beta^{-1}=-5$.",
     "image": "#"
   },
   "solution_steps": [
-    "Step 1:",
-    "$\\alpha+\\beta=-b/a=-5$",
-    "Step 2:",
-    "$\\alpha\\beta=c/a=1$",
-    "Step 3:",
-    "$1+\\alpha+\\beta+\\alpha\\beta$",
-    "$=1-5+1$",
-    "$=-3$",
-    "Final Answer: $-3$"
+    "Step 1: Given polynomial:",
+    "$f(x)=5x^2+5x+1$",
+    "Let the zeroes be $\\alpha$ and $\\beta$.",
+    "Step 2: Identify coefficients:",
+    "$a=5,\\ b=5,\\ c=1$",
+    "Step 3: Use relations between zeroes and coefficients:",
+    "$\\alpha+\\beta=-\\frac{b}{a}=-\\frac{5}{5}=-1$",
+    "$\\alpha\\beta=\\frac{c}{a}=\\frac{1}{5}$",
+    "Step 4: Find $\\alpha^2+\\beta^2$:",
+    "Use the identity:",
+    "$\\alpha^2+\\beta^2=(\\alpha+\\beta)^2-2\\alpha\\beta$",
+    "Substitute the values:",
+    "$=(-1)^2-2\\left(\\frac{1}{5}\\right)$",
+    "$=1-\\frac{2}{5}$",
+    "$=\\frac{3}{5}$",
+    "Therefore,",
+    "$\\alpha^2+\\beta^2=\\frac{3}{5}$",
+    "Step 5: Find $\\alpha^{-1}+\\beta^{-1}$:",
+    "$\\alpha^{-1}+\\beta^{-1}=\\frac{1}{\\alpha}+\\frac{1}{\\beta}$",
+    "$=\\frac{\\alpha+\\beta}{\\alpha\\beta}$",
+    "Substitute the values:",
+    "$=\\frac{-1}{1/5}$",
+    "$=-5$",
+    "Therefore,",
+    "$\\alpha^{-1}+\\beta^{-1}=-5$"
   ]
 },
 
