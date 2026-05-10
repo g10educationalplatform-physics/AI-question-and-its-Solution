@@ -365,6 +365,7 @@
   chemistry:"https://ai-question-and-its-solution-3oip.onrender.com/chemistry",
   physics:"https://ai-question-and-its-solution-3oip.onrender.com/physics",
   math:"https://ai-question-and-its-solution-3oip.onrender.com/math",
+  math1112:"https://ai-question-and-its-solution-3oip.onrender.com/math11-12",
   biology:"https://ai-question-and-its-solution-3oip.onrender.com/biology",
   science:"https://ai-question-and-its-solution-3oip.onrender.com/science" // ✅ NEW
 };
@@ -567,7 +568,16 @@ codeInput.addEventListener("input", () => {
       const item = questionMap[code];
 
       const div = document.createElement("div");
-      div.innerText = `[${item.subject}] ${code}`;
+      const subjectNameMap = {
+  chemistry: "Chemistry 11-12 & IIT-JEE",
+  physics: "Physics 11-12 & IIT-JEE",
+  math: "Math 9 &10 ",
+  math1112: "Math 11-12 & IIT-JEE",
+  biology: "Biology 11-12 & NEET",
+  science: "Science 9-10"
+};
+
+div.innerText = `[${subjectNameMap[item.subject] || item.subject}] ${code}`;
 
       div.onclick = () => {
         codeInput.value = code;
