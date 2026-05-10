@@ -37,7 +37,7 @@ const subjects = [
   "physics",
   "chemistry",
   "math",
-  "math11-12",
+  "math1112",
   "biology",
   "science"
 ];
