@@ -3374,5 +3374,40 @@
     "$p=-5, q=-6$",
     "Final Answer: $p=-5, q=-6$"
   ]
+},
+  {
+  "code": "CL10M03P1Q1",
+  "search_terms": "parallel lines condition ax 2y 7 3x by 16 find ab",
+  "question": {
+    "text": "The condition for which the pair of equations $ax+2y=7$ and $3x+by=16$ represent parallel lines is:",
+    "image": "#"
+  },
+  "options": [
+    "(a) $ab=\\frac{7}{16}$",
+    "(b) $ab=6$",
+    "(c) $ab=3$",
+    "(d) $ab=2$"
+  ],
+  "correct_answer": "(b) $ab=6$",
+  "solution": {
+    "text": "Use the condition for parallel lines.",
+    "image": "#"
+  },
+  "solution_steps": [
+    "Step 1: Write the equations:",
+    "$ax+2y=7$",
+    "$3x+by=16$",
+    "Step 2: Compare with standard form:",
+    "$a_1x+b_1y+c_1=0$",
+    "For parallel lines:",
+    "$\\frac{a_1}{a_2}=\\frac{b_1}{b_2}\\ne\\frac{c_1}{c_2}$",
+    "Step 3: Substitute coefficients:",
+    "$\\frac{a}{3}=\\frac{2}{b}$",
+    "Step 4: Cross multiply:",
+    "$ab=6$",
+    "Step 5: Hence, the correct option is:",
+    "$(b)\\ ab=6$",
+    "Final Answer: $(b)\\ ab=6$"
+  ]
 }
 ]
