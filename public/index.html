@@ -334,8 +334,10 @@
       while(true){
         const {done,value}=await reader.read(); if(done) break;
         const chunk=decoder.decode(value,{stream:true}); full+=chunk;
-        let processed=markdownToHTML(full).replace(/(Step\s*\d+[:.]?)/gi,'<b style="color:#007bff">$1</b>').replace(/^###\s*(.*)$/gm,'<h3>$1</h3>').replaceAll("**","").replaceAll("- ","<br>• ").replace(/\n{2,}/g,"<br><br>").replace(/\n/g,"<br>");
-        streamDiv.innerHTML=processed;
+        
+		let processed=markdownToHTML(full).replace(/(Step\s*\d+[:.]?)/gi,'<b style="color:#007bff">$1</b>').replace(/^###\s*(.*)$/gm,'<h3>$1</h3>').replaceAll("**","").replace(/\n-\s/g,"<br>• ").replace(/\n{2,}/g,"<br><br>").replace(/\n/g,"<br>");
+       
+	   streamDiv.innerHTML=processed;
         clearTimeout(window._mjTimer); window._mjTimer=setTimeout(()=>MathJax.typesetPromise([streamDiv]),200);
       }
       await MathJax.typesetPromise([streamDiv]);
@@ -437,7 +439,7 @@ function renderQA(item, subj){
  /* Question */
 html += `<p><b>Question:</b> ${item.question?.text || ""}</p>`;
 
-if(item.question?.image){
+if(item.question?.image && item.question.image !== "#"){
   html += `<img src="${item.question.image}" style="max-width:100%;margin:10px 0;">`;
 }
 
@@ -462,7 +464,7 @@ if(item.options && item.options.length){
 /* Solution */
 html += `<div><b>Solution:</b><br>${item.solution?.text || ""}</div>`;
 
-  if(item.solution?.image){
+  if(item.solution?.image && item.solution.image !== "#"){
     html += `<img src="${item.solution.image}" style="max-width:100%;margin:10px 0;">`;
   }
 
