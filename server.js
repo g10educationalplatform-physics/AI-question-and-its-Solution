@@ -33,7 +33,14 @@ app.use(cors()); // in production, restrict origin: cors({ origin: "https://your
 app.use(express.json());
 
 // Load local JSON question banks (with error handling)
-const subjects = ["physics", "chemistry", "math", "biology", "science"];
+const subjects = [
+  "physics",
+  "chemistry",
+  "math",
+  "math11-12",
+  "biology",
+  "science"
+];
 const data = {};
 
 for (const subj of subjects) {
