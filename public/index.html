@@ -21,8 +21,17 @@
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 
   <style>
-    body { font-family: Arial, sans-serif; margin: 0; background: #f4f6f9; }
-    h2 { color: #2c3e50; font-size: 1.4rem; text-align: center; margin-top: 15px; }
+   
+  body{
+  font-family: 'Segoe UI', sans-serif;
+  margin:0;
+  background:
+    radial-gradient(circle at top left,#dbeafe,#eff6ff 40%,#f8fafc 70%);
+  min-height:100vh;
+  color:#1e293b;
+}
+    
+	h2 { color: #2c3e50; font-size: 1.4rem; text-align: center; margin-top: 15px; }
     .container { display: flex; flex-direction: row; min-height: 100vh; overflow: hidden; }
     .side-panel-wrapper { width: 250px; flex-shrink: 0; display: flex; flex-direction: column; background: #2c3e50; color: white; transition: width 0.3s ease; position: sticky; top: 0; height: 100vh; }
     .side-panel-wrapper.collapsed { width: 40px; }
@@ -31,15 +40,65 @@
     .side-panel img { width: 100%; border-radius: 10px; margin-bottom: 15px; transition: all 0.3s; }
     .side-panel h3, .side-panel p, .side-panel ul, .side-panel a { transition: all 0.3s; }
     .side-panel-wrapper.collapsed .side-panel * { display: none; }
-    .main-content { flex: 1; padding: 15px; text-align: center; overflow-y: auto; height: 100vh; box-sizing: border-box; }
-    .mode-toggle { margin: 15px 0; }
+    
+.main-content{
+  flex:1;
+  padding:25px;
+  overflow-y:auto;
+  height:100vh;
+  box-sizing:border-box;
+}    
+	.mode-toggle { margin: 15px 0; }
     .toggle-label { margin: 0 10px; font-weight: bold; cursor: pointer; }
     .hidden { display: none; }
-    input[type="file"], textarea, input[type="text"] { font-size: 1rem; padding: 10px; margin: 10px 0; width: 100%; max-width: 400px; }
-    textarea { height: 100px; resize: vertical; }
-    button, label.btn { display: inline-block; margin-top: 10px; padding: 12px 20px; background: #3498db; color: white; font-size: 1rem; border: none; border-radius: 8px; cursor: pointer; text-decoration: none; }
-    button:hover, label.btn:hover { background: #2c80b9; }
-    .solution-box { position: relative; background: #fff; border-radius: 10px; padding: 15px; margin-top: 15px; box-shadow: 0 6px 18px rgba(0,0,0,0.06); text-align: left; font-size: 1rem; line-height: 1.5; overflow-x: auto; word-wrap: break-word; -webkit-overflow-scrolling: touch; }
+   
+   input[type="file"], textarea, input[type="text"]{
+  width:100%;
+  max-width:550px;
+  padding:16px 18px;
+  border:none;
+  border-radius:18px;
+  font-size:1rem;
+  background:white;
+
+  box-shadow:
+    0 5px 20px rgba(0,0,0,0.06);
+
+  transition:0.3s;
+  
+  outline:none;
+}
+input[type="text"]:focus,
+textarea:focus{
+  box-shadow:
+    0 0 0 4px rgba(37,99,235,0.15),
+    0 8px 24px rgba(37,99,235,0.12);
+}
+    
+	textarea { height: 100px; resize: vertical; }
+    
+button,label.btn{
+  border:none;
+  border-radius:16px;
+  padding:14px 24px;
+  font-size:1rem;
+  font-weight:600;
+  cursor:pointer;
+
+  background:linear-gradient(135deg,#2563eb,#7c3aed);
+  color:white;
+
+  transition:0.3s;
+  box-shadow:
+    0 8px 20px rgba(37,99,235,0.25);
+}
+button:hover,label.btn:hover{
+  transform:translateY(-2px);
+  box-shadow:
+    0 12px 28px rgba(37,99,235,0.35);
+}
+   
+   .solution-box { position: relative; background: #fff; border-radius: 10px; padding: 15px; margin-top: 15px; box-shadow: 0 6px 18px rgba(0,0,0,0.06); text-align: left; font-size: 1rem; line-height: 1.5; overflow-x: auto; word-wrap: break-word; -webkit-overflow-scrolling: touch; }
     
 .solution-box::before {
   content: "";
@@ -56,8 +115,39 @@
   z-index: 0;
   filter: grayscale(20%) contrast(120%);
 }
+
+#streamOutput{
+  animation:fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn{
+  from{
+    opacity:0;
+    transform:translateY(8px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
     
-	.solution-box * { position: relative; z-index: 1; }
+	.solution-box{
+  position:relative;
+  background:white;
+  border-radius:24px;
+  padding:25px;
+  margin-top:25px;
+
+  box-shadow:
+    0 10px 35px rgba(0,0,0,0.08);
+
+  border:1px solid #e2e8f0;
+
+  text-align:left;
+  line-height:1.8;
+  overflow-x:auto;
+  backdrop-filter: blur(8px);
+}
     .solution-box h3, .solution-box h4, .solution-box strong, .solution-box b { color: #007bff !important; font-weight: 700; }
     table { border-collapse: collapse; width: 100%; margin: 10px 0; }
     th, td { border: 1px solid #ccc; padding: 8px; text-align: left; vertical-align: top; }
@@ -68,10 +158,63 @@
     .modal-btn:hover { background: #2c80b9; }
     #cancelCrop { left: 20px; }
     #confirmCrop { right: 20px; }
-    #autocomplete-list { position: absolute; background: white; border: 1px solid #ccc; max-height: 150px; overflow-y: auto; width: 100%; max-width: 400px; z-index: 1000; border-radius: 4px; text-align: left; }
-    #autocomplete-list div { padding: 8px; cursor: pointer; }
-    #autocomplete-list div:hover { background-color: #e2e6ea; }
-    @media (max-width: 768px) { .container { flex-direction: column; } .side-panel-wrapper { width: 100%; height: auto; position: relative; } .main-content { height: auto; } .solution-box::before { width: 200px; height: 200px; } }
+   
+#autocomplete-list{
+  position:absolute;
+  top:65px;
+  left:0;
+  background:white;
+  border:none;
+  max-height:250px;
+  overflow-y:auto;
+  width:100%;
+  z-index:1000;
+  border-radius:18px;
+
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.12);
+
+  text-align:left;
+}    
+	#autocomplete-list div{
+  padding:14px 16px;
+  cursor:pointer;
+  border-bottom:1px solid #f1f5f9;
+  transition:0.2s;
+}
+
+#autocomplete-list div:last-child{
+  border-bottom:none;
+}
+
+#autocomplete-list div:hover{
+  background:#eff6ff;
+  color:#2563eb;
+}
+    
+	#autocomplete-list div:hover { background-color: #e2e6ea; }
+	
+	@media (max-width: 768px){
+
+  .search-row{
+    flex-direction:column;
+  }
+
+  .search-row button{
+    width:100%;
+  }
+
+  .hero-title{
+    font-size:1.8rem;
+  }
+
+  .app-card{
+    padding:18px;
+  }
+
+}
+   
+   @media (max-width: 768px) { .container { flex-direction: column; } .side-panel-wrapper { width: 100%; height: auto; position: relative; } .main-content { height: auto; } .solution-box::before { width: 200px; height: 200px; } }
     @media (max-width: 480px) { .solution-box::before { width: 140px; height: 140px; opacity: 0.12; } }
  
   .side-panel a {
@@ -198,6 +341,226 @@
   box-shadow: 0 6px 20px rgba(0,123,255,0.08); /* soft blue glow */
 }
 
+.app-card{
+  background:rgba(255,255,255,0.7);
+  backdrop-filter:blur(18px);
+  border:1px solid rgba(255,255,255,0.4);
+  border-radius:24px;
+  padding:25px;
+  box-shadow:
+    0 10px 40px rgba(0,0,0,0.08);
+	animation: floatCard 0.5s ease;
+}
+@keyframes floatCard{
+  from{
+    opacity:0;
+    transform:translateY(10px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+.hero-title{
+  font-size:2.3rem;
+  font-weight:800;
+  text-align:center;
+  margin-bottom:8px;
+
+  background:linear-gradient(90deg,#2563eb,#7c3aed);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+.hero-subtitle{
+  text-align:center;
+  color:#64748b;
+  margin-bottom:30px;
+  font-size:1rem;
+}
+
+.search-box{
+  position:relative;
+  max-width:700px;
+  margin:0 auto;
+}
+
+.search-row{
+  display:flex;
+  gap:12px;
+  align-items:center;
+}
+
+.search-row input{
+  flex:1;
+}
+
+.search-row button{
+  white-space: nowrap;
+  margin-top: 0;
+  height: 56px;
+  min-width: 150px;
+  border-radius: 18px;
+}
+.search-box{
+  position:relative;
+  z-index:5;
+}
+
+/* Premium Scrollbar */
+::-webkit-scrollbar{
+  width:10px;
+  height:10px;
+}
+
+::-webkit-scrollbar-track{
+  background:#edf2f7;
+  border-radius:20px;
+}
+
+::-webkit-scrollbar-thumb{
+  background:linear-gradient(#2563eb,#7c3aed);
+  border-radius:20px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+  opacity:0.8;
+}
+.loader{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-weight:600;
+  color:#2563eb;
+}
+
+.loader::after{
+  content:"";
+  width:18px;
+  height:18px;
+  border:3px solid #cbd5e1;
+  border-top-color:#2563eb;
+  border-radius:50%;
+  animation:spin 0.8s linear infinite;
+}
+
+@keyframes spin{
+  to{ transform:rotate(360deg); }
+}
+
+
+
+/* =========================
+   MOBILE RESPONSIVE FIX
+========================= */
+
+@media (max-width: 768px){
+
+  body{
+    overflow-x:hidden;
+  }
+
+  .container{
+    flex-direction:column;
+    width:100%;
+    overflow-x:hidden;
+  }
+
+  .side-panel-wrapper{
+    width:100%;
+    height:auto;
+    position:relative;
+  }
+
+  .main-content{
+    width:100%;
+    padding:12px;
+    height:auto;
+    overflow-x:hidden;
+    box-sizing:border-box;
+  }
+
+  .app-card{
+    width:100%;
+    padding:14px;
+    border-radius:18px;
+    box-sizing:border-box;
+  }
+
+  .hero-title{
+    font-size:1.7rem;
+    line-height:1.3;
+  }
+
+  .hero-subtitle{
+    font-size:0.9rem;
+  }
+
+  .search-row{
+    flex-direction:column;
+    width:100%;
+  }
+
+  .search-row input,
+  .search-row button{
+    width:100%;
+    max-width:100%;
+    min-width:unset;
+  }
+
+  input[type="text"],
+  textarea,
+  button{
+    width:100%;
+    max-width:100%;
+    box-sizing:border-box;
+  }
+
+  .solution-box{
+    padding:14px;
+    border-radius:18px;
+    font-size:0.95rem;
+    overflow-x:auto;
+  }
+
+  .step-header{
+    font-size:0.9rem;
+    padding:10px;
+  }
+
+  .step-content{
+    padding:10px;
+  }
+
+  .sub-step{
+    margin-left:0;
+    font-size:0.92rem;
+  }
+
+  table{
+    display:block;
+    overflow-x:auto;
+    white-space:nowrap;
+  }
+
+  img{
+    max-width:100%;
+    height:auto;
+  }
+
+  #autocomplete-list{
+    width:100%;
+    left:0;
+  }
+
+  .solution-box::before{
+    width:140px;
+    height:140px;
+    opacity:0.08;
+  }
+
+}
   </style>
 </head>
 
@@ -207,7 +570,8 @@
       <button class="collapse-btn" id="collapseBtn">⬅️</button>
       <div class="side-panel">
         <img src="https://i.ibb.co/WNZTWPwv/LOGO-PNG-2025-fab.png" alt="G10 Logo" />
-        <h3>G10 Educational Platform</h3>
+        
+		<h3>G10 Educational Platform</h3>
         <p>📚 Preparing students for Board exams, IIT-JEE, NEET, and CUET with expert guidance.</p>
         <p>💡 Features:</p>
         <ul>
@@ -221,17 +585,36 @@
     </div>
 
     <div class="main-content">
-     <h2>GET YOUR SOLUTION<br>(Physics | Chemistry | Math | Biology | Science)</h2>
+	  <div class="app-card">
+     
+	 <h1 class="hero-title">
+  G10-EP AI Question Solver
+</h1>
+
+<p class="hero-subtitle">
+  Physics • Chemistry • Mathematics • Biology • Science
+</p>
       <div class="mode-toggle">
 
 <div class="mode-toggle">
   <label class="toggle-label">🔢 Type the question or Enter Question Code of your question</label>
 </div>
 
-<div id="codeMode" style="position: relative;">
-  <input type="text" id="questionCode" placeholder="Enter question code or part of question..." autocomplete="off" /><br />
+<div id="codeMode" class="search-box">
+
+  <div class="search-row">
+    <input 
+      type="text"
+      id="questionCode"
+      placeholder="Enter question code or part of question..."
+      autocomplete="off"
+    />
+
+    <button id="solveCode">🔍 Get Answer</button>
+  </div>
+
   <div id="autocomplete-list"></div>
-  <button id="solveCode">🔍 Get Answer</button>
+
 </div>
 
       <div id="imageMode">
@@ -548,71 +931,95 @@ if(item.solution_steps?.length){
   return html;
 }
 
+let searchTimer;
+
 codeInput.addEventListener("input", () => {
-  const val = codeInput.value.trim().toUpperCase();
-  autoList.innerHTML = "";
 
-  // ⏳ wait for data
-  if(Object.keys(questionMap).length === 0){
-    autoList.innerHTML = "<div>⏳ Loading questions...</div>";
-    return;
-  }
+  clearTimeout(searchTimer);
 
-  if(!val) return;
+  searchTimer = setTimeout(() => {
 
-  let shown = 0;
+    const val = codeInput.value.trim().toUpperCase();
+    autoList.innerHTML = "";
 
-  // 🔵 STEP 1: CODE MATCH
-  for(let code in questionMap){
-    if(code.startsWith(val)){
-      const item = questionMap[code];
-
-      const div = document.createElement("div");
-      const subjectNameMap = {
-  chemistry: "Chemistry 11-12 & IIT-JEE",
-  physics: "Physics 11-12 & IIT-JEE",
-  math: "Math 9 &10 ",
-  math1112: "Math 11-12 & IIT-JEE",
-  biology: "Biology 11-12 & NEET",
-  science: "Science 9-10"
-};
-
-div.innerText = `[${subjectNameMap[item.subject] || item.subject}] ${code}`;
-
-      div.onclick = () => {
-        codeInput.value = code;
-        autoList.innerHTML = "";
-        resultBox.innerHTML = renderQA(item, item.subject);
-      };
-
-      autoList.appendChild(div);
-      shown++;
-
-      if(shown >= 5) return;
+    // ⏳ wait for data
+    if(Object.keys(questionMap).length === 0){
+      autoList.innerHTML = "<div>⏳ Loading questions...</div>";
+      return;
     }
-  }
 
-  // 🔵 STEP 2: QUESTION SEARCH
-  for(let subj in fuseIndex){
-    const res = fuseIndex[subj].search(val);
+    if(!val) return;
 
-    res.slice(0, 3).forEach(r => {
-      const item = r.item;
+    let shown = 0;
 
-      const div = document.createElement("div");
-      const snippet = item.question?.text?.substring(0,50).replace(/\n/g," ") || "";
+    // 🔵 STEP 1: CODE MATCH
+    for(let code in questionMap){
 
-      div.innerText = `[${subj}] ${item.code} — ${snippet}...`;
+      if(code.startsWith(val)){
 
-      div.onclick = () => {
-        codeInput.value = item.code;
-        autoList.innerHTML = "";
-        resultBox.innerHTML = renderQA(item, subj);
-      };
+        const item = questionMap[code];
 
-      autoList.appendChild(div);
-    });
-  }
+        const div = document.createElement("div");
+
+        const subjectNameMap = {
+          chemistry: "Chemistry 11-12 & IIT-JEE",
+          physics: "Physics 11-12 & IIT-JEE",
+          math: "Math 9 &10",
+          math1112: "Math 11-12 & IIT-JEE",
+          biology: "Biology 11-12 & NEET",
+          science: "Science 9-10"
+        };
+
+        div.innerText =
+          `[${subjectNameMap[item.subject] || item.subject}] ${code}`;
+
+        div.onclick = () => {
+          codeInput.value = code;
+          autoList.innerHTML = "";
+          resultBox.innerHTML = renderQA(item, item.subject);
+        };
+
+        autoList.appendChild(div);
+
+        shown++;
+
+        if(shown >= 5) return;
+      }
+    }
+
+    // 🔵 STEP 2: QUESTION SEARCH
+    for(let subj in fuseIndex){
+
+      const res = fuseIndex[subj].search(val);
+
+      res.slice(0,3).forEach(r => {
+
+        const item = r.item;
+
+        const div = document.createElement("div");
+
+        const snippet =
+          item.question?.text
+          ?.substring(0,50)
+          .replace(/\n/g," ") || "";
+
+        div.innerText =
+          `[${subj}] ${item.code} — ${snippet}...`;
+
+        div.onclick = () => {
+          codeInput.value = item.code;
+          autoList.innerHTML = "";
+          resultBox.innerHTML = renderQA(item, subj);
+        };
+
+        autoList.appendChild(div);
+
+      });
+
+    }
+
+  }, 180);
+
 });
 
 
@@ -628,11 +1035,17 @@ div.innerText = `[${subjectNameMap[item.subject] || item.subject}] ${code}`;
 
 
 
-   document.getElementById("solveCode").onclick=()=>{
-  const code=codeInput.value.trim().toUpperCase();
+document.getElementById("solveCode").onclick=()=>{
+
+  const code = codeInput.value.trim().toUpperCase();
+
   if(!code) return alert("Please enter a question code.");
 
-  resultBox.innerHTML="⏳ Searching question code...";
+  resultBox.innerHTML = `
+    <div class="loader">
+      Searching Question
+    </div>
+  `;
 
   // ✅ STEP 1: EXACT MATCH ONLY
   for(let subj in questionBanks){
