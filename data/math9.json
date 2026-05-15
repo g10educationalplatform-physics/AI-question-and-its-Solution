@@ -545,7 +545,7 @@
     ]
   },
   {
-                                                      "section": "PHASE 2"
+                                                      "section": "PHASE 2 CH-1"
   },
   {
     "code": "CL09M01P2Q1",
@@ -969,5 +969,708 @@
       "$(1,7)$",
       "Final Answer: $(1,7)$"
     ]
-  }
+  },
+    {
+                                                      "section": "PHASE 3 CH 1"
+  },
+  {
+    "code": "CL09M01P3Q1",
+    "search_terms": "coordinates where diagonals of parallelogram meet midpoint",
+    "question": {
+      "text": "Find the co-ordinates of the point where the diagonals of the parallelogram formed by joining the points $(-2,-1)$, $(1,0)$, $(4,3)$ and $(1,2)$ meet.",
+      "image": "#"
+    },
+    "options": [],
+    "correct_answer": "$(1,1)$",
+    "solution": {
+      "text": "Diagonals of a parallelogram bisect each other.",
+      "image": "#"
+    },
+    "solution_steps": [
+      "Step 1: Diagonals of a parallelogram bisect each other.",
+      "Step 2: Take opposite vertices:",
+      "$(-2,-1)$ and $(4,3)$",
+      "Step 3: Using midpoint formula:",
+      "$\\left(\\frac{-2+4}{2},\\frac{-1+3}{2}\\right)$",
+      "Step 4: Simplify:",
+      "$=(1,1)$",
+      "Step 5: Required point:",
+      "$(1,1)$",
+      "Final Answer: $(1,1)$"
+    ]
+  },
+  {
+    "code": "CL09M01P3Q2",
+    "search_terms": "ratio divided by y axis section formula",
+    "question": {
+      "text": "Find the ratio in which the line segment joining the points $(3,5)$ and $(-4,2)$ is divided by y-axis.",
+      "image": "#"
+    },
+    "options": [],
+    "correct_answer": "$3:4$",
+    "solution": {
+      "text": "Use the section formula and the condition that a point on y-axis has x-coordinate zero.",
+      "image": "#"
+    },
+    "solution_steps": [
+      "Step 1: Let the ratio be $m:n$.",
+      "Step 2: Since point lies on y-axis, x-coordinate $=0$.",
+      "Step 3: Using section formula:",
+      "$\\frac{m(-4)+n(3)}{m+n}=0$",
+      "Step 4: Simplify:",
+      "$-4m+3n=0$",
+      "Step 5: Rearranging:",
+      "$3n=4m$",
+      "Step 6: Therefore:",
+      "$m:n=3:4$",
+      "Step 7: Required ratio:",
+      "$3:4$",
+      "Final Answer: $3:4$"
+    ]
+  },
+  {
+    "code": "CL09M01P3Q3",
+    "search_terms": "point divides line segment ratio section formula",
+    "question": {
+      "text": "In what ratio does the point $\\left(\\frac{1}{2},6\\right)$ divide the line segment joining the points $(3,5)$ and $(-7,9)$?",
+      "image": "#"
+    },
+    "options": [],
+    "correct_answer": "$1:3$",
+    "solution": {
+      "text": "Use the section formula with x-coordinate.",
+      "image": "#"
+    },
+    "solution_steps": [
+      "Step 1: Let the ratio be $m:n$.",
+      "Step 2: Using x-coordinate formula:",
+      "$\\frac{m(-7)+n(3)}{m+n}=\\frac{1}{2}$",
+      "Step 3: Cross multiply:",
+      "$-14m+6n=m+n$",
+      "Step 4: Simplify:",
+      "$-15m+5n=0$",
+      "Step 5: Rearranging:",
+      "$n=3m$",
+      "Step 6: Therefore:",
+      "$m:n=1:3$",
+      "Step 7: Required ratio:",
+      "$1:3$",
+      "Final Answer: $1:3$"
+    ]
+  },
+  {
+    "code": "CL09M01P3Q4",
+    "search_terms": "distance formula show points are collinear",
+    "question": {
+      "text": "By using distance formula, show that the points $(-1,2)$, $(2,5)$ and $(5,8)$ are collinear.",
+      "image": "#"
+    },
+    "options": [],
+    "correct_answer": "The points are collinear.",
+    "solution": {
+      "text": "Use the distance formula and verify that the sum of two distances equals the third.",
+      "image": "#"
+    },
+    "solution_steps": [
+      "Step 1: Let the points be $A$, $B$ and $C$.",
+      "Step 2: Find $AB$:",
+      "$AB=\\sqrt{(2+1)^2+(5-2)^2}$",
+      "$=\\sqrt{9+9}$",
+      "$=3\\sqrt{2}$",
+      "Step 3: Find $BC$:",
+      "$BC=\\sqrt{(5-2)^2+(8-5)^2}$",
+      "$=3\\sqrt{2}$",
+      "Step 4: Find $AC$:",
+      "$AC=\\sqrt{(5+1)^2+(8-2)^2}$",
+      "$=\\sqrt{36+36}$",
+      "$=6\\sqrt{2}$",
+      "Step 5: Since:",
+      "$AB+BC=AC$",
+      "Step 6: Therefore, the points are collinear.",
+      "Final Answer: The points are collinear."
+    ]
+  },
+  {
+    "code": "CL09M01P3Q5",
+    "search_terms": "distance from point to midpoint line segment",
+    "question": {
+      "text": "Find the distance of the point $(1,2)$ from the mid-point of the line segment joining the points $(6,8)$ and $(2,4)$.",
+      "image": "#"
+    },
+    "options": [],
+    "correct_answer": "5 units",
+    "solution": {
+      "text": "First find the midpoint and then use the distance formula.",
+      "image": "#"
+    },
+    "solution_steps": [
+      "Step 1: Find the midpoint of $(6,8)$ and $(2,4)$:",
+      "$\\left(\\frac{6+2}{2},\\frac{8+4}{2}\\right)$",
+      "$=(4,6)$",
+      "Step 2: Find the distance from $(1,2)$ to $(4,6)$:",
+      "$\\sqrt{(4-1)^2+(6-2)^2}$",
+      "Step 3: Simplify:",
+      "$=\\sqrt{9+16}$",
+      "$=\\sqrt{25}=5$",
+      "Step 4: Required distance:",
+      "$5$ units",
+      "Final Answer: $5$ units"
+    ]
+  },
+  {
+    "code": "CL09M01P3Q6",
+    "search_terms": "show same midpoint line segments",
+    "question": {
+      "text": "Show that the mid-point of the line segment joining the points $(5,7)$ and $(3,9)$ is also the mid-point of the line segment joining the points $(8,6)$ and $(0,10)$.",
+      "image": "#"
+    },
+    "options": [],
+    "correct_answer": "Both midpoints are $(4,8)$",
+    "solution": {
+      "text": "Find the midpoint of both line segments and compare.",
+      "image": "#"
+    },
+    "solution_steps": [
+      "Step 1: Find the midpoint of $(5,7)$ and $(3,9)$:",
+      "$\\left(\\frac{5+3}{2},\\frac{7+9}{2}\\right)$",
+      "$=(4,8)$",
+      "Step 2: Find the midpoint of $(8,6)$ and $(0,10)$:",
+      "$\\left(\\frac{8+0}{2},\\frac{6+10}{2}\\right)$",
+      "$=(4,8)$",
+      "Step 3: Both midpoints are same.",
+      "Step 4: Hence proved.",
+      "Final Answer: Both midpoints are $(4,8)$"
+    ]
+  },
+  {
+    "code": "CL09M01P3Q7",
+    "search_terms": "value of x collinear points slope",
+    "question": {
+      "text": "For what value of $x$, the points $(x,-1)$, $(2,1)$ and $(4,5)$ are collinear?",
+      "image": "#"
+    },
+    "options": [],
+    "correct_answer": "$x=1$",
+    "solution": {
+      "text": "For collinear points, slopes are equal.",
+      "image": "#"
+    },
+    "solution_steps": [
+      "Step 1: For collinear points, slopes are equal.",
+      "Step 2: Using slope formula:",
+      "$\\frac{1-(-1)}{2-x}=\\frac{5-1}{4-2}$",
+      "Step 3: Simplify:",
+      "$\\frac{2}{2-x}=\\frac{4}{2}=2$",
+      "Step 4: Cross multiply:",
+      "$2=2(2-x)$",
+      "Step 5: Simplify:",
+      "$2=4-2x$",
+      "$2x=2$",
+      "$x=1$",
+      "Step 6: Required value:",
+      "$x=1$",
+      "Final Answer: $x=1$"
+    ]
+  },
+  {
+    "code": "CL09M01P3Q8",
+    "search_terms": "prove vertices form isosceles triangle distance formula",
+    "question": {
+      "text": "Prove that the points $(1,4)$, $(3,6)$ and $(9,-2)$ are the vertices of an isosceles triangle.",
+      "image": "#"
+    },
+    "options": [],
+    "correct_answer": "The triangle is isosceles.",
+    "solution": {
+      "text": "Use the distance formula and compare side lengths.",
+      "image": "#"
+    },
+    "solution_steps": [
+      "Step 1: Let the points be $A$, $B$ and $C$.",
+      "Step 2: Find $AB$:",
+      "$AB=\\sqrt{(3-1)^2+(6-4)^2}$",
+      "$=\\sqrt{8}=2\\sqrt{2}$",
+      "Step 3: Find $BC$:",
+      "$BC=\\sqrt{(9-3)^2+(-2-6)^2}$",
+      "$=\\sqrt{36+64}=10$",
+      "Step 4: Find $AC$:",
+      "$AC=\\sqrt{(9-1)^2+(-2-4)^2}$",
+      "$=\\sqrt{64+36}=10$",
+      "Step 5: Since:",
+      "$BC=AC$",
+      "Step 6: Therefore, the triangle is isosceles.",
+      "Final Answer: The triangle is isosceles."
+    ]
+  },
+  {
+    "code": "CL09M01P3Q9",
+    "search_terms": "coordinates of point equidistant from three points",
+    "question": {
+      "text": "Find the co-ordinates of the point equidistant from three given points $A(5,1)$, $B(-3,-7)$ and $C(7,-1)$.",
+      "image": "#"
+    },
+    "options": [],
+    "correct_answer": "$(3,-3)$",
+    "solution": {
+      "text": "Assume the required point and use equal distance conditions.",
+      "image": "#"
+    },
+    "solution_steps": [
+      "Step 1: Let the required point be $P(x,y)$.",
+      "Step 2: Since $P$ is equidistant from $A$, $B$ and $C$:",
+      "$PA=PB$",
+      "Step 3: Using distance formula:",
+      "$(x-5)^2+(y-1)^2=(x+3)^2+(y+7)^2$",
+      "Step 4: Solving:",
+      "$x+y=0$",
+      "Step 5: Also:",
+      "$PA=PC$",
+      "Step 6: Using distance formula:",
+      "$(x-5)^2+(y-1)^2=(x-7)^2+(y+1)^2$",
+      "Step 7: Solving:",
+      "$x-y=6$",
+      "Step 8: Solving both equations:",
+      "$x=3,y=-3$",
+      "Step 9: Required point:",
+      "$(3,-3)$",
+      "Final Answer: $(3,-3)$"
+    ]
+  },
+  {
+    "code": "CL09M01P3Q10",
+    "search_terms": "isosceles right triangle square rectangle distance formula",
+    "question": {
+      "text": "(a) Show that the points $(7,10)$, $(-2,5)$ and $(3,-4)$ are the vertices of an isosceles right triangle.\n\n(b) Prove that the points $(0,1)$, $(1,4)$, $(4,3)$ and $(3,0)$ are the vertices of a square.\n\n(c) Prove that the points $(-4,-1)$, $(-2,-4)$, $(4,0)$ and $(2,3)$ are the vertices of a rectangle.",
+      "image": "#"
+    },
+    "options": [],
+    "correct_answer": "(a) Isosceles right triangle\n(b) Square\n(c) Rectangle",
+    "solution": {
+      "text": "Use the distance formula and compare sides and diagonals.",
+      "image": "#"
+    },
+    "solution_steps": [
+      "Step 1: For part (a), find $AB^2$:",
+      "$AB^2=(7+2)^2+(10-5)^2$",
+      "$=81+25=106$",
+      "Step 2: Find $BC^2$:",
+      "$BC^2=(3+2)^2+(-4-5)^2$",
+      "$=25+81=106$",
+      "Step 3: Find $AC^2$:",
+      "$AC^2=(7-3)^2+(10+4)^2$",
+      "$=16+196=212$",
+      "Step 4: Since:",
+      "$AB=BC$",
+      "Step 5: And:",
+      "$AB^2+BC^2=AC^2$",
+      "Step 6: Therefore, the triangle is an isosceles right triangle.",
+      "Step 7: For part (b), using distance formula:",
+      "$AB=BC=CD=DA=\\sqrt{10}$",
+      "Step 8: Diagonals:",
+      "$AC=BD=\\sqrt{20}$",
+      "Step 9: All sides are equal and diagonals are equal.",
+      "Step 10: Hence the figure is a square.",
+      "Step 11: For part (c), using distance formula:",
+      "$AB=CD=\\sqrt{13}$",
+      "$BC=AD=\\sqrt{52}$",
+      "Step 12: Diagonals:",
+      "$AC=BD=\\sqrt{65}$",
+      "Step 13: Opposite sides and diagonals are equal.",
+      "Step 14: Hence the figure is a rectangle.",
+      "Final Answer: (a) Isosceles right triangle, (b) Square, (c) Rectangle"
+    ]
+  },
+  {
+    "code": "CL09M01P3Q11",
+    "search_terms": "third vertex equilateral triangle coordinates",
+    "question": {
+      "text": "If two vertices of an equilateral triangle are $(0,0)$ and $(3,\\sqrt{3})$, find the third vertex of the triangle.",
+      "image": "#"
+    },
+    "options": [],
+    "correct_answer": "$(0,2\\sqrt{3})$ or $(3,-\\sqrt{3})$",
+    "solution": {
+      "text": "Use the property that all sides of an equilateral triangle are equal.",
+      "image": "#"
+    },
+    "solution_steps": [
+      "Step 1: Let the given vertices be:",
+      "$A(0,0),B(3,\\sqrt{3})$",
+      "Step 2: Let the third vertex be $C(x,y)$.",
+      "Step 3: Since the triangle is equilateral:",
+      "$AB=BC=CA$",
+      "Step 4: First find $AB$:",
+      "$AB=\\sqrt{(3-0)^2+(\\sqrt{3}-0)^2}$",
+      "$=\\sqrt{9+3}=\\sqrt{12}=2\\sqrt{3}$",
+      "Step 5: So:",
+      "$CA=2\\sqrt{3}$ and $CB=2\\sqrt{3}$",
+      "Step 6: Using distance formula from $CA$:",
+      "$x^2+y^2=12 \\quad ...(1)$",
+      "Step 7: From $CB$:",
+      "$(x-3)^2+(y-\\sqrt{3})^2=12$",
+      "Step 8: Expanding:",
+      "$x^2-6x+9+y^2-2\\sqrt{3}y+3=12$",
+      "$x^2+y^2-6x-2\\sqrt{3}y=0$",
+      "Step 9: Using equation (1):",
+      "$12-6x-2\\sqrt{3}y=0$",
+      "$3x+\\sqrt{3}y=6 \\quad ...(2)$",
+      "Step 10: Solving equations (1) and (2), we get:",
+      "$(x,y)=(0,2\\sqrt{3})$",
+      "Step 11: Or:",
+      "$(x,y)=(3,-\\sqrt{3})$",
+      "Step 12: Therefore, the third vertex is:",
+      "$(0,2\\sqrt{3})$ or $(3,-\\sqrt{3})$",
+      "Final Answer: $(0,2\\sqrt{3})$ or $(3,-\\sqrt{3})$"
+    ]
+  },
+   {
+    "code": "CL09M01P3Q12",
+    "search_terms": "coordinates point equidistant A -2 -3 B -1 0 C 7 -6",
+    "question": {
+      "text": "Find the co-ordinates of the point equidistant from the points A(−2, −3), B(−1, 0) and C(7, −6).",
+      "image": "#"
+    },
+    "options": [],
+    "correct_answer": "$(3,-3)$",
+    "solution": {
+      "text": "Use the condition of equal distances from the three points.",
+      "image": "#"
+    },
+    "solution_steps": [
+      "Step 1: Let the required point be:",
+      "$(x,y)$",
+      "Step 2: Since the distances are equal:",
+      "$PA=PB$",
+      "$(x+2)^2+(y+3)^2=(x+1)^2+y^2$",
+      "Step 3: Expand both sides:",
+      "$x^2+4x+4+y^2+6y+9=x^2+2x+1+y^2$",
+      "$4x+6y+13=2x+1$",
+      "$2x+6y+12=0$",
+      "$x+3y=-6$",
+      "Step 4: Also,",
+      "$PB=PC$",
+      "$(x+1)^2+y^2=(x-7)^2+(y+6)^2$",
+      "Step 5: Expand both sides:",
+      "$x^2+2x+1+y^2=x^2-14x+49+y^2+12y+36$",
+      "$2x+1=-14x+12y+85$",
+      "$16x-12y=84$",
+      "$4x-3y=21$",
+      "Step 6: Solve the equations:",
+      "$x+3y=-6$",
+      "$4x-3y=21$",
+      "Adding both equations:",
+      "$5x=15$",
+      "$x=3$",
+      "Substitute in:",
+      "$x+3y=-6$",
+      "$3+3y=-6$",
+      "$3y=-9$",
+      "$y=-3$",
+      "Final Answer: Required point $=(3,-3)$"
+    ]
+  },
+  {
+    "code": "CL09M01P3Q13",
+    "search_terms": "centre circle passing through points 4 6 0 4 6 2 4 0 radius",
+    "question": {
+      "text": "Show that $(3, 3)$ is the centre of the circle passing through the points $(4, 6)$, $(0, 4)$, $(6, 2)$ and $(4, 0)$. What is the radius of the circle.",
+      "image": "https://i.ibb.co/hFFV101P/CL09-M01-P3-Q13.jpg"
+    },
+    "options": [],
+    "correct_answer": "Centre $=(3,3)$, Radius $=\\sqrt{10}$ units",
+    "solution": {
+      "text": "Use the distance formula to show that all given points are equidistant from $(3,3)$.",
+      "image": "#"
+    },
+    "solution_steps": [
+      "Step 1: Given points:",
+      "$A(4,6), B(0,4), C(6,2), D(4,0)$",
+      "Take point:",
+      "$O(3,3)$",
+      "Step 2: Find OA using distance formula:",
+      "$OA=\\sqrt{(4-3)^2+(6-3)^2}$",
+      "$=\\sqrt{1+9}$",
+      "$=\\sqrt{10}$",
+      "Step 3: Find OB:",
+      "$OB=\\sqrt{(0-3)^2+(4-3)^2}$",
+      "$=\\sqrt{9+1}$",
+      "$=\\sqrt{10}$",
+      "Step 4: Find OC:",
+      "$OC=\\sqrt{(6-3)^2+(2-3)^2}$",
+      "$=\\sqrt{9+1}$",
+      "$=\\sqrt{10}$",
+      "Step 5: Find OD:",
+      "$OD=\\sqrt{(4-3)^2+(0-3)^2}$",
+      "$=\\sqrt{1+9}$",
+      "$=\\sqrt{10}$",
+      "Step 6: Since all distances are equal:",
+      "$OA=OB=OC=OD=\\sqrt{10}$",
+      "Therefore, all the points lie on a circle with centre:",
+      "$(3,3)$",
+      "Step 7: Radius of the circle:",
+      "$=\\sqrt{10}$ units",
+      "Final Answer: Centre $=(3,3)$ and Radius $=\\sqrt{10}$ units"
+    ]
+  },
+  {
+    "code": "CL09M01P3Q14",
+    "search_terms": "rhombus not square area coordinate geometry diagonals equal sides",
+    "question": {
+      "text": "If $A(2,-1)$, $B(3,4)$, $C(-2,3)$ and $D(-3,-2)$ be four points in a co-ordinate plane, show that $ABCD$ is a rhombus but not a square. Find the area of the rhombus.",
+      "image": "#"
+    },
+    "options": [],
+    "correct_answer": "$ABCD$ is a rhombus but not a square and its area is $24$ square units.",
+    "solution": {
+      "text": "Use the distance formula to verify all sides are equal and compare the diagonals.",
+      "image": "#"
+    },
+    "solution_steps": [
+      "Step 1: Given points:",
+      "$A(2,-1), B(3,4), C(-2,3), D(-3,-2)$",
+      "Step 2: Find side $AB$:",
+      "$AB=\\sqrt{(3-2)^2+(4+1)^2}$",
+      "$=\\sqrt{1+25}$",
+      "$=\\sqrt{26}$",
+      "Step 3: Find side $BC$:",
+      "$BC=\\sqrt{(-2-3)^2+(3-4)^2}$",
+      "$=\\sqrt{25+1}$",
+      "$=\\sqrt{26}$",
+      "Step 4: Find side $CD$:",
+      "$CD=\\sqrt{(-3+2)^2+(-2-3)^2}$",
+      "$=\\sqrt{1+25}$",
+      "$=\\sqrt{26}$",
+      "Step 5: Find side $DA$:",
+      "$DA=\\sqrt{(2+3)^2+(-1+2)^2}$",
+      "$=\\sqrt{25+1}$",
+      "$=\\sqrt{26}$",
+      "Step 6: Since all sides are equal:",
+      "$AB=BC=CD=DA=\\sqrt{26}$",
+      "Therefore, $ABCD$ is a rhombus.",
+      "Step 7: Find diagonal $AC$:",
+      "$AC=\\sqrt{(-2-2)^2+(3+1)^2}$",
+      "$=\\sqrt{16+16}$",
+      "$=\\sqrt{32}$",
+      "Step 8: Find diagonal $BD$:",
+      "$BD=\\sqrt{(-3-3)^2+(-2-4)^2}$",
+      "$=\\sqrt{36+36}$",
+      "$=\\sqrt{72}$",
+      "Step 9: Compare diagonals:",
+      "$AC\\ne BD$",
+      "Therefore, $ABCD$ is not a square.",
+      "Step 10: Find area of rhombus:",
+      "$\\text{Area}=\\frac{1}{2}\\times AC\\times BD$",
+      "$=\\frac{1}{2}\\times\\sqrt{32}\\times\\sqrt{72}$",
+      "$=\\frac{1}{2}\\times48$",
+      "$=24$",
+      "Final Answer: $ABCD$ is a rhombus but not a square and Area $=24$ square units."
+    ]
+  },
+  {
+    "code": "CL09M01P3Q15",
+    "search_terms": "coordinates centre circle drawn through points A B O graph",
+    "question": {
+      "text": "In figure, find the co-ordinates of the centre of the circle which is drawn through the points $A$, $B$ and $O$.",
+      "image": "https://i.ibb.co/Jj3N281x/CL09-M01-P3-Q15.jpg"
+    },
+    "options": [],
+    "correct_answer": "$(1,1.5)$",
+    "solution": {
+      "text": "Read the coordinates from the graph and identify the centre of the circle.",
+      "image": "#"
+    },
+    "solution_steps": [
+      "Step 1: From the graph:",
+      "$A(-1,2), B(3,1), O(0,0)$",
+      "Step 2: Observe the circle carefully.",
+      "The centre of the circle is clearly seen at:",
+      "$(1,1.5)$",
+      "Final Answer: Centre $=(1,1.5)$"
+    ]
+  },
+  {
+    "code": "CL09M01P3Q16",
+    "search_terms": "line segment trisected points P Q values of p and q",
+    "question": {
+      "text": "The line segment joining the points $(3,-4)$ and $(1,2)$ is trisected at the points $P$ and $Q$. If the co-ordinates of $P$ and $Q$ are $(p,-2)$ and $\\left(\\frac{5}{3},q\\right)$ respectively, find the values of $p$ and $q$.",
+      "image": "#"
+    },
+    "options": [],
+    "correct_answer": "$p=\\frac{7}{3}, q=0$",
+    "solution": {
+      "text": "Use the section formula for internal division in the ratios $1:2$ and $2:1$.",
+      "image": "#"
+    },
+    "solution_steps": [
+      "Step 1: Given points:",
+      "$A(3,-4), B(1,2)$",
+      "Step 2: Since $P$ and $Q$ trisect the line segment:",
+      "$P$ divides internally in the ratio $1:2$.",
+      "Using section formula:",
+      "$P\\left(\\frac{1(1)+2(3)}{3},\\frac{1(2)+2(-4)}{3}\\right)$",
+      "$=\\left(\\frac{7}{3},-2\\right)$",
+      "So,",
+      "$p=\\frac{7}{3}$",
+      "Step 3: Coordinates of $Q$:",
+      "$Q$ divides internally in the ratio $2:1$.",
+      "Using section formula:",
+      "$Q\\left(\\frac{2(1)+1(3)}{3},\\frac{2(2)+1(-4)}{3}\\right)$",
+      "$=\\left(\\frac{5}{3},0\\right)$",
+      "So,",
+      "$q=0$",
+      "Final Answer: $p=\\frac{7}{3}, q=0$"
+    ]
+  },
+  {
+    "code": "CL09M01P3Q17",
+    "search_terms": "value of y section formula internally ratio 2 3",
+    "question": {
+      "text": "What will be the value of $y$ if the point $\\left(\\frac{23}{5},y\\right)$ divides the line segment joining the points $(5,7)$ and $(4,5)$ in the ratio $2:3$ internally.",
+      "image": "#"
+    },
+    "options": [],
+    "correct_answer": "$y=\\frac{31}{5}$",
+    "solution": {
+      "text": "Use the section formula for the y-coordinate.",
+      "image": "#"
+    },
+    "solution_steps": [
+      "Step 1: Given point:",
+      "$\\left(\\frac{23}{5},y\\right)$",
+      "divides the joining of $(5,7)$ and $(4,5)$ in the ratio $2:3$ internally.",
+      "Step 2: Using section formula for y-coordinate:",
+      "$y=\\frac{2(5)+3(7)}{2+3}$",
+      "$=\\frac{10+21}{5}$",
+      "$=\\frac{31}{5}$",
+      "Final Answer: $y=\\frac{31}{5}$"
+    ]
+  },
+  {
+    "code": "CL09M01P3Q18",
+    "search_terms": "coordinates points divide line segment into four equal parts",
+    "question": {
+      "text": "Find the co-ordinates of the points which divide the line segment joining the points $(-4,0)$ and $(0,6)$ in $4$ equal parts.",
+      "image": "#"
+    },
+    "options": [],
+    "correct_answer": "$(-3,\\frac{3}{2}), (-2,3), (-1,\\frac{9}{2})$",
+    "solution": {
+      "text": "Use the section formula to find the three internal division points.",
+      "image": "#"
+    },
+    "solution_steps": [
+      "Step 1: Given points:",
+      "$A(-4,0), B(0,6)$",
+      "Step 2: The four equal parts give three division points.",
+      "Step 3: First point divides in the ratio $1:3$:",
+      "$\\left(\\frac{1(0)+3(-4)}{4},\\frac{1(6)+3(0)}{4}\\right)$",
+      "$=\\left(-3,\\frac{3}{2}\\right)$",
+      "Step 4: Second point divides in the ratio $1:1$:",
+      "$\\left(\\frac{-4+0}{2},\\frac{0+6}{2}\\right)$",
+      "$=(-2,3)$",
+      "Step 5: Third point divides in the ratio $3:1$:",
+      "$\\left(\\frac{3(0)+1(-4)}{4},\\frac{3(6)+1(0)}{4}\\right)$",
+      "$=\\left(-1,\\frac{9}{2}\\right)$",
+      "Step 6: Therefore, the required points are:",
+      "$\\left(-3,\\frac{3}{2}\\right), (-2,3), \\left(-1,\\frac{9}{2}\\right)$",
+      "Final Answer: $\\left(-3,\\frac{3}{2}\\right), (-2,3), \\left(-1,\\frac{9}{2}\\right)$"
+    ]
+  },
+  {
+    "code": "CL09M01P3Q19",
+    "search_terms": "vertices triangle given midpoints sides coordinate geometry",
+    "question": {
+      "text": "If the points $(10,5)$, $(8,4)$ and $(6,6)$ are the mid-points of the sides of a triangle, find its vertices.",
+      "image": "#"
+    },
+    "options": [],
+    "correct_answer": "$A(4,5), B(8,7), C(12,3)$",
+    "solution": {
+      "text": "Use the midpoint formula to form equations and solve for the vertices.",
+      "image": "#"
+    },
+    "solution_steps": [
+      "Step 1: Given midpoints:",
+      "$D(10,5), E(8,4), F(6,6)$",
+      "Suppose these are the mid-points of sides $BC$, $CA$ and $AB$ respectively.",
+      "Step 2: Let the vertices of the triangle be:",
+      "$A(x_1,y_1), B(x_2,y_2), C(x_3,y_3)$",
+      "Step 3: Using midpoint formula for $F$: ",
+      "$F\\left(\\frac{x_1+x_2}{2},\\frac{y_1+y_2}{2}\\right)=(6,6)$",
+      "$x_1+x_2=12 \\quad ...(1)$",
+      "$y_1+y_2=12 \\quad ...(2)$",
+      "Step 4: Using midpoint formula for $E$: ",
+      "$E\\left(\\frac{x_1+x_3}{2},\\frac{y_1+y_3}{2}\\right)=(8,4)$",
+      "$x_1+x_3=16 \\quad ...(3)$",
+      "$y_1+y_3=8 \\quad ...(4)$",
+      "Step 5: Using midpoint formula for $D$: ",
+      "$D\\left(\\frac{x_2+x_3}{2},\\frac{y_2+y_3}{2}\\right)=(10,5)$",
+      "$x_2+x_3=20 \\quad ...(5)$",
+      "$y_2+y_3=10 \\quad ...(6)$",
+      "Step 6: Finding x-coordinates:",
+      "From $(1)$ and $(3)$:",
+      "$x_2-x_3=12-16=-4$",
+      "Using $(5)$:",
+      "$x_2+x_3=20$",
+      "Adding both equations:",
+      "$2x_2=16$",
+      "$x_2=8$",
+      "From $(1)$:",
+      "$x_1+8=12$",
+      "$x_1=4$",
+      "From $(3)$:",
+      "$4+x_3=16$",
+      "$x_3=12$",
+      "Step 7: Finding y-coordinates:",
+      "From $(2)$ and $(4)$:",
+      "$y_2-y_3=12-8=4$",
+      "Using $(6)$:",
+      "$y_2+y_3=10$",
+      "Adding both equations:",
+      "$2y_2=14$",
+      "$y_2=7$",
+      "From $(2)$:",
+      "$y_1+7=12$",
+      "$y_1=5$",
+      "From $(4)$:",
+      "$5+y_3=8$",
+      "$y_3=3$",
+      "Step 8: Therefore, the vertices are:",
+      "$A(4,5), B(8,7), C(12,3)$",
+      "Final Answer: $A(4,5), B(8,7), C(12,3)$"
+    ]
+  },
+  {
+  "code": "CL09M01P3Q20",
+  "search_terms": "point on x axis equidistant from two points coordinate geometry",
+  "question": {
+    "text": "Find the point on the x-axis which is equidistant from the points (– 2, 5) and (2, – 3).",
+    "image": "#"
+  },
+  "options": [],
+  "correct_answer": "Required point: $(-2,0)$",
+  "solution": {
+    "text": "Use distance formula and equate the distances.",
+    "image": "#"
+  },
+  "solution_steps": [
+    "Step 1: Let the point on x-axis be:",
+    "$(x,0)$",
+    "Step 2: Given points:",
+    "$A(-2,5), B(2,-3)$",
+    "Step 3: Using distance formula:",
+    "$\\sqrt{(x+2)^2+(0-5)^2}=\\sqrt{(x-2)^2+(0+3)^2}$",
+    "Step 4: Squaring both sides:",
+    "$(x+2)^2+25=(x-2)^2+9$",
+    "Step 5: Expand both sides:",
+    "$x^2+4x+4+25=x^2-4x+4+9$",
+    "Step 6: Simplify:",
+    "$4x+29=-4x+13$",
+    "$8x=-16$",
+    "$x=-2$",
+    "Step 7: Therefore, the required point is:",
+    "$(-2,0)$",
+    "Final Answer: $(-2,0)$"
+  ]
+}
 ]
