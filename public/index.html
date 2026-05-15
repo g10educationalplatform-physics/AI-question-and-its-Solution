@@ -690,7 +690,11 @@ button:hover,label.btn:hover{
       await searchSolution(text);
     };
 
-    function markdownToHTML(md){
+    
+	
+	
+	
+	function markdownToHTML(md){
       const lines=md.split("\n"); let tableBlocks=[],table=[];
       for(let line of lines){ if(line.trim().startsWith("|")) table.push(line); else { if(table.length>0){ tableBlocks.push(table.join("\n")); table=[]; } } }
       if(table.length>0) tableBlocks.push(table.join("\n"));
@@ -708,7 +712,11 @@ button:hover,label.btn:hover{
     }
 
     // ===== AI Solution =====
-    async function searchSolution(text){
+    
+	
+	
+	
+	async function searchSolution(text){
       const resp=await fetch("https://ai-question-and-its-solution-3oip.onrender.com/ask-ai",{ method:"POST", headers:{"Content-Type":"application/json"}, body:JSON.stringify({question:text}) });
       if(!resp.ok){ resultBox.innerHTML="❌ Error fetching AI response."; return; }
       resultBox.innerHTML=`<b>G10EP AI Answer (streaming):</b><br><div id="streamOutput" style="white-space:pre-wrap;"></div>`;
@@ -1074,46 +1082,75 @@ codeInput.addEventListener("input", () => {
 
 
 
-document.getElementById("solveCode").onclick=()=>{
+
+
+
+document.getElementById("solveCode").onclick = async () => {
 
   const code = codeInput.value.trim().toUpperCase();
 
-  if(!code) return alert("Please enter a question code.");
+  if(!code){
+    alert("Please enter a question code.");
+    return;
+  }
 
   resultBox.innerHTML = `
     <div class="loader">
-      Searching Question
+      Searching Question...
     </div>
   `;
 
-  // ✅ STEP 1: EXACT MATCH ONLY
-  for(let subj in questionBanks){
-    const exact = questionBanks[subj]?.find(q => q.code === code);
-    if(exact){
-      resultBox.innerHTML = renderQA(exact, subj);
-      return;
-    }
+  // ⚡ Instant exact lookup
+  if(questionMap[code]){
+    const item = questionMap[code];
+
+    resultBox.innerHTML = renderQA(item, item.subject);
+
+    return;
   }
 
-  // ✅ STEP 2: FUZZY ONLY IF NOT FOUND
+  // ⚡ VERY IMPORTANT:
+  // Do NOT run Fuse for short codes
+  if(code.length < 4){
+    resultBox.innerHTML = "❌ No exact question code found.";
+    return;
+  }
+
+  // ⚡ Limited fuzzy search
+  let found = null;
+
   for(let subj in fuseIndex){
-    const res = fuseIndex[subj].search(code);
-    if(res.length > 0){
-      resultBox.innerHTML = renderQA(res[0].item, subj);
-      return;
+
+    const results = fuseIndex[subj].search(code, {
+      limit: 1
+    });
+
+    if(results.length){
+
+      found = {
+        item: results[0].item,
+        subject: subj
+      };
+
+      break;
     }
   }
 
-  resultBox.innerHTML="❌ No question found with this code.";
-};
+  if(found){
 
-    document.querySelectorAll('input[name="mode"]').forEach(r=>{
-      r.addEventListener("change", e=>{
-        document.getElementById("imageMode").classList.toggle("hidden", e.target.value!=="image");
-        document.getElementById("textMode").classList.toggle("hidden", e.target.value!=="text");
-        document.getElementById("codeMode").classList.toggle("hidden", e.target.value!=="code");
-      });
-    });
+    resultBox.innerHTML =
+      renderQA(found.item, found.subject);
+
+  } else {
+
+    resultBox.innerHTML =
+      "❌ No question found.";
+
+  }
+
+};
+	
+	
 	
 	
 	function toggleStep(header){
@@ -1128,6 +1165,8 @@ document.getElementById("solveCode").onclick=()=>{
     icon.style.transform = "rotate(-90deg)";
   }
 }
+
+
 
 function highlightMath(text){
 
