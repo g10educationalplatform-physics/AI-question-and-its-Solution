@@ -39,7 +39,23 @@ const subjects = [
   "math",
   "math1112",
   "biology",
-  "science"
+  "science",
+    "chemistry11",
+  "chemistry12",
+  "chemistryIITJEE",
+  "physics11",
+  "physics12",
+  "physicsIITJEE",
+  "math9",
+  "math10",
+  "math11",
+  "math12",
+  "mathIITJEE",
+  "biology11",
+  "biology12",
+  "biologyNEET",
+  "science9",
+  "science10"
 ];
 const data = {};
 
