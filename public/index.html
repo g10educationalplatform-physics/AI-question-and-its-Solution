@@ -1117,36 +1117,34 @@ document.getElementById("solveCode").onclick = async () => {
   }
 
   // ⚡ Limited fuzzy search
-  let found = null;
+ // ✅ StartsWith search ONLY (NO fuzzy search)
 
-  for(let subj in fuseIndex){
+let found = null;
 
-    const results = fuseIndex[subj].search(code, {
-      limit: 1
-    });
+for(let qCode in questionMap){
 
-    if(results.length){
+  // Exact or startsWith
+  if(
+    qCode.toUpperCase() === code ||
+    qCode.toUpperCase().startsWith(code)
+  ){
 
-      found = {
-        item: results[0].item,
-        subject: subj
-      };
-
-      break;
-    }
+    found = questionMap[qCode];
+    break;
   }
+}
 
-  if(found){
+if(found){
 
-    resultBox.innerHTML =
-      renderQA(found.item, found.subject);
+  resultBox.innerHTML =
+    renderQA(found, found.subject);
 
-  } else {
+} else {
 
-    resultBox.innerHTML =
-      "❌ No question found.";
+  resultBox.innerHTML =
+    "❌ No exact question code found.";
 
-  }
+}
 
 };
 	
