@@ -744,13 +744,32 @@ button:hover,label.btn:hover{
 	
 
     // ===== Question Code Mode =====
-    const subjectUrls={
+const subjectUrls = {
   chemistry:"https://ai-question-and-its-solution-3oip.onrender.com/chemistry",
   physics:"https://ai-question-and-its-solution-3oip.onrender.com/physics",
   math:"https://ai-question-and-its-solution-3oip.onrender.com/math",
   math1112:"https://ai-question-and-its-solution-3oip.onrender.com/math1112",
   biology:"https://ai-question-and-its-solution-3oip.onrender.com/biology",
   science:"https://ai-question-and-its-solution-3oip.onrender.com/science" // ✅ NEW
+  
+  
+  
+  chemistry11:"https://ai-question-and-its-solution-3oip.onrender.com/chemistry11",
+  chemistry12:"https://ai-question-and-its-solution-3oip.onrender.com/chemistry12",
+  chemistryIITJEE:"https://ai-question-and-its-solution-3oip.onrender.com/chemistryIITJEE",
+  physics11:"https://ai-question-and-its-solution-3oip.onrender.com/physics11",
+  physics12:"https://ai-question-and-its-solution-3oip.onrender.com/physics12",
+  physicsIITJEE:"https://ai-question-and-its-solution-3oip.onrender.com/physicsIITJEE",
+  math9:"https://ai-question-and-its-solution-3oip.onrender.com/math9",
+  math10:"https://ai-question-and-its-solution-3oip.onrender.com/math10",
+  math11:"https://ai-question-and-its-solution-3oip.onrender.com/math11",
+  math12:"https://ai-question-and-its-solution-3oip.onrender.com/math12",
+  mathIITJEE:"https://ai-question-and-its-solution-3oip.onrender.com/mathIITJEE",
+  biology11:"https://ai-question-and-its-solution-3oip.onrender.com/biology11",
+  biology12:"https://ai-question-and-its-solution-3oip.onrender.com/biology12",
+  biologyNEET:"https://ai-question-and-its-solution-3oip.onrender.com/biologyNEET",
+  science9:"https://ai-question-and-its-solution-3oip.onrender.com/science9",
+  science10:"https://ai-question-and-its-solution-3oip.onrender.com/science10"
 };
     let questionBanks = {}, fuseIndex = {}, questionMap = {};
     const codeInput=document.getElementById("questionCode");
@@ -962,12 +981,28 @@ codeInput.addEventListener("input", () => {
         const div = document.createElement("div");
 
         const subjectNameMap = {
-          chemistry: "Chemistry 11-12 & IIT-JEE",
-          physics: "Physics 11-12 & IIT-JEE",
-          math: "Math 9 &10",
-          math1112: "Math 11-12 & IIT-JEE",
-          biology: "Biology 11-12 & NEET",
-          science: "Science 9-10"
+			chemistry: "Chemistry 11-12 & IIT-JEE",
+			physics: "Physics 11-12 & IIT-JEE",
+			math: "Math 9 &10",
+			math1112: "Math 11-12 & IIT-JEE",
+			biology: "Biology 11-12 & NEET",
+			science: "Science 9-10",
+			chemistry11:chemistry11",
+			chemistry12:chemistry12",
+			chemistryIIT-JEE:chemistryIIT-JEE",
+			physics11:physics11",
+			physics12:physics12",
+			physicsIIT-JEE:physicsIIT-JEE",
+			math9:math9",
+			math10:math10",
+			math11:math11",
+			math12:math12",
+			mathIIT-JEE:mathIIT-JEE",
+			biology11:biology11",
+			biology12:biology12",
+			biologyNEET:biologyNEET",
+			science9:science9",
+			science10:science10"
         };
 
         div.innerText =
